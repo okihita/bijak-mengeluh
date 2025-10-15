@@ -1,103 +1,105 @@
-import Image from "next/image";
+'use client'; // This directive is necessary for using React hooks
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import {useState} from 'react';
+import {Button} from "@/components/ui/button";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Label} from "@/components/ui/label";
+import {Textarea} from "@/components/ui/textarea";
+import {Spinner} from '@/components/icons'; // Import our spinner
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+export default function HomePage() {
+    // --- State Management ---
+    // Stores the user's complaint description
+    const [userInput, setUserInput] = useState<string>('');
+    // Toggles the loading state for the button and output
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    // Stores the AI-generated complaint text
+    const [aiOutput, setAiOutput] = useState<string>('');
+    // Stores potential errors
+    const [error, setError] = useState<string | null>(null);
+
+    // --- Form Submission Handler ---
+    // This function will be connected to the backend in Part 4
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setIsLoading(true);
+        setAiOutput('');
+        setError(null);
+
+        // --- MOCK API CALL (for UI testing) ---
+        // We'll replace this with a real fetch call in Part 4
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // For now, we'll just echo the input back in a formatted way
+        if (userInput.trim().length === 0) {
+            setError("Please enter a description of your issue.");
+            setAiOutput('');
+        } else {
+            setAiOutput(`This is a placeholder for the AI-generated complaint. Your input was: "${userInput}". The real AI output will be much more detailed and formal, ready for you to copy and paste.`);
+        }
+        // --- END MOCK API CALL ---
+
+        setIsLoading(false);
+    };
+
+    return (
+        <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 bg-gray-50/50">
+            <Card className="w-full max-w-2xl shadow-lg">
+                <CardHeader>
+                    <CardTitle className="text-2xl font-bold">AI Complaint Assistant</CardTitle>
+                    <CardDescription>
+                        Describe your public service issue, and our AI will draft a professional complaint for you.
+                    </CardDescription>
+                </CardHeader>
+                <form onSubmit={handleSubmit}>
+                    <CardContent className="grid gap-4">
+                        <div className="grid gap-2">
+                            <Label htmlFor="complaint-description">Describe Your Issue</Label>
+                            <Textarea
+                                id="complaint-description"
+                                placeholder="Example: 'Jalan di depan rumah saya di Palmerah sudah rusak parah selama 3 bulan dan menyebabkan banyak kecelakaan...'"
+                                className="min-h-[120px]"
+                                value={userInput}
+                                onChange={(e) => setUserInput(e.target.value)}
+                                disabled={isLoading}
+                            />
+                        </div>
+                        <Button type="submit" className="w-full" disabled={isLoading}>
+                            {isLoading ? (
+                                <>
+                                    <Spinner className="mr-2 h-4 w-4"/>
+                                    Generating...
+                                </>
+                            ) : (
+                                'Generate Complaint'
+                            )}
+                        </Button>
+                    </CardContent>
+                </form>
+                <CardFooter>
+                    <p className="text-xs text-gray-500">
+                        Results are AI-generated. Please review and edit before posting.
+                    </p>
+                </CardFooter>
+            </Card>
+
+            {/* --- Output Section --- */}
+            {(isLoading || aiOutput || error) && (
+                <Card className="w-full max-w-2xl mt-6 shadow-lg">
+                    <CardHeader>
+                        <CardTitle>Generated Complaint</CardTitle>
+                    </CardHeader>
+                    <CardContent className="min-h-[120px]">
+                        {isLoading && (
+                            <div className="flex items-center justify-center h-full">
+                                <Spinner className="h-8 w-8 text-gray-400"/>
+                            </div>
+                        )}
+                        {error && <p className="text-red-600">{error}</p>}
+                        {aiOutput && <p className="text-gray-700 whitespace-pre-wrap">{aiOutput}</p>}
+                    </CardContent>
+                </Card>
+            )}
+        </main>
+    );
 }
