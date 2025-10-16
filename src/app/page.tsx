@@ -1,6 +1,6 @@
 'use client'; // This directive is necessary for using React hooks
 
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card";
 import {Label} from "@/components/ui/label";
@@ -20,26 +20,33 @@ export default function HomePage() {
 
     // --- Form Submission Handler ---
     // This function will be connected to the backend in Part 4
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
         setIsLoading(true);
         setAiOutput('');
-        setError(null);
 
-        // --- MOCK API CALL (for UI testing) ---
-        // We'll replace this with a real fetch call in Part 4
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        try {
+            const response = await fetch('/api'!, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({prompt: userInput}),
+            });
 
-        // For now, we'll just echo the input back in a formatted way
-        if (userInput.trim().length === 0) {
-            setError("Please enter a description of your issue.");
-            setAiOutput('');
-        } else {
-            setAiOutput(`This is a placeholder for the AI-generated complaint. Your input was: "${userInput}". The real AI output will be much more detailed and formal, ready for you to copy and paste.`);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            setAiOutput(data.generated_text);
+
+        } catch (error) {
+            console.error('Failed to fetch:', error);
+            setAiOutput('Failed to generate complaint. Please try again.');
+        } finally {
+            setIsLoading(false);
         }
-        // --- END MOCK API CALL ---
-
-        setIsLoading(false);
     };
 
     return (
@@ -51,7 +58,9 @@ export default function HomePage() {
                         Describe your public service issue, and our AI will draft a professional complaint for you.
                     </CardDescription>
                 </CardHeader>
-                <form onSubmit={handleSubmit}>
+                <form
+                    suppressHydrationWarning
+                    onSubmit={handleSubmit}>
                     <CardContent className="grid gap-4">
                         <div className="grid gap-2">
                             <Label htmlFor="complaint-description">Describe Your Issue</Label>
