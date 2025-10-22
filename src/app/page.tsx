@@ -24,9 +24,18 @@ export default function HomePage() {
         e.preventDefault();
         setIsLoading(true);
         setAiOutput('');
+        setError(null); // Clear previous errors
+
+        // Determine the base URL based on environment
+        // In Production (Vercel), process.env.NEXT_PUBLIC_API_BASE_URL will be set.
+        // In Local Dev, it might be undefined, so we default to '/api'.
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '/api';
+        const apiUrl = `${baseUrl}/AicComplaintGenerator`; // Append the specific path
+
+        console.log("Fetching from:", apiUrl); // Add this log for debugging
 
         try {
-            const response = await fetch('/api'!, {
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +44,17 @@ export default function HomePage() {
             });
 
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                let errorBody = 'Network response was not ok';
+                try {
+                    // Try to get a more specific error from the backend response
+                    const errorData = await response.json();
+                    errorBody = errorData.error || `Server responded with status: ${response.status}`;
+                } catch (parseError) {
+                    errorBody = `Server responded with status: ${response.status}`;
+                }
+                setError(errorBody);
+                // Throw error to jump to catch block
+                throw new Error(errorBody);
             }
 
             const data = await response.json();
