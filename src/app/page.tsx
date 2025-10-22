@@ -29,8 +29,8 @@ export default function HomePage() {
         // Determine the base URL based on environment
         // In Production (Vercel), process.env.NEXT_PUBLIC_API_BASE_URL will be set.
         // In Local Dev, it might be undefined, so we default to '/api'.
-        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '/api';
-        const apiUrl = `${baseUrl}/AicComplaintGenerator`; // Append the specific path
+        const baseUrl = process.env.NEXT_PUBLIC_API_GATEWAY_URL;
+        const apiUrl = `${baseUrl}/generate`; // Append the specific path
 
         console.log("Fetching from:", apiUrl); // Add this log for debugging
 
