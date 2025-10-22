@@ -44,7 +44,7 @@ export default function HomePage() {
             });
 
             if (!response.ok) {
-                let errorBody = 'Network response was not ok';
+                let errorBody: string;
                 try {
                     // Try to get a more specific error from the backend response
                     const errorData = await response.json();
