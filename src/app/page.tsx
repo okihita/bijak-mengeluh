@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import {Button} from "@/components/ui/button";
+import {ThemeToggle} from '@/components/theme-toggle';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
 import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
@@ -136,7 +137,10 @@ export default function HomePage() {
     return (
         <main className="container mx-auto p-4 sm:p-6 md:p-8">
             <div className="w-full max-w-3xl mx-auto">
-                <Card className="shadow-lg">
+                <div className="flex justify-end mb-4">
+                    <ThemeToggle />
+                </div>
+                <Card className="shadow-lg dark:bg-card">
                     <CardHeader className="text-center">
                         <CardTitle className="text-2xl sm:text-3xl font-bold">Sampaikan Keluhanmu</CardTitle>
                         <CardDescription className="px-4">
@@ -175,12 +179,12 @@ export default function HomePage() {
                 </Card>
 
                 {error && (
-                    <Card className="w-full mt-6 shadow-md bg-red-50 border-red-200">
+                    <Card className="w-full mt-6 shadow-md bg-red-50 border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
                         <CardHeader>
-                            <CardTitle className="text-lg text-red-700">Error</CardTitle>
+                            <CardTitle className="text-lg text-red-700 dark:text-red-400">Error</CardTitle>
                         </CardHeader>
                         <CardContent className="p-4">
-                            <p className="text-red-600">{error}</p>
+                            <p className="text-red-600 dark:text-red-400">{error}</p>
                         </CardContent>
                     </Card>
                 )}
@@ -189,7 +193,7 @@ export default function HomePage() {
                     <div className="w-full mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                         <div className="lg:col-span-1 space-y-6">
-                            <Card className="shadow-md">
+                            <Card className="shadow-md dark:bg-card">
                                 <CardHeader>
                                     <CardTitle className="text-xl">Analysis</CardTitle>
                                 </CardHeader>
@@ -204,9 +208,9 @@ export default function HomePage() {
                                                 {step.status === 'complete' &&
                                                     <Check className="h-5 w-5 mr-3 text-green-500"/>}
                                                 <span className={
-                                                    step.status === 'pending' ? 'text-gray-400' :
-                                                        step.status === 'loading' ? 'text-blue-600 font-medium' :
-                                                            'text-gray-700'
+                                                    step.status === 'pending' ? 'text-gray-400 dark:text-gray-600' :
+                                                        step.status === 'loading' ? 'text-blue-600 dark:text-blue-400 font-medium' :
+                                                            'text-gray-700 dark:text-gray-300'
                                                 }>
                                                     {step.text}
                                                 </span>
@@ -216,27 +220,27 @@ export default function HomePage() {
                                 </CardContent>
                             </Card>
 
-                            <Card className="shadow-md">
+                            <Card className="shadow-md dark:bg-card">
                                 <CardHeader>
                                     <CardTitle className="text-xl">Suggested Contacts</CardTitle>
                                 </CardHeader>
                                 <CardContent className="p-4">
                                     {isLoading && !suggestedContacts.length && (
-                                        <p className="text-base text-gray-500">Searching...</p>
+                                        <p className="text-base text-gray-500 dark:text-gray-400">Searching...</p>
                                     )}
                                     {suggestedContacts.length > 0 && (
                                         <div className="space-y-4">
                                             {suggestedContacts.map((contact, index) => (
-                                                <div key={index} className="p-3 border rounded-lg">
+                                                <div key={index} className="p-3 border rounded-lg dark:border-gray-700">
                                                     <div className="flex justify-between items-center">
                                                         <span className="font-medium text-base">{contact.name}</span>
-                                                        <Badge variant="secondary">
+                                                        <Badge variant="secondary" className="dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700">
                                                             {Math.round(contact.score * 100)}%
                                                         </Badge>
                                                     </div>
                                                     {index === 0 && rationale && (
-                                                        <p className="text-sm text-gray-600 mt-2 pt-2 border-t">
-                                                            <span className="font-semibold">Why?</span> {rationale}
+                                                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 pt-2 border-t dark:border-gray-700">
+                                                            <span className="font-semibold text-gray-700 dark:text-gray-300">Why?</span> {rationale}
                                                         </p>
                                                     )}
                                                 </div>
@@ -244,13 +248,13 @@ export default function HomePage() {
                                         </div>
                                     )}
                                     {!isLoading && !suggestedContacts.length && generatedText && (
-                                        <p className="text-base text-gray-500">No specific contacts found.</p>
+                                        <p className="text-base text-gray-500 dark:text-gray-400">No specific contacts found.</p>
                                     )}
                                 </CardContent>
                             </Card>
                         </div>
 
-                        <Card className="lg:col-span-2 shadow-lg">
+                        <Card className="lg:col-span-2 shadow-lg dark:bg-card">
                             <CardHeader>
                                 <CardTitle className="text-xl">Generated Complaint Draft</CardTitle>
                             </CardHeader>
@@ -261,7 +265,7 @@ export default function HomePage() {
                                     </div>
                                 )}
                                 {generatedText &&
-                                    <p className="text-base text-gray-800 whitespace-pre-wrap">{generatedText}</p>}
+                                    <p className="text-base text-gray-800 dark:text-gray-300 whitespace-pre-wrap">{generatedText}</p>}
                             </CardContent>
                         </Card>
 
