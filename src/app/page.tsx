@@ -1,68 +1,73 @@
-'use client'; // This directive is necessary for using React hooks
+'use client';
 
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {Button} from "@/components/ui/button";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
 import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
-import {Spinner} from '@/components/icons'; // Import our spinner
+import {Spinner} from '@/components/icons';
+import {Badge} from '@/components/ui/badge'; // Import the new component
+
+type SuggestedContact = {
+    name: string;
+    score: number;
+};
 
 export default function HomePage() {
+
     // --- State Management ---
-    // Stores the user's complaint description
     const [userInput, setUserInput] = useState<string>('');
-    // Toggles the loading state for the button and output
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    // Stores the AI-generated complaint text
     const [aiOutput, setAiOutput] = useState<string>('');
-    // Stores potential errors
+    const [suggestedContacts, setSuggestedContacts] = useState<SuggestedContact[]>([]);
     const [error, setError] = useState<string | null>(null);
 
     // --- Form Submission Handler ---
-    // This function will be connected to the backend in Part 4
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (userInput.trim().length === 0) {
+            setError("Please enter a description of your issue.");
+            return;
+        }
+
         setIsLoading(true);
         setAiOutput('');
-        setError(null); // Clear previous errors
+        setSuggestedContacts([]); // Clear previous suggestions
+        setError(null);
 
-        // Determine the base URL based on environment
-        // In Production (Vercel), process.env.NEXT_PUBLIC_API_BASE_URL will be set.
-        // In Local Dev, it might be undefined, so we default to '/api'.
         const baseUrl = process.env.NEXT_PUBLIC_API_GATEWAY_URL;
-        const apiUrl = `${baseUrl}/generate`; // Append the specific path
-
-        console.log("Fetching from:", apiUrl); // Add this log for debugging
+        const apiUrl = `${baseUrl}/generate`;
 
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({prompt: userInput}),
             });
 
             if (!response.ok) {
-                let errorBody: string;
-                try {
-                    // Try to get a more specific error from the backend response
-                    const errorData = await response.json();
-                    errorBody = errorData.error || `Server responded with status: ${response.status}`;
-                } catch (parseError) {
-                    errorBody = `Server responded with status: ${response.status}`;
-                }
-                setError(errorBody);
-                // Throw error to jump to catch block
-                throw new Error(errorBody);
+                const errData = await response.json();
+                throw new Error(errData.error || 'Network response was not ok');
             }
 
             const data = await response.json();
-            setAiOutput(data.generated_text);
 
-        } catch (error) {
-            console.error('Failed to fetch:', error);
-            setAiOutput('Failed to generate complaint. Please try again.');
+            setAiOutput(data.generated_text);
+            setSuggestedContacts(data.suggested_contacts);
+
+        } catch (err: unknown) {
+            let errorMessage = 'Failed to generate response. Please try again.'; // Default message
+
+            // Type Guard: Check if err is an instance of Error
+            if (err instanceof Error) {
+                errorMessage = err.message; // Now it's safe to access .message
+            }
+            // You could add checks for other potential error types if needed
+            // else if (typeof err === 'string') { errorMessage = err; }
+
+            console.error("Caught error:", err); // Log the original error for debugging
+            setError(errorMessage); // Set the user-facing message
+            setAiOutput('');
         } finally {
             setIsLoading(false);
         }
@@ -74,18 +79,17 @@ export default function HomePage() {
                 <CardHeader>
                     <CardTitle className="text-2xl font-bold">AI Complaint Assistant</CardTitle>
                     <CardDescription>
-                        Describe your public service issue, and our AI will draft a professional complaint for you.
+                        Describe your public service issue. Our AI will draft a professional complaint and suggest the
+                        right agencies to contact.
                     </CardDescription>
                 </CardHeader>
-                <form
-                    suppressHydrationWarning
-                    onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <CardContent className="grid gap-4">
                         <div className="grid gap-2">
                             <Label htmlFor="complaint-description">Describe Your Issue</Label>
                             <Textarea
                                 id="complaint-description"
-                                placeholder="Example: 'Jalan di depan rumah saya di Palmerah sudah rusak parah selama 3 bulan dan menyebabkan banyak kecelakaan...'"
+                                placeholder="Example: 'Jalan di depan rumah saya di Palmerah sudah rusak parah selama 3 bulan...'"
                                 className="min-h-[120px]"
                                 value={userInput}
                                 onChange={(e) => setUserInput(e.target.value)}
@@ -96,7 +100,7 @@ export default function HomePage() {
                             {isLoading ? (
                                 <>
                                     <Spinner className="mr-2 h-4 w-4"/>
-                                    Generating...
+                                    Analyzing & Generating...
                                 </>
                             ) : (
                                 'Generate Complaint'
@@ -104,29 +108,71 @@ export default function HomePage() {
                         </Button>
                     </CardContent>
                 </form>
-                <CardFooter>
-                    <p className="text-xs text-gray-500">
-                        Results are AI-generated. Please review and edit before posting.
-                    </p>
-                </CardFooter>
             </Card>
 
-            {/* --- Output Section --- */}
-            {(isLoading || aiOutput || error) && (
-                <Card className="w-full max-w-2xl mt-6 shadow-lg">
+            {/* --- Error Display --- */}
+            {error && (
+                <Card className="w-full max-w-2xl mt-6 shadow-md bg-red-50 border-red-200">
                     <CardHeader>
-                        <CardTitle>Generated Complaint</CardTitle>
+                        <CardTitle className="text-lg text-red-700">Error</CardTitle>
                     </CardHeader>
-                    <CardContent className="min-h-[120px]">
-                        {isLoading && (
-                            <div className="flex items-center justify-center h-full">
-                                <Spinner className="h-8 w-8 text-gray-400"/>
-                            </div>
-                        )}
-                        {error && <p className="text-red-600">{error}</p>}
-                        {aiOutput && <p className="text-gray-700 whitespace-pre-wrap">{aiOutput}</p>}
+                    <CardContent>
+                        <p className="text-red-600">{error}</p>
                     </CardContent>
                 </Card>
+            )}
+
+            {/* --- Output Section (Visible when loading or has content) --- */}
+            {(isLoading || aiOutput) && (
+                <div className="w-full max-w-2xl mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    {/* --- Suggested Contacts Card (NEW) --- */}
+                    <Card className="md:col-span-1 shadow-md">
+                        <CardHeader>
+                            <CardTitle className="text-lg">Suggested Contacts</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            {isLoading && (
+                                <div className="flex items-center justify-center h-full py-4">
+                                    <Spinner className="h-6 w-6 text-gray-400"/>
+                                </div>
+                            )}
+                            {suggestedContacts.length > 0 && (
+                                <div className="space-y-3">
+                                    {suggestedContacts.map((contact, index) => (
+                                        <div key={index} className="p-2 border rounded-md">
+                                            <div className="flex justify-between items-center">
+                                                <span className="font-medium text-sm">{contact.name}</span>
+                                                <Badge variant="secondary">
+                                                    {Math.round(contact.score * 100)}%
+                                                </Badge>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                            {!isLoading && suggestedContacts.length === 0 && aiOutput && (
+                                <p className="text-sm text-gray-500">No specific contacts found.</p>
+                            )}
+                        </CardContent>
+                    </Card>
+
+                    {/* --- Generated Complaint Card --- */}
+                    <Card className="md:col-span-2 shadow-lg">
+                        <CardHeader>
+                            <CardTitle className="text-lg">Generated Complaint Draft</CardTitle>
+                        </CardHeader>
+                        <CardContent className="min-h-[200px]">
+                            {isLoading && (
+                                <div className="flex items-center justify-center h-full py-10">
+                                    <Spinner className="h-8 w-8 text-gray-400"/>
+                                </div>
+                            )}
+                            {aiOutput && <p className="text-gray-700 whitespace-pre-wrap">{aiOutput}</p>}
+                        </CardContent>
+                    </Card>
+
+                </div>
             )}
         </main>
     );
