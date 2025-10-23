@@ -1,18 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Badge } from '@/components/ui/badge';
-import { Spinner, Check } from '@/components/icons'; // Assumes icons.tsx is created
+import {useEffect, useState} from 'react';
+import {Button} from "@/components/ui/button";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Label} from "@/components/ui/label";
+import {Textarea} from "@/components/ui/textarea";
+import {Badge} from '@/components/ui/badge';
+import {Check, Spinner} from '@/components/icons'; // Assumes icons.tsx is created
 
 // --- Type Definitions (to match your JSON structure) ---
 type SuggestedContact = {
@@ -34,10 +28,10 @@ type AnalysisStep = {
 };
 
 const initialSteps: AnalysisStep[] = [
-    { text: 'Analyzing Complaint', status: 'pending' },
-    { text: 'Searching Knowledge Core', status: 'pending' },
-    { text: 'Identifying Top Ministry', status: 'pending' },
-    { text: 'Generating Rationale', status: 'pending' },
+    {text: 'Analyzing Complaint', status: 'pending'},
+    {text: 'Searching Knowledge Core', status: 'pending'},
+    {text: 'Identifying Top Ministry', status: 'pending'},
+    {text: 'Generating Rationale', status: 'pending'},
 ];
 // --- End of Type Definitions ---
 
@@ -58,13 +52,25 @@ export default function HomePage() {
     // --- Visualization Effect (Same as before) ---
     useEffect(() => {
         if (isLoading) {
-            setAnalysisSteps(initialSteps.map(s => ({ ...s, status: 'pending' })));
+            setAnalysisSteps(initialSteps.map(s => ({...s, status: 'pending'})));
             const timeouts: NodeJS.Timeout[] = [];
 
-            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i === 0 ? { ...s, status: 'loading' } : s)), 0));
-            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i === 0 ? { ...s, status: 'complete' } : i === 1 ? { ...s, status: 'loading' } : s)), 700));
-            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 1 ? { ...s, status: 'complete' } : i === 2 ? { ...s, status: 'loading' } : s)), 2000));
-            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 2 ? { ...s, status: 'complete' } : i === 3 ? { ...s, status: 'loading' } : s)), 2900));
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i === 0 ? {
+                ...s,
+                status: 'loading'
+            } : s)), 0));
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i === 0 ? {
+                ...s,
+                status: 'complete'
+            } : i === 1 ? {...s, status: 'loading'} : s)), 700));
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 1 ? {
+                ...s,
+                status: 'complete'
+            } : i === 2 ? {...s, status: 'loading'} : s)), 2000));
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 2 ? {
+                ...s,
+                status: 'complete'
+            } : i === 3 ? {...s, status: 'loading'} : s)), 2900));
 
             return () => timeouts.forEach(clearTimeout);
         }
@@ -92,12 +98,12 @@ export default function HomePage() {
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: userInput }),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({prompt: userInput}),
             });
 
             if (!response.ok) {
-                const errData = await response.json().catch(() => ({ error: "Network response was not ok" }));
+                const errData = await response.json().catch(() => ({error: "Network response was not ok"}));
                 throw new Error(errData.error || `HTTP error! status: ${response.status}`);
             }
 
@@ -123,147 +129,145 @@ export default function HomePage() {
             setError(errorMessage); // Set the user-facing message            setGeneratedText('');
         } finally {
             setIsLoading(false);
-            setAnalysisSteps(prev => prev.map(s => ({ ...s, status: 'complete' })));
+            setAnalysisSteps(prev => prev.map(s => ({...s, status: 'complete'})));
         }
     };
 
     return (
-        <main className="flex min-h-screen flex-col items-center p-4 sm:p-8 md:p-12 bg-gray-50/50">
-            <Card className="w-full max-w-2xl shadow-lg">
-                <CardHeader>
-                    <CardTitle className="text-2xl font-bold">Sampaikan Keluhanmu</CardTitle>
-                    <CardDescription>
-                        Describe your public service issue. Our AI will draft a professional complaint and suggest the right agencies to contact.
-                    </CardDescription>
-                </CardHeader>
-                <form onSubmit={handleSubmit}>
-                    <CardContent className="grid gap-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor="complaint-description">Describe Your Issue</Label>
-                            <Textarea
-                                id="complaint-description"
-                                placeholder="Example: 'Jalan di depan rumah saya di Palmerah sudah rusak parah selama 3 bulan...'"
-                                className="min-h-[120px]"
-                                value={userInput}
-                                onChange={(e) => setUserInput(e.target.value)}
-                                disabled={isLoading}
-                            />
-                        </div>
-                        <Button type="submit" className="w-full" disabled={isLoading}>
-                            {isLoading ? (
-                                <>
-                                    <Spinner className="mr-2 h-4 w-4" />
-                                    Analyzing...
-                                </>
-                            ) : (
-                                'Generate Complaint'
-                            )}
-                        </Button>
-                    </CardContent>
-                </form>
-            </Card>
-
-            {/* --- Error Display --- */}
-            {error && (
-                <Card className="w-full max-w-2xl mt-6 shadow-md bg-red-50 border-red-200">
-                    <CardHeader>
-                        <CardTitle className="text-lg text-red-700">Error</CardTitle>
+        <main className="container mx-auto p-4 sm:p-6 md:p-8">
+            <div className="w-full max-w-3xl mx-auto">
+                <Card className="shadow-lg">
+                    <CardHeader className="text-center">
+                        <CardTitle className="text-2xl sm:text-3xl font-bold">Sampaikan Keluhanmu</CardTitle>
+                        <CardDescription className="px-4">
+                            Describe your public service issue. Our AI will draft a professional complaint and suggest
+                            the right agencies to contact.
+                        </CardDescription>
                     </CardHeader>
-                    <CardContent>
-                        <p className="text-red-600">{error}</p>
-                    </CardContent>
-                </Card>
-            )}
-
-            {/* --- Visualization & Output Section --- */}
-            {(isLoading || generatedText) && ( // Use generatedText as the trigger to show the block
-                <div className="w-full max-w-2xl mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                    {/* --- Column 1: Analysis & Contacts --- */}
-                    <div className="md:col-span-1 space-y-6">
-
-                        {/* --- Analysis Card --- */}
-                        <Card className="shadow-md">
-                            <CardHeader>
-                                <CardTitle className="text-lg">Analysis</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="space-y-3">
-                                    {analysisSteps.map((step, index) => (
-                                        <div key={index} className="flex items-center text-sm">
-                                            {step.status === 'pending' && <Spinner className="h-4 w-4 mr-2 text-gray-300" />}
-                                            {step.status === 'loading' && <Spinner className="h-4 w-4 mr-2 text-blue-500" />}
-                                            {step.status === 'complete' && <Check className="h-4 w-4 mr-2 text-green-500" />}
-                                            <span className={
-                                                step.status === 'pending' ? 'text-gray-400' :
-                                                    step.status === 'loading' ? 'text-blue-600 font-medium' :
-                                                        'text-gray-700'
-                                            }>
-                        {step.text}
-                      </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* --- Suggested Contacts Card (Renders data.suggested_contacts) --- */}
-                        <Card className="shadow-md">
-                            <CardHeader>
-                                <CardTitle className="text-lg">Suggested Contacts</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                {isLoading && !suggestedContacts.length && (
-                                    <p className="text-sm text-gray-500">Searching...</p>
+                    <form
+                        suppressHydrationWarning
+                        onSubmit={handleSubmit}>
+                        <CardContent className="grid gap-4 p-4 sm:p-6">
+                            <div className="grid gap-2">
+                                <Label htmlFor="complaint-description" className="sr-only">Describe Your Issue</Label>
+                                <Textarea
+                                    suppressHydrationWarning
+                                    id="complaint-description"
+                                    placeholder="Example: 'Jalan di depan rumah saya di Palmerah sudah rusak parah selama 3 bulan...'"
+                                    className="min-h-[140px] text-base"
+                                    value={userInput}
+                                    onChange={(e) => setUserInput(e.target.value)}
+                                    disabled={isLoading}
+                                />
+                            </div>
+                            <Button type="submit" className="w-full text-lg py-6" disabled={isLoading}>
+                                {isLoading ? (
+                                    <>
+                                        <Spinner className="mr-2 h-5 w-5"/>
+                                        Analyzing...
+                                    </>
+                                ) : (
+                                    'Generate Complaint'
                                 )}
-                                {suggestedContacts.length > 0 && (
+                            </Button>
+                        </CardContent>
+                    </form>
+                </Card>
+
+                {error && (
+                    <Card className="w-full mt-6 shadow-md bg-red-50 border-red-200">
+                        <CardHeader>
+                            <CardTitle className="text-lg text-red-700">Error</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-4">
+                            <p className="text-red-600">{error}</p>
+                        </CardContent>
+                    </Card>
+                )}
+
+                {(isLoading || generatedText) && (
+                    <div className="w-full mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                        <div className="lg:col-span-1 space-y-6">
+                            <Card className="shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">Analysis</CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-4">
                                     <div className="space-y-3">
-                                        {/* This loops over your data.suggested_contacts array */}
-                                        {suggestedContacts.map((contact, index) => (
-                                            <div key={index} className="p-2 border rounded-md">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="font-medium text-sm">{contact.name}</span>
-                                                    <Badge variant="secondary">
-                                                        {Math.round(contact.score * 100)}%
-                                                    </Badge>
-                                                </div>
-
-                                                {/* This renders your data.rationale for the top match */}
-                                                {index === 0 && rationale && (
-                                                    <p className="text-xs text-gray-600 mt-2 pt-2 border-t">
-                                                        <span className="font-semibold">Why?</span> {rationale}
-                                                    </p>
-                                                )}
-
+                                        {analysisSteps.map((step, index) => (
+                                            <div key={index} className="flex items-center text-base">
+                                                {step.status === 'pending' &&
+                                                    <Spinner className="h-5 w-5 mr-3 text-gray-300"/>}
+                                                {step.status === 'loading' &&
+                                                    <Spinner className="h-5 w-5 mr-3 text-blue-500"/>}
+                                                {step.status === 'complete' &&
+                                                    <Check className="h-5 w-5 mr-3 text-green-500"/>}
+                                                <span className={
+                                                    step.status === 'pending' ? 'text-gray-400' :
+                                                        step.status === 'loading' ? 'text-blue-600 font-medium' :
+                                                            'text-gray-700'
+                                                }>
+                                                    {step.text}
+                                                </span>
                                             </div>
                                         ))}
                                     </div>
+                                </CardContent>
+                            </Card>
+
+                            <Card className="shadow-md">
+                                <CardHeader>
+                                    <CardTitle className="text-xl">Suggested Contacts</CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-4">
+                                    {isLoading && !suggestedContacts.length && (
+                                        <p className="text-base text-gray-500">Searching...</p>
+                                    )}
+                                    {suggestedContacts.length > 0 && (
+                                        <div className="space-y-4">
+                                            {suggestedContacts.map((contact, index) => (
+                                                <div key={index} className="p-3 border rounded-lg">
+                                                    <div className="flex justify-between items-center">
+                                                        <span className="font-medium text-base">{contact.name}</span>
+                                                        <Badge variant="secondary">
+                                                            {Math.round(contact.score * 100)}%
+                                                        </Badge>
+                                                    </div>
+                                                    {index === 0 && rationale && (
+                                                        <p className="text-sm text-gray-600 mt-2 pt-2 border-t">
+                                                            <span className="font-semibold">Why?</span> {rationale}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                    {!isLoading && !suggestedContacts.length && generatedText && (
+                                        <p className="text-base text-gray-500">No specific contacts found.</p>
+                                    )}
+                                </CardContent>
+                            </Card>
+                        </div>
+
+                        <Card className="lg:col-span-2 shadow-lg">
+                            <CardHeader>
+                                <CardTitle className="text-xl">Generated Complaint Draft</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-4 min-h-[300px]">
+                                {isLoading && (
+                                    <div className="flex items-center justify-center h-full py-10">
+                                        <Spinner className="h-10 w-10 text-gray-400"/>
+                                    </div>
                                 )}
-                                {!isLoading && !suggestedContacts.length && generatedText && (
-                                    <p className="text-sm text-gray-500">No specific contacts found.</p>
-                                )}
+                                {generatedText &&
+                                    <p className="text-base text-gray-800 whitespace-pre-wrap">{generatedText}</p>}
                             </CardContent>
                         </Card>
+
                     </div>
-
-                    {/* --- Column 2: Generated Complaint Card (Renders data.generated_text) --- */}
-                    <Card className="md:col-span-2 shadow-lg">
-                        <CardHeader>
-                            <CardTitle className="text-lg">Generated Complaint Draft</CardTitle>
-                        </CardHeader>
-                        <CardContent className="min-h-[300px]">
-                            {isLoading && (
-                                <div className="flex items-center justify-center h-full py-10">
-                                    <Spinner className="h-8 w-8 text-gray-400" />
-                                </div>
-                            )}
-                            {/* This renders your data.generated_text */}
-                            {generatedText && <p className="text-gray-700 whitespace-pre-wrap">{generatedText}</p>}
-                        </CardContent>
-                    </Card>
-
-                </div>
-            )}
+                )}
+            </div>
         </main>
     );
 }
