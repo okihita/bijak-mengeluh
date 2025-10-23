@@ -63,8 +63,8 @@ export default function HomePage() {
 
             timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i === 0 ? { ...s, status: 'loading' } : s)), 0));
             timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i === 0 ? { ...s, status: 'complete' } : i === 1 ? { ...s, status: 'loading' } : s)), 700));
-            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 1 ? { ...s, status: 'complete' } : i === 2 ? { ...s, status: 'loading' } : s)), 1500));
-            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 2 ? { ...s, status: 'complete' } : i === 3 ? { ...s, status: 'loading' } : s)), 2200));
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 1 ? { ...s, status: 'complete' } : i === 2 ? { ...s, status: 'loading' } : s)), 2000));
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 2 ? { ...s, status: 'complete' } : i === 3 ? { ...s, status: 'loading' } : s)), 2900));
 
             return () => timeouts.forEach(clearTimeout);
         }
