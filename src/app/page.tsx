@@ -64,6 +64,22 @@ const useWebShare = () => {
     return { share };
 };
 
+const usePersistentState = (key: string, initialValue: string) => {
+    const [value, setValue] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedValue = localStorage.getItem(key);
+            return storedValue ? JSON.parse(storedValue) : initialValue;
+        }
+        return initialValue;
+    });
+
+    useEffect(() => {
+        localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
+
+    return [value, setValue];
+};
+
 type ComplaintFormProps = {
     handleSubmit: (event: FormEvent<HTMLFormElement>) => Promise<void>;
     userInput: string;
@@ -260,7 +276,7 @@ const GeneratedComplaint = ({ generatedText, isLoading }: GeneratedComplaintProp
 };
 
 export default function HomePage() {
-    const [userInput, setUserInput] = useState<string>('');
+    const [userInput, setUserInput] = usePersistentState('userInput', '');
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
