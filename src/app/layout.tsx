@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from "@/components/theme-provider";
-import {AddToHomeScreen} from "@/components/pwa/add-to-home-screen";
+import { PwaInstallPrompt } from "@/components/pwa-install-prompt"; // Changed import
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -32,7 +32,7 @@ export default function RootLayout({children,}: { readonly children: React.React
             disableTransitionOnChange>
             {children}
         </ThemeProvider>
-        <AddToHomeScreen/>
+        <PwaInstallPrompt/> {/* Changed component name */}
         </body>
         </html>
     );
