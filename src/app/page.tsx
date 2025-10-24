@@ -7,13 +7,20 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/comp
 import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
 import {Badge} from '@/components/ui/badge';
-import {Check, Spinner} from '@/components/icons'; // Assumes icons.tsx is created
+import {Check, Spinner, AlertTriangle} from '@/components/icons'; // --- MODIFIED --- (Added AlertTriangle)
+import { X } from 'lucide-react'; // --- ADDED ---
 
 // --- Type Definitions (to match your JSON structure) ---
 type SuggestedContact = {
     name: string;
     score: number;
-    description: string; // <-- From your JSON
+    description: string;
+};
+
+// --- ADDED ---
+type SocialHandleInfo = {
+    handle: string;
+    status: 'verified' | 'unverified' | 'none' | 'error';
 };
 
 // This matches the top-level structure of your JSON response
@@ -21,6 +28,7 @@ type ApiResponse = {
     generated_text: string;
     suggested_contacts: SuggestedContact[];
     rationale: string;
+    social_handle_info: SocialHandleInfo; // --- ADDED ---
 };
 
 type AnalysisStep = {
@@ -33,6 +41,7 @@ const initialSteps: AnalysisStep[] = [
     {text: 'Searching Knowledge Core', status: 'pending'},
     {text: 'Identifying Top Ministry', status: 'pending'},
     {text: 'Generating Rationale', status: 'pending'},
+    {text: 'Searching for Social Handle', status: 'pending'}, // --- ADDED ---
 ];
 // --- End of Type Definitions ---
 
@@ -42,15 +51,14 @@ export default function HomePage() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
-    // --- NEW: State variables that map directly to your JSON ---
     const [generatedText, setGeneratedText] = useState<string>('');
     const [suggestedContacts, setSuggestedContacts] = useState<SuggestedContact[]>([]);
     const [rationale, setRationale] = useState<string>('');
-    // --- End of NEW State Variables ---
+    const [socialHandle, setSocialHandle] = useState<SocialHandleInfo | null>(null); // --- ADDED ---
 
     const [analysisSteps, setAnalysisSteps] = useState<AnalysisStep[]>(initialSteps);
 
-    // --- Visualization Effect (Same as before) ---
+    // --- Visualization Effect ---
     useEffect(() => {
         if (isLoading) {
             setAnalysisSteps(initialSteps.map(s => ({...s, status: 'pending'})));
@@ -73,13 +81,19 @@ export default function HomePage() {
                 status: 'complete'
             } : i === 3 ? {...s, status: 'loading'} : s)), 2900));
 
+            // --- ADDED ---
+            timeouts.push(setTimeout(() => setAnalysisSteps(prev => prev.map((s, i) => i <= 3 ? {
+                ...s,
+                status: 'complete'
+            } : i === 4 ? {...s, status: 'loading'} : s)), 3700)); // New 4th step
+
             return () => timeouts.forEach(clearTimeout);
         }
     }, [isLoading]);
     // --- End of Visualization Effect ---
 
 
-    // --- Form Submission Handler (Reworked for your JSON) ---
+    // --- Form Submission Handler ---
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (userInput.trim().length === 0) {
@@ -88,10 +102,10 @@ export default function HomePage() {
         }
 
         setIsLoading(true);
-        // Clear all previous results
         setGeneratedText('');
         setSuggestedContacts([]);
         setRationale('');
+        setSocialHandle(null); // --- ADDED ---
         setError(null);
 
         const apiUrl = `${process.env.NEXT_PUBLIC_API_GATEWAY_URL}/generate`;
@@ -108,31 +122,64 @@ export default function HomePage() {
                 throw new Error(errData.error || `HTTP error! status: ${response.status}`);
             }
 
-            // --- Here is the mapping from your JSON ---
             const data: ApiResponse = await response.json();
 
-            setGeneratedText(data.generated_text);         // <-- Maps to data.generated_text
-            setSuggestedContacts(data.suggested_contacts); // <-- Maps to data.suggested_contacts
-            setRationale(data.rationale);                 // <-- Maps to data.rationale
-            // --- End of mapping ---
+            setGeneratedText(data.generated_text);
+            setSuggestedContacts(data.suggested_contacts);
+            setRationale(data.rationale);
+            setSocialHandle(data.social_handle_info); // --- ADDED ---
 
         } catch (err: unknown) {
-            let errorMessage = 'Failed to generate response. Please try again.'; // Default message
-
-            // Type Guard: Check if err is an instance of Error
+            let errorMessage = 'Failed to generate response. Please try again.';
             if (err instanceof Error) {
-                errorMessage = err.message; // Now it's safe to access .message
+                errorMessage = err.message;
             }
-            // You could add checks for other potential error types if needed
-            // else if (typeof err === 'string') { errorMessage = err; }
-
-            console.error("Caught error:", err); // Log the original error for debugging
-            setError(errorMessage); // Set the user-facing message            setGeneratedText('');
+            console.error("Caught error:", err);
+            setError(errorMessage);
+            setGeneratedText('');
         } finally {
             setIsLoading(false);
             setAnalysisSteps(prev => prev.map(s => ({...s, status: 'complete'})));
         }
     };
+
+    // --- ADDED: Helper function to render the social handle badge ---
+    const renderSocialHandle = () => {
+        if (!socialHandle || socialHandle.status === 'none' || socialHandle.status === 'error') {
+            return (
+                <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                    <AlertTriangle className="h-4 w-4 mr-1 text-yellow-500" />
+                    No verified handle found.
+                </div>
+            );
+        }
+
+        const isVerified = socialHandle.status === 'verified';
+
+        return (
+            <a
+                href={`https://x.com/${socialHandle.handle.substring(1)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center p-2 bg-blue-50 rounded-md border border-blue-200 transition-all hover:bg-blue-100 dark:bg-blue-950/50 dark:border-blue-800/70 dark:hover:bg-blue-950"
+            >
+                <X className="h-4 w-4 mr-2 text-blue-500" />
+                <span className="font-mono text-sm text-blue-700 dark:text-blue-400 font-medium">{socialHandle.handle}</span>
+                {isVerified && (
+                    <Badge variant="secondary" className="ml-2 bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300 dark:border-green-800">
+                        <Check className="h-3 w-3 mr-1" />
+                        Verified
+                    </Badge>
+                )}
+                {!isVerified && socialHandle.status === 'unverified' && (
+                    <Badge variant="outline" className="ml-2 bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-300 dark:border-yellow-800">
+                        Unverified
+                    </Badge>
+                )}
+            </a>
+        );
+    };
+    // --- END ADDED ---
 
     return (
         <main className="container mx-auto p-4 sm:p-6 md:p-8">
@@ -243,6 +290,22 @@ export default function HomePage() {
                                                             <span className="font-semibold text-gray-700 dark:text-gray-300">Why?</span> {rationale}
                                                         </p>
                                                     )}
+
+                                                    {/* --- MODIFIED: ADDED THIS BLOCK --- */}
+                                                    {index === 0 && (
+                                                        <div className="pt-2 mt-2 border-t dark:border-gray-700">
+                                                            <Label className="text-xs font-semibold text-gray-500 dark:text-gray-400">Official X/Twitter</Label>
+                                                            <div className="mt-1">
+                                                                {isLoading ? (
+                                                                    <p className="text-sm text-gray-500 dark:text-gray-400">Searching...</p>
+                                                                ) : (
+                                                                    renderSocialHandle()
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {/* --- END MODIFIED --- */}
+
                                                 </div>
                                             ))}
                                         </div>
