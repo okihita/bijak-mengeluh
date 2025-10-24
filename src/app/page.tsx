@@ -8,7 +8,7 @@ import {Label} from "@/components/ui/label";
 import {Textarea} from "@/components/ui/textarea";
 import {Badge} from '@/components/ui/badge';
 import {AlertTriangle, Check, Spinner} from '@/components/icons';
-import {X} from 'lucide-react';
+import {Share, X} from 'lucide-react';
 
 type SuggestedContact = {
     name: string;
@@ -52,6 +52,16 @@ const useCopyToClipboard = () => {
     };
 
     return { copied, copy };
+};
+
+const useWebShare = () => {
+    const share = (text: string) => {
+        if (navigator.share) {
+            navigator.share({ text }).catch((error) => console.error("Error sharing:", error));
+        }
+    };
+
+    return { share };
 };
 
 type ComplaintFormProps = {
@@ -217,16 +227,23 @@ type GeneratedComplaintProps = {
 
 const GeneratedComplaint = ({ generatedText, isLoading }: GeneratedComplaintProps) => {
     const { copied, copy } = useCopyToClipboard();
+    const { share } = useWebShare();
 
     return (
         <Card className="lg:col-span-2 shadow-lg dark:bg-card">
             <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-xl">Generated Complaint Draft</CardTitle>
                 {generatedText && (
-                    <Button variant="outline" size="sm" onClick={() => copy(generatedText)}>
-                        {copied ? <Check className="h-4 w-4 mr-2" /> : null}
-                        {copied ? 'Copied!' : 'Copy'}
-                    </Button>
+                    <div className="flex gap-2">
+                        <Button variant="outline" size="sm" onClick={() => copy(generatedText)}>
+                            {copied ? <Check className="h-4 w-4 mr-2" /> : null}
+                            {copied ? 'Copied!' : 'Copy'}
+                        </Button>
+                        <Button variant="outline" size="sm" onClick={() => share(generatedText)}>
+                            <Share className="h-4 w-4 mr-2" />
+                            Share
+                        </Button>
+                    </div>
                 )}
             </CardHeader>
             <CardContent className="p-4 min-h-[300px]">
