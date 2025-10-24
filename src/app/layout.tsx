@@ -1,39 +1,35 @@
-import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
+import type { Metadata } from "next";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
-import {ThemeProvider} from "@/components/theme-provider";
-import { PwaInstallPrompt } from "@/components/pwa-install-prompt"; // Changed import
+import { ThemeProvider } from "@/components/theme-provider";
+import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
+const nunitoSans = Nunito_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-    title: "Bijak Mengeluh",
-    description: "Sampaikan 😡keluhan😡 dengan tepat",
-    manifest: "/manifest.json",
+  title: "Bijak Mengeluh",
+  description: "Sampaikan 😡keluhan😡 dengan tepat",
+  manifest: "/manifest.json",
 };
 
-export default function RootLayout({children,}: { readonly children: React.ReactNode; }) {
-    return (
-        <html lang="en" suppressHydrationWarning>
-        <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+export default function RootLayout({
+  children,
+}: {
+  readonly children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${nunitoSans.variable} font-sans antialiased`}>
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange>
-            {children}
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
         </ThemeProvider>
-        <PwaInstallPrompt/> {/* Changed component name */}
-        </body>
-        </html>
-    );
+        <PwaInstallPrompt />
+      </body>
+    </html>
+  );
 }
