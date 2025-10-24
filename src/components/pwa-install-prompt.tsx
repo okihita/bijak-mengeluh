@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Download, XCircle } from "lucide-react";
@@ -28,10 +28,13 @@ export const PwaInstallPrompt = () => {
 
     window.addEventListener("beforeinstallprompt", handler);
 
+    const isStandaloneIOS =
+      "standalone" in navigator &&
+      (navigator as { standalone?: boolean }).standalone;
     // Check if already installed
     if (
       window.matchMedia("(display-mode: standalone)").matches ||
-      (navigator as any).standalone
+      isStandaloneIOS
     ) {
       setIsVisible(false);
     }
