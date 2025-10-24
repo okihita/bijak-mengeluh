@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {FormEvent, useEffect, useState} from 'react';
 import {Button} from "@/components/ui/button";
 import {ThemeToggle} from '@/components/theme-toggle';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
@@ -94,7 +94,7 @@ export default function HomePage() {
 
 
     // --- Form Submission Handler ---
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (userInput.trim().length === 0) {
             setError("Please enter a description of your issue.");
@@ -119,7 +119,10 @@ export default function HomePage() {
 
             if (!response.ok) {
                 const errData = await response.json().catch(() => ({error: "Network response was not ok"}));
-                throw new Error(errData.error || `HTTP error! status: ${response.status}`);
+                const errorMessage = errData.error || `HTTP error! status: ${response.status}`;
+                console.error("API Error:", errorMessage);
+                setError(errorMessage);
+                return;
             }
 
             const data: ApiResponse = await response.json();
@@ -136,7 +139,6 @@ export default function HomePage() {
             }
             console.error("Caught error:", err);
             setError(errorMessage);
-            setGeneratedText('');
         } finally {
             setIsLoading(false);
             setAnalysisSteps(prev => prev.map(s => ({...s, status: 'complete'})));
