@@ -74,8 +74,11 @@ const useWebShare = () => {
   return { share };
 };
 
-const usePersistentState = (key: string, initialValue: string) => {
-  const [value, setValue] = useState(() => {
+const usePersistentState = <T,>(
+  key: string,
+  initialValue: T,
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
+  const [value, setValue] = useState<T>(() => {
     if (typeof window !== "undefined") {
       const storedValue = localStorage.getItem(key);
       return storedValue ? JSON.parse(storedValue) : initialValue;
@@ -344,6 +347,10 @@ const GeneratedComplaint = ({
 
 export default function HomePage() {
   const [userInput, setUserInput] = usePersistentState("userInput", "");
+  const [promptHistory, setPromptHistory] = usePersistentState<string[]>(
+    "promptHistory",
+    [],
+  );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -497,6 +504,11 @@ export default function HomePage() {
       setSuggestedContacts(data.suggested_contacts);
       setRationale(data.rationale);
       setSocialHandle(data.social_handle_info);
+
+      // Save prompt to history
+      setPromptHistory((prevHistory) =>
+        [userInput, ...prevHistory].slice(0, 20),
+      ); // Keep last 10 prompts
     } catch (err: unknown) {
       let errorMessage = "Failed to generate response. Please try again.";
       if (err instanceof Error) {
