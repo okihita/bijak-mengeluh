@@ -41,6 +41,19 @@ const initialSteps: AnalysisStep[] = [
     {text: 'Searching for Social Handle', status: 'pending'},
 ];
 
+const useCopyToClipboard = () => {
+    const [copied, setCopied] = useState(false);
+
+    const copy = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+        });
+    };
+
+    return { copied, copy };
+};
+
 type ComplaintFormProps = {
     handleSubmit: (event: FormEvent<HTMLFormElement>) => Promise<void>;
     userInput: string;
@@ -202,22 +215,32 @@ type GeneratedComplaintProps = {
     isLoading: boolean;
 };
 
-const GeneratedComplaint = ({ generatedText, isLoading }: GeneratedComplaintProps) => (
-    <Card className="lg:col-span-2 shadow-lg dark:bg-card">
-        <CardHeader>
-            <CardTitle className="text-xl">Generated Complaint Draft</CardTitle>
-        </CardHeader>
-        <CardContent className="p-4 min-h-[300px]">
-            {isLoading && (
-                <div className="flex items-center justify-center h-full py-10">
-                    <Spinner className="h-10 w-10 text-gray-400"/>
-                </div>
-            )}
-            {generatedText &&
-                <p className="text-base text-gray-800 dark:text-gray-300 whitespace-pre-wrap">{generatedText}</p>}
-        </CardContent>
-    </Card>
-);
+const GeneratedComplaint = ({ generatedText, isLoading }: GeneratedComplaintProps) => {
+    const { copied, copy } = useCopyToClipboard();
+
+    return (
+        <Card className="lg:col-span-2 shadow-lg dark:bg-card">
+            <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-xl">Generated Complaint Draft</CardTitle>
+                {generatedText && (
+                    <Button variant="outline" size="sm" onClick={() => copy(generatedText)}>
+                        {copied ? <Check className="h-4 w-4 mr-2" /> : null}
+                        {copied ? 'Copied!' : 'Copy'}
+                    </Button>
+                )}
+            </CardHeader>
+            <CardContent className="p-4 min-h-[300px]">
+                {isLoading && (
+                    <div className="flex items-center justify-center h-full py-10">
+                        <Spinner className="h-10 w-10 text-gray-400"/>
+                    </div>
+                )}
+                {generatedText &&
+                    <p className="text-base text-gray-800 dark:text-gray-300 whitespace-pre-wrap">{generatedText}</p>}
+            </CardContent>
+        </Card>
+    );
+};
 
 export default function HomePage() {
     const [userInput, setUserInput] = useState<string>('');
