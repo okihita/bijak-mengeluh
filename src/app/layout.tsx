@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from "@/components/theme-provider";
+import {AddToHomeScreen} from "@/components/pwa/add-to-home-screen";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -16,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "Bijak Mengeluh",
     description: "Sampaikan 😡keluhan😡 dengan tepat",
+    manifest: "/manifest.json",
 };
 
 export default function RootLayout({children,}: { readonly children: React.ReactNode; }) {
@@ -30,6 +32,7 @@ export default function RootLayout({children,}: { readonly children: React.React
             disableTransitionOnChange>
             {children}
         </ThemeProvider>
+        <AddToHomeScreen/>
         </body>
         </html>
     );
