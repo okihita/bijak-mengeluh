@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "Sampaikan 😡keluhan😡 dengan tepat",
 };
 
-export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({children,}: { readonly children: React.ReactNode; }) {
     return (
         <html lang="en" suppressHydrationWarning>
         <body

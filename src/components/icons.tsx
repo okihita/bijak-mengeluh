@@ -1,4 +1,8 @@
-export function Spinner({className}: { className?: string }) {
+import * as React from "react";
+
+export type IconProps = React.SVGProps<SVGSVGElement>
+
+export function Spinner({ className, ...props }: IconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -10,14 +14,15 @@ export function Spinner({className}: { className?: string }) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={`animate-spin ${className}`}
+            className={`animate-spin ${className || ''}`}
+            {...props}
         >
             <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
         </svg>
     );
 }
 
-export function Check({ className }: { className?: string }) {
+export function Check(props: IconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,14 +34,14 @@ export function Check({ className }: { className?: string }) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={className}
+            {...props}
         >
             <path d="M20 6 9 17l-5-5" />
         </svg>
     );
 }
 
-export function AlertTriangle({ className }: { className?: string }) {
+export function AlertTriangle(props: IconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +53,7 @@ export function AlertTriangle({ className }: { className?: string }) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={className}
+            {...props}
         >
             <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
             <path d="M12 9v4" />
