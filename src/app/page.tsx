@@ -105,49 +105,65 @@ const ComplaintForm = ({
   userInput,
   setUserInput,
   isLoading,
-}: ComplaintFormProps) => (
-  <Card className="shadow-lg dark:bg-card">
-    <CardHeader className="text-center">
-      <CardTitle className="text-2xl sm:text-3xl font-bold">
-        Curhatin Aja Keluhanmu
-      </CardTitle>
-      <CardDescription className="px-4">
-        Ketik aja unek-unekmu soal layanan publik. Ntar AI kita bikinin surat komplain yang keren plus ngasih tau harus lapor ke mana.
-      </CardDescription>
-    </CardHeader>
-    <form onSubmit={handleSubmit}>
-      <CardContent className="grid gap-4 p-4 sm:p-6">
-        <div className="grid gap-2">
-          <Label htmlFor="complaint-description" className="sr-only">
-            Isi Keluhanmu di Sini
-          </Label>
-          <Textarea
-            id="complaint-description"
-            placeholder="Contoh: 'Jalanan depan rumah gue di Palmerah ancur banget udah 3 bulan...'"
-            className="min-h-[140px] text-base"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            disabled={isLoading}
-          />
-        </div>
-        <Button
-          type="submit"
-          className="w-full text-lg py-6"
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <>
-              <Spinner className="mr-2 h-5 w-5" />
-              Lagi dianalisa...
-            </>
-          ) : (
-            "Bikinin Komplain"
-          )}
-        </Button>
-      </CardContent>
-    </form>
-  </Card>
-);
+}: ComplaintFormProps) => {
+  const charCount = userInput.trim().length;
+  const minChars = 20;
+  const isTooShort = charCount <= minChars;
+
+  return (
+    <Card className="shadow-lg dark:bg-card">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl sm:text-3xl font-bold">
+          Curhatin Aja Keluhanmu
+        </CardTitle>
+        <CardDescription className="px-4">
+          Ketik aja unek-unekmu soal layanan publik. Ntar AI kita bikinin surat
+          komplain yang keren plus ngasih tau harus lapor ke mana.
+        </CardDescription>
+      </CardHeader>
+      <form onSubmit={handleSubmit}>
+        <CardContent className="grid gap-4 p-4 sm:p-6">
+          <div className="grid gap-2">
+            <Label htmlFor="complaint-description" className="sr-only">
+              Isi Keluhanmu di Sini
+            </Label>
+            <Textarea
+              id="complaint-description"
+              placeholder="Contoh: 'Jalanan depan rumah gue di Palmerah ancur banget udah 3 bulan...'"
+              className="min-h-[140px] text-base"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              disabled={isLoading}
+            />
+            <p
+              className={`text-xs text-right pr-1 ${
+                isTooShort
+                  ? "text-red-500 dark:text-red-400"
+                  : "text-green-600 dark:text-green-400"
+              }`}
+            >
+              {charCount} / {minChars} karakter minimum
+            </p>
+          </div>
+          <Button
+            type="submit"
+            className="w-full text-lg py-6"
+            disabled={isLoading || isTooShort}
+          >
+            {isLoading ? (
+              <>
+                <Spinner className="mr-2 h-5 w-5" />
+                Meme-proses...
+              </>
+            ) : (
+              "Bikinin Komplain"
+            )}
+          </Button>
+        </CardContent>
+      </form>
+    </Card>
+  );
+};
 
 type ErrorMessageProps = {
   error: string | null;
@@ -465,8 +481,8 @@ export default function HomePage() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (userInput.trim().length === 0) {
-      setError("Isi dulu keluhannya, bos.");
+    if (userInput.trim().length <= 20) {
+      setError("Isi dulu keluhannya, bos. Minimal 20 karakter, ya.");
       return;
     }
 
