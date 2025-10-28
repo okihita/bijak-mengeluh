@@ -42,11 +42,11 @@ export type AnalysisStep = {
 };
 
 const initialSteps: AnalysisStep[] = [
-  { text: "Analyzing Complaint", status: "pending" },
-  { text: "Searching Knowledge Core", status: "pending" },
-  { text: "Identifying Top Ministry", status: "pending" },
-  { text: "Generating Rationale", status: "pending" },
-  { text: "Searching for Social Handle", status: "pending" },
+  { text: "Lagi ngecek komplainan", status: "pending" },
+  { text: "Nyari-nyari di gudang ilmu", status: "pending" },
+  { text: "Milih-milih kementerian paling top", status: "pending" },
+  { text: "Bikin alesan yang ciamik", status: "pending" },
+  { text: "Nyari akun sosmednya", status: "pending" },
 ];
 
 const useCopyToClipboard = () => {
@@ -109,22 +109,21 @@ const ComplaintForm = ({
   <Card className="shadow-lg dark:bg-card">
     <CardHeader className="text-center">
       <CardTitle className="text-2xl sm:text-3xl font-bold">
-        Sampaikan Keluhanmu
+        Curhatin Aja Keluhanmu
       </CardTitle>
       <CardDescription className="px-4">
-        Describe your public service issue. Our AI will draft a professional
-        complaint and suggest the right agencies to contact.
+        Ketik aja unek-unekmu soal layanan publik. Ntar AI kita bikinin surat komplain yang keren plus ngasih tau harus lapor ke mana.
       </CardDescription>
     </CardHeader>
     <form onSubmit={handleSubmit}>
       <CardContent className="grid gap-4 p-4 sm:p-6">
         <div className="grid gap-2">
           <Label htmlFor="complaint-description" className="sr-only">
-            Describe Your Issue
+            Isi Keluhanmu di Sini
           </Label>
           <Textarea
             id="complaint-description"
-            placeholder="Example: 'Jalan di depan rumah saya di Palmerah sudah rusak parah selama 3 bulan...'"
+            placeholder="Contoh: 'Jalanan depan rumah gue di Palmerah ancur banget udah 3 bulan...'"
             className="min-h-[140px] text-base"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
@@ -139,10 +138,10 @@ const ComplaintForm = ({
           {isLoading ? (
             <>
               <Spinner className="mr-2 h-5 w-5" />
-              Analyzing...
+              Lagi dianalisa...
             </>
           ) : (
-            "Generate Complaint"
+            "Bikinin Komplain"
           )}
         </Button>
       </CardContent>
@@ -163,7 +162,7 @@ const ErrorMessage = ({ error }: ErrorMessageProps) => {
     <Card className="w-full mt-6 shadow-md bg-red-50 border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
       <CardHeader>
         <CardTitle className="text-lg text-red-700 dark:text-red-400">
-          Error
+          Waduh, Eror
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4">
@@ -180,7 +179,7 @@ type AnalysisStepsProps = {
 const AnalysisSteps = ({ steps }: AnalysisStepsProps) => (
   <Card className="shadow-md dark:bg-card">
     <CardHeader>
-      <CardTitle className="text-xl">Analysis</CardTitle>
+      <CardTitle className="text-xl">Analisa</CardTitle>
     </CardHeader>
     <CardContent className="p-4">
       <div className="space-y-3">
@@ -230,12 +229,12 @@ const SuggestedContacts = ({
 }: SuggestedContactsProps) => (
   <Card className="shadow-md dark:bg-card">
     <CardHeader>
-      <CardTitle className="text-xl">Suggested Contacts</CardTitle>
+      <CardTitle className="text-xl">Saran Kontak</CardTitle>
     </CardHeader>
     <CardContent className="p-4">
       {isLoading && !contacts.length && (
         <p className="text-base text-gray-500 dark:text-gray-400">
-          Searching...
+          Lagi nyari...
         </p>
       )}
       {contacts.length > 0 && (
@@ -257,7 +256,7 @@ const SuggestedContacts = ({
               {index === 0 && rationale && (
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 pt-2 border-t dark:border-gray-700">
                   <span className="font-semibold text-gray-700 dark:text-gray-300">
-                    Why?
+                    Nape?
                   </span>{" "}
                   {rationale}
                 </p>
@@ -266,12 +265,12 @@ const SuggestedContacts = ({
               {index === 0 && (
                 <div className="pt-2 mt-2 border-t dark:border-gray-700">
                   <Label className="text-xs font-semibold text-gray-500 dark:text-gray-400">
-                    Official X/Twitter
+                    Akun Resmi X/Twitter
                   </Label>
                   <div className="mt-1">
                     {isLoading ? (
                       <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Searching...
+                        Lagi nyari...
                       </p>
                     ) : (
                       renderSocialHandle()
@@ -285,7 +284,7 @@ const SuggestedContacts = ({
       )}
       {!isLoading && !contacts.length && generatedText && (
         <p className="text-base text-gray-500 dark:text-gray-400">
-          No specific contacts found.
+          Gak nemu kontak spesifik.
         </p>
       )}
     </CardContent>
@@ -307,7 +306,7 @@ const GeneratedComplaint = ({
   return (
     <Card className="lg:col-span-2 shadow-lg dark:bg-card">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-xl">Generated Complaint Draft</CardTitle>
+        <CardTitle className="text-xl">Draf Komplain Buatan AI</CardTitle>
         {generatedText && (
           <div className="flex gap-2">
             <Button
@@ -316,7 +315,7 @@ const GeneratedComplaint = ({
               onClick={() => copy(generatedText)}
             >
               {copied ? <Check className="h-4 w-4 mr-2" /> : null}
-              {copied ? "Copied!" : "Copy"}
+              {copied ? "Udah dicopy!" : "Salin"}
             </Button>
             <Button
               variant="outline"
@@ -324,7 +323,7 @@ const GeneratedComplaint = ({
               onClick={() => share(generatedText)}
             >
               <Share className="h-4 w-4 mr-2" />
-              Share
+              Bagiin
             </Button>
           </div>
         )}
@@ -467,7 +466,7 @@ export default function HomePage() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (userInput.trim().length === 0) {
-      setError("Please enter a description of your issue.");
+      setError("Isi dulu keluhannya, bos.");
       return;
     }
 
@@ -490,9 +489,9 @@ export default function HomePage() {
       if (!response.ok) {
         const errData = await response
           .json()
-          .catch(() => ({ error: "Network response was not ok" }));
+          .catch(() => ({ error: "Jaringannya lagi ngambek." }));
         const errorMessage =
-          errData.error || `HTTP error! status: ${response.status}`;
+          errData.error || `Waduh, eror HTTP! status: ${response.status}`;
         console.error("API Error:", errorMessage);
         setError(errorMessage);
         return;
@@ -510,7 +509,7 @@ export default function HomePage() {
         [userInput, ...prevHistory].slice(0, 20),
       ); // Keep last 10 prompts
     } catch (err: unknown) {
-      let errorMessage = "Failed to generate response. Please try again.";
+      let errorMessage = "Gagal bikin respons. Coba lagi, ya.";
       if (err instanceof Error) {
         errorMessage = err.message;
       }
@@ -533,7 +532,7 @@ export default function HomePage() {
       return (
         <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
           <AlertTriangle className="h-4 w-4 mr-1 text-yellow-500" />
-          No verified handle found.
+          Gak nemu akun terverifikasi.
         </div>
       );
     }
@@ -557,7 +556,7 @@ export default function HomePage() {
             className="ml-2 bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300 dark:border-green-800"
           >
             <Check className="h-3 w-3 mr-1" />
-            Verified
+            Terverifikasi
           </Badge>
         )}
         {!isVerified && socialHandle.status === "unverified" && (
@@ -565,7 +564,7 @@ export default function HomePage() {
             variant="outline"
             className="ml-2 bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-300 dark:border-yellow-800"
           >
-            Unverified
+            Belum Diverifikasi
           </Badge>
         )}
       </a>
@@ -584,7 +583,7 @@ export default function HomePage() {
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
               >
                 <History className="h-5 w-5" />
-                History
+                Riwayat
               </Link>
             </div>
             <ThemeToggle />
