@@ -58,7 +58,7 @@ export const PwaInstallPrompt = () => {
       variant="outline"
       size="icon"
       className="h-9 w-9"
-      title="Install App"
+      title="Unduh aplikasi ini"
     >
       <Download className="h-4 w-4" />
     </Button>

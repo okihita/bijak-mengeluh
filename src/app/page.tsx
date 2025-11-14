@@ -170,29 +170,29 @@ const ComplaintForm = ({
 
   return (
     <Card className="shadow-lg dark:bg-card">
-      <CardHeader className="text-center space-y-3 pb-4">
-        <CardTitle className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+      <CardHeader className="text-center space-y-2 pb-3 pt-4">
+        <CardTitle className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
           Curhatin Aja Keluhanmu
         </CardTitle>
-        <CardDescription className="text-base sm:text-lg px-4 max-w-2xl mx-auto">
+        <CardDescription className="text-sm sm:text-base px-4 max-w-2xl mx-auto">
           AI bantu bikin surat profesional & kasih tau lapor ke mana 🎯
         </CardDescription>
-        <p className="text-xs text-muted-foreground/60">
+        <p className="text-xs text-muted-foreground/60 !mt-1">
           Bijak sana, bijak sini, bijak di mana-mana!
         </p>
       </CardHeader>
       <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-6 p-4 sm:p-6">
+        <CardContent className="space-y-4 p-4 sm:p-6">
           
           {/* Main Textarea - Most Important Element */}
-          <div className="space-y-3">
-            <Label htmlFor="complaint-description" className="text-base font-semibold">
+          <div className="space-y-2">
+            <Label htmlFor="complaint-description" className="text-sm font-semibold">
               Tulis Keluhan Kamu
             </Label>
             <Textarea
               id="complaint-description"
               placeholder="Contoh: Jalanan depan rumah saya di Jalan Sudirman Jakarta rusak parah sudah 3 bulan tidak diperbaiki..."
-              className="min-h-[160px] text-base resize-none focus:ring-2 focus:ring-primary/50"
+              className="min-h-[140px] text-base resize-none focus:ring-2 focus:ring-primary/50"
               value={userInput}
               onChange={handleTextChange}
               disabled={isLoading}
@@ -273,11 +273,11 @@ const ComplaintForm = ({
           )}
 
           {/* Tone Selector - Clear Visual Hierarchy */}
-          <div className="space-y-3">
-            <Label className="text-base font-semibold">
+          <div className="space-y-2">
+            <Label className="text-sm font-semibold">
               Pilih Nada Komplain
             </Label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-2">
               <Button
                 type="button"
                 variant={tone === "formal" ? "default" : "outline"}
@@ -1025,20 +1025,9 @@ export default function HomePage() {
       
       <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
         <div className="w-full max-w-3xl mx-auto">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center mb-2">
             <PwaInstallPrompt />
-            <div className="flex items-center gap-4">
-              <div className="hidden sm:block">
-                <Link
-                  href="/history"
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
-                >
-                  <History className="h-5 w-5" />
-                  Riwayat
-                </Link>
-              </div>
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
           </div>
           <ComplaintForm
             handleSubmit={handleSubmit}
