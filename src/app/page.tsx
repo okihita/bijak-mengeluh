@@ -80,19 +80,31 @@ const useWebShare = () => {
   };
 
   const shareAsImage = async (text: string, ministry?: string) => {
-    const { generateShareImage } = await import("@/lib/share-image");
-    const blob = await generateShareImage(text, ministry);
-    const file = new File([blob], "keluhan.png", { type: "image/png" });
+    try {
+      const { generateShareImage } = await import("@/lib/share-image");
+      const blob = await generateShareImage(text, ministry);
+      const file = new File([blob], "keluhan.png", { type: "image/png" });
 
-    if (navigator.share && navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ files: [file] });
-    } else {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "keluhan.png";
-      a.click();
-      URL.revokeObjectURL(url);
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ 
+          files: [file],
+          title: "Surat Keluhan",
+          text: "Surat keluhan dari bijakmengeluh.id"
+        });
+      } else {
+        // Fallback: download image
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "keluhan-bijakmengeluh.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    } catch (error) {
+      console.error("Error sharing image:", error);
+      alert("Gagal membuat gambar. Silakan coba lagi.");
     }
   };
 
