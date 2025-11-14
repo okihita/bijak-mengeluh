@@ -206,7 +206,7 @@ const ComplaintForm = ({
 
           {/* Quality Score & Suggestions */}
           {qualityScore && qualityScore.suggestions.length > 0 && (
-            <div className="grid gap-2">
+            <div className="grid gap-2" id="quality-feedback" role="status" aria-live="polite">
               <div className="flex items-center justify-between">
                 <Label className="text-sm font-medium">Kualitas Komplain</Label>
                 <Badge variant={qualityScore.overall >= 80 ? "default" : qualityScore.overall >= 60 ? "secondary" : "destructive"}>
@@ -224,7 +224,7 @@ const ComplaintForm = ({
           )}
 
           <div className="grid gap-2">
-            <Label htmlFor="complaint-description" className="sr-only">
+            <Label htmlFor="complaint-description">
               Isi Keluhanmu di Sini
             </Label>
             <Textarea
@@ -235,7 +235,9 @@ const ComplaintForm = ({
               onChange={handleTextChange}
               disabled={isLoading}
               aria-label="Tulis keluhan Anda di sini"
-              aria-describedby="char-count"
+              aria-describedby="char-count quality-feedback"
+              aria-invalid={isTooShort}
+              autoComplete="off"
             />
             
             {/* Progress bar */}
@@ -875,6 +877,14 @@ export default function HomePage() {
       >
         Skip to main content
       </a>
+      
+      {/* Screen reader announcements */}
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {isLoading && "Sedang memproses keluhan Anda"}
+        {generatedText && !isLoading && "Komplain berhasil dibuat"}
+        {error && `Error: ${error}`}
+      </div>
+      
       <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
         <div className="w-full max-w-3xl mx-auto">
           <div className="flex justify-end items-center mb-4">

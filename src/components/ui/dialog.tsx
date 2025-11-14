@@ -1,52 +1,81 @@
-"use client";
+"use client"
 
-import * as React from "react";
+import * as React from "react"
+import { X } from "lucide-react"
+import { cn } from "@/lib/utils"
 
-export function Dialog({
-  open,
-  onOpenChange,
-  children,
-}: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  children: React.ReactNode;
-}) {
+const Dialog = ({ open, onOpenChange, children }: {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  children: React.ReactNode
+}) => {
   React.useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden'
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset'
     }
     return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [open]);
+      document.body.style.overflow = 'unset'
+    }
+  }, [open])
 
-  if (!open) return null;
+  if (!open) return null
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-      onClick={() => onOpenChange(false)}
-    >
-      <div
-        className="relative max-h-[90vh] w-full max-w-4xl overflow-auto rounded-lg bg-white dark:bg-gray-900 shadow-xl"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div 
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={() => onOpenChange(false)}
+        aria-hidden="true"
+      />
+      <div className="relative z-50 w-full max-w-lg mx-4">
         {children}
       </div>
     </div>
-  );
+  )
 }
 
-export function DialogContent({ children }: { children: React.ReactNode }) {
-  return <div className="p-6">{children}</div>;
-}
+const DialogContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, children, ...props }, ref) => (
+  <div
+    ref={ref}
+    role="dialog"
+    aria-modal="true"
+    className={cn(
+      "bg-background rounded-lg shadow-lg p-6 animate-in fade-in-0 zoom-in-95",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+))
+DialogContent.displayName = "DialogContent"
 
-export function DialogHeader({ children }: { children: React.ReactNode }) {
-  return <div className="mb-4">{children}</div>;
-}
+const DialogHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn("flex flex-col space-y-1.5 text-center sm:text-left mb-4", className)}
+    {...props}
+  />
+)
+DialogHeader.displayName = "DialogHeader"
 
-export function DialogTitle({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-2xl font-bold">{children}</h2>;
-}
+const DialogTitle = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h2
+    ref={ref}
+    className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+    {...props}
+  />
+))
+DialogTitle.displayName = "DialogTitle"
+
+export { Dialog, DialogContent, DialogHeader, DialogTitle }
