@@ -1,27 +1,35 @@
 # Bijak Mengeluh - Improvement Specifications
 
-## 1. Core UX Enhancements
+## ✅ Completed Features
 
-### 1.1 Complaint Templates
-- **Priority**: High
-- **Description**: Pre-built templates for common complaint types
-- **Implementation**:
-  - Quick-select category chips (jalan rusak, sampah, listrik, air, kesehatan, pendidikan, transportasi, birokrasi)
-  - Auto-fill textarea with template that users customize
-  - Store custom templates in localStorage
-  - Template preview on hover
-  - "Start from scratch" option
+### 1.1 Complaint Templates ✅
+- Quick-select category chips with 8 categories
+- Auto-fill textarea with customizable templates
+- Emoji icons for visual appeal
 
-### 1.2 Smart Input Assistance
-- **Priority**: High
-- **Description**: Real-time writing guidance
-- **Implementation**:
-  - Character counter with visual progress bar
-  - Suggestion chips for common phrases ("Saya ingin melaporkan...", "Sudah berlangsung sejak...")
-  - Tone indicator (casual → formal meter)
-  - Readability score display
-  - Auto-capitalize sentences
-  - Spell check highlighting (browser native)
+### 1.2 Smart Input Assistance ✅ (Partial)
+- Character counter with visual progress bar (red → yellow → green)
+- Suggestion chips for common phrases
+- Auto-capitalize sentences
+- ⏳ Pending: Tone indicator, readability score (needs backend)
+
+### 1.4 Auto-Save & Draft Management ✅
+- Auto-save every 10 seconds
+- Visual indicator showing save status
+- Restore draft on page load
+- Timestamp display
+
+### 1.5 Enhanced History View ✅
+- Search/filter by keyword
+- Sort by newest/oldest
+- Quick actions (copy, delete)
+- Bulk delete with confirmation
+- Statistics card (total, avg length)
+- Empty states with CTAs
+
+---
+
+## 1. Core UX Enhancements (Remaining)
 
 ### 1.3 Progressive Disclosure Form
 - **Priority**: High
@@ -34,29 +42,6 @@
   - Progress indicator at top
   - Back/Next navigation
   - Save progress in localStorage
-
-### 1.4 Auto-Save & Draft Management
-- **Priority**: High
-- **Description**: Never lose work
-- **Implementation**:
-  - Auto-save every 10 seconds
-  - "Draft saved" toast notification
-  - Restore draft on page load with prompt
-  - Multiple draft slots (last 3 drafts)
-  - Draft timestamp display
-  - "Clear all drafts" option
-
-### 1.5 Enhanced History View
-- **Priority**: High
-- **Description**: Better complaint history management
-- **Implementation**:
-  - Search/filter by keyword
-  - Sort by date/category
-  - Preview on hover
-  - Quick actions (copy, edit, delete)
-  - Bulk delete with checkboxes
-  - Export history as JSON
-  - Statistics card (total complaints, most used category)
 
 ## 2. Visual & Interaction Design
 
@@ -393,14 +378,14 @@
 
 ## Implementation Roadmap
 
-### Phase 1: Core UX (Week 1-2)
-- Complaint templates
-- Smart input assistance
-- Auto-save & drafts
-- Enhanced history
-- Micro-interactions
-- Loading states
-- Error states
+### ✅ Phase 1: Core UX (Week 1-2) - 57% Complete
+- ✅ Complaint templates
+- ✅ Smart input assistance (partial)
+- ✅ Auto-save & drafts
+- ✅ Enhanced history
+- ⏳ Micro-interactions
+- ⏳ Loading states
+- ⏳ Error states
 
 ### Phase 2: Advanced UI (Week 3-4)
 - Preview modal
