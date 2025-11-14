@@ -117,4 +117,13 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Micro-interactions */
+  button {
+    @apply transition-transform active:scale-95;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
 }

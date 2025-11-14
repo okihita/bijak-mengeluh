@@ -20,6 +20,8 @@ import { BottomNavigation } from "@/components/bottom-navigation";
 import { complaintTemplates } from "@/lib/templates";
 import { usePersistentState, useAutoSave } from "@/lib/hooks";
 import { suggestionPhrases } from "@/lib/suggestions";
+import { Skeleton } from "@/components/ui/skeleton";
+import confetti from "canvas-confetti";
 
 type SuggestedContact = {
   name: string;
@@ -277,9 +279,10 @@ const ComplaintForm = ({
 
 type ErrorMessageProps = {
   error: string | null;
+  onRetry?: () => void;
 };
 
-const ErrorMessage = ({ error }: ErrorMessageProps) => {
+const ErrorMessage = ({ error, onRetry }: ErrorMessageProps) => {
   if (!error) {
     return null;
   }
@@ -287,12 +290,18 @@ const ErrorMessage = ({ error }: ErrorMessageProps) => {
   return (
     <Card className="w-full mt-6 shadow-md bg-red-50 border-red-200 dark:bg-red-950/30 dark:border-red-800/50">
       <CardHeader>
-        <CardTitle className="text-lg text-red-700 dark:text-red-400">
+        <CardTitle className="text-lg text-red-700 dark:text-red-400 flex items-center gap-2">
+          <AlertTriangle className="h-5 w-5" />
           Waduh, Eror
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-4">
+      <CardContent className="p-4 space-y-3">
         <p className="text-red-600 dark:text-red-400">{error}</p>
+        {onRetry && (
+          <Button onClick={onRetry} variant="outline" size="sm">
+            Coba Lagi
+          </Button>
+        )}
       </CardContent>
     </Card>
   );
@@ -359,9 +368,10 @@ const SuggestedContacts = ({
     </CardHeader>
     <CardContent className="p-4">
       {isLoading && !contacts.length && (
-        <p className="text-base text-gray-500 dark:text-gray-400">
-          Lagi nyari...
-        </p>
+        <div className="space-y-3">
+          <Skeleton className="h-16 w-full" />
+          <Skeleton className="h-16 w-full" />
+        </div>
       )}
       {contacts.length > 0 && (
         <div className="space-y-4">
@@ -456,8 +466,14 @@ const GeneratedComplaint = ({
       </CardHeader>
       <CardContent className="p-4 min-h-[300px]">
         {isLoading && (
-          <div className="flex items-center justify-center h-full py-10">
-            <Spinner className="h-10 w-10 text-gray-400" />
+          <div className="space-y-3">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-3/4" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-5/6" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-2/3" />
           </div>
         )}
         {generatedText && (
@@ -479,6 +495,7 @@ export default function HomePage() {
   );
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [lastSubmittedInput, setLastSubmittedInput] = useState<string>("");
 
   const [generatedText, setGeneratedText] = useState<string>("");
   const [suggestedContacts, setSuggestedContacts] = useState<
@@ -597,6 +614,7 @@ export default function HomePage() {
       return;
     }
 
+    setLastSubmittedInput(userInput);
     setIsLoading(true);
     setGeneratedText("");
     setSuggestedContacts([]);
@@ -631,10 +649,17 @@ export default function HomePage() {
       setRationale(data.rationale);
       setSocialHandle(data.social_handle_info);
 
+      // Celebrate success with confetti!
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+
       // Save prompt to history
       setPromptHistory((prevHistory) =>
         [userInput, ...prevHistory].slice(0, 20),
-      ); // Keep last 10 prompts
+      );
     } catch (err: unknown) {
       let errorMessage = "Gagal bikin respons. Coba lagi, ya.";
       if (err instanceof Error) {
@@ -647,6 +672,18 @@ export default function HomePage() {
       setAnalysisSteps((prev) =>
         prev.map((s) => ({ ...s, status: "complete" })),
       );
+    }
+  };
+
+  const handleRetry = () => {
+    if (lastSubmittedInput) {
+      setUserInput(lastSubmittedInput);
+      const form = document.querySelector("form");
+      if (form) {
+        form.dispatchEvent(
+          new Event("submit", { cancelable: true, bubbles: true })
+        );
+      }
     }
   };
 
@@ -724,7 +761,7 @@ export default function HomePage() {
             isSaving={isSaving}
           />
 
-          <ErrorMessage error={error} />
+          <ErrorMessage error={error} onRetry={handleRetry} />
 
           {(isLoading || generatedText) && (
             <div className="w-full mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
