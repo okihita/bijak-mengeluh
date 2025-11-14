@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { AlertTriangle, Check, Spinner } from "@/components/icons";
-import { History, Share, X } from "lucide-react";
+import { History, Share, X, Instagram } from "lucide-react";
 import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { complaintTemplates } from "@/lib/templates";
@@ -78,7 +78,24 @@ const useWebShare = () => {
     }
   };
 
-  return { share };
+  const shareAsImage = async (text: string, ministry?: string) => {
+    const { generateShareImage } = await import("@/lib/share-image");
+    const blob = await generateShareImage(text, ministry);
+    const file = new File([blob], "keluhan.png", { type: "image/png" });
+
+    if (navigator.share && navigator.canShare?.({ files: [file] })) {
+      await navigator.share({ files: [file] });
+    } else {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "keluhan.png";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  };
+
+  return { share, shareAsImage };
 };
 
 type ComplaintFormProps = {
@@ -557,15 +574,18 @@ type GeneratedComplaintProps = {
   generatedText: string;
   isLoading: boolean;
   originalText: string;
+  ministry?: string;
 };
 
 const GeneratedComplaint = ({
   generatedText,
   isLoading,
   originalText,
+  ministry,
 }: GeneratedComplaintProps) => {
   const { copied, copy } = useCopyToClipboard();
-  const { share } = useWebShare();
+  const { share, shareAsImage } = useWebShare();
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
 
@@ -609,6 +629,22 @@ const GeneratedComplaint = ({
               >
                 <Share className="h-4 w-4 mr-2" />
                 Bagikan
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={async () => {
+                  setIsGeneratingImage(true);
+                  try {
+                    await shareAsImage(generatedText, ministry);
+                  } finally {
+                    setIsGeneratingImage(false);
+                  }
+                }}
+                disabled={isGeneratingImage}
+              >
+                <Instagram className="h-4 w-4 mr-2" />
+                {isGeneratingImage ? "Membuat..." : "Instagram"}
               </Button>
               <Button
                 variant="outline"
@@ -1018,6 +1054,7 @@ export default function HomePage() {
                 generatedText={generatedText}
                 isLoading={isLoading}
                 originalText={lastSubmittedInput}
+                ministry={suggestedContacts[0]?.name}
               />
               
               {/* Secondary Info in 2-column grid on desktop */}
