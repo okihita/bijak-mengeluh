@@ -5,9 +5,25 @@ This directory contains all project documentation organized by category.
 ## Quick Links
 
 - [Getting Started](../README.md) - Main README
+- [Development Workflow](./DEVELOPMENT.md) - **START HERE for development**
 - [Development History](#development-history)
 - [Testing](#testing)
 - [Deployment](#deployment)
+
+---
+
+## 🚨 For Developers & AI Agents
+
+**ALWAYS run local dev server before making changes:**
+
+```bash
+cd /Users/okihita/ArcaneSanctum/Bijak-Mengeluh/aic-complaint-app
+npm run dev
+```
+
+**Test at:** http://localhost:3000
+
+See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete workflow.
 
 ---
 

@@ -4,8 +4,22 @@ AI-powered complaint letter generator for Indonesian public services. This app h
 
 > 📚 **Full documentation available in [/docs](./docs/README.md)**
 
+## 🚨 For Developers
+
+**ALWAYS run local dev server before making changes:**
+
+```bash
+npm run dev
+# Test at http://localhost:3000
+```
+
+See [Development Workflow](./docs/DEVELOPMENT.md) for complete guide.
+
+---
+
 ## Quick Links
 
+- 🛠️ [Development Workflow](./docs/DEVELOPMENT.md) - **START HERE**
 - 📖 [Documentation Index](./docs/README.md)
 - 🗺️ [Product Roadmap](./docs/ROADMAP.md)
 - 🧪 [Testing Guide](./docs/testing/usability-test-guide.md)
