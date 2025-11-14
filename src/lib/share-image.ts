@@ -33,7 +33,7 @@ export const generateShareImage = async (
         .replace(/'/g, "&#039;");
 
       container.innerHTML = `
-        <div style="background: white; border-radius: 24px; padding: 60px;">
+        <div style="background: #ffffff; border-radius: 24px; padding: 60px;">
           <div style="font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 40px;">
             📝 Surat Keluhan
           </div>
@@ -49,8 +49,8 @@ export const generateShareImage = async (
 
       document.body.appendChild(container);
 
-      // Wait for fonts to load
-      await document.fonts.ready;
+      // Small delay to ensure rendering
+      await new Promise(resolve => setTimeout(resolve, 100));
 
       const canvas = await html2canvas(container, {
         scale: 2,
@@ -70,6 +70,9 @@ export const generateShareImage = async (
         }
       }, "image/png", 1.0);
     } catch (error) {
+      // Clean up if container still exists
+      const containers = document.querySelectorAll('[style*="left: -10000px"]');
+      containers.forEach(c => c.remove());
       reject(error);
     }
   });
