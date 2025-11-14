@@ -93,9 +93,14 @@ const ComplaintForm = ({
   lastSaved,
   isSaving,
 }: ComplaintFormProps) => {
+  const [mounted, setMounted] = useState(false);
   const charCount = userInput.trim().length;
   const minChars = 20;
   const isTooShort = charCount <= minChars;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleTemplateSelect = (template: string) => {
     setUserInput(template);
@@ -161,17 +166,21 @@ const ComplaintForm = ({
             />
             <div className="flex justify-between items-center">
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                {isSaving ? (
-                  <span className="flex items-center gap-1">
-                    <Spinner className="h-3 w-3" />
-                    Menyimpan...
-                  </span>
-                ) : lastSaved ? (
-                  <span className="flex items-center gap-1">
-                    <Check className="h-3 w-3 text-green-500" />
-                    Tersimpan {formatLastSaved(lastSaved)}
-                  </span>
-                ) : null}
+                {mounted && (
+                  <>
+                    {isSaving ? (
+                      <span className="flex items-center gap-1">
+                        <Spinner className="h-3 w-3" />
+                        Menyimpan...
+                      </span>
+                    ) : lastSaved ? (
+                      <span className="flex items-center gap-1">
+                        <Check className="h-3 w-3 text-green-500" />
+                        Tersimpan {formatLastSaved(lastSaved)}
+                      </span>
+                    ) : null}
+                  </>
+                )}
               </p>
               <p
                 className={`text-xs pr-1 ${
