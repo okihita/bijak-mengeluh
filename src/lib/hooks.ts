@@ -4,17 +4,22 @@ export const usePersistentState = <T,>(
   key: string,
   initialValue: T,
 ): [T, React.Dispatch<React.SetStateAction<T>>] => {
-  const [value, setValue] = useState<T>(() => {
-    if (typeof window !== "undefined") {
-      const storedValue = localStorage.getItem(key);
-      return storedValue ? JSON.parse(storedValue) : initialValue;
-    }
-    return initialValue;
-  });
+  const [value, setValue] = useState<T>(initialValue);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    setMounted(true);
+    const storedValue = localStorage.getItem(key);
+    if (storedValue) {
+      setValue(JSON.parse(storedValue));
+    }
+  }, [key]);
+
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  }, [key, value, mounted]);
 
   return [value, setValue];
 };
