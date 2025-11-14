@@ -18,6 +18,7 @@ import { History, Share, X } from "lucide-react";
 import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { complaintTemplates } from "@/lib/templates";
+import { usePersistentState, useAutoSave } from "@/lib/hooks";
 
 type SuggestedContact = {
   name: string;
@@ -75,30 +76,13 @@ const useWebShare = () => {
   return { share };
 };
 
-const usePersistentState = <T,>(
-  key: string,
-  initialValue: T,
-): [T, React.Dispatch<React.SetStateAction<T>>] => {
-  const [value, setValue] = useState<T>(() => {
-    if (typeof window !== "undefined") {
-      const storedValue = localStorage.getItem(key);
-      return storedValue ? JSON.parse(storedValue) : initialValue;
-    }
-    return initialValue;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
-
-  return [value, setValue];
-};
-
 type ComplaintFormProps = {
   handleSubmit: (event: FormEvent<HTMLFormElement>) => Promise<void>;
   userInput: string;
   setUserInput: (value: string) => void;
   isLoading: boolean;
+  lastSaved: Date | null;
+  isSaving: boolean;
 };
 
 const ComplaintForm = ({
@@ -106,6 +90,8 @@ const ComplaintForm = ({
   userInput,
   setUserInput,
   isLoading,
+  lastSaved,
+  isSaving,
 }: ComplaintFormProps) => {
   const charCount = userInput.trim().length;
   const minChars = 20;
@@ -113,6 +99,18 @@ const ComplaintForm = ({
 
   const handleTemplateSelect = (template: string) => {
     setUserInput(template);
+  };
+
+  const formatLastSaved = (date: Date | null) => {
+    if (!date) return "";
+    const now = new Date();
+    const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
+    if (diff < 60) return "baru saja";
+    if (diff < 3600) return `${Math.floor(diff / 60)} menit lalu`;
+    return date.toLocaleTimeString("id-ID", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   };
 
   return (
@@ -161,15 +159,30 @@ const ComplaintForm = ({
               onChange={(e) => setUserInput(e.target.value)}
               disabled={isLoading}
             />
-            <p
-              className={`text-xs text-right pr-1 ${
-                isTooShort
-                  ? "text-red-500 dark:text-red-400"
-                  : "text-green-600 dark:text-green-400"
-              }`}
-            >
-              {charCount} / {minChars} karakter minimum
-            </p>
+            <div className="flex justify-between items-center">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                {isSaving ? (
+                  <span className="flex items-center gap-1">
+                    <Spinner className="h-3 w-3" />
+                    Menyimpan...
+                  </span>
+                ) : lastSaved ? (
+                  <span className="flex items-center gap-1">
+                    <Check className="h-3 w-3 text-green-500" />
+                    Tersimpan {formatLastSaved(lastSaved)}
+                  </span>
+                ) : null}
+              </p>
+              <p
+                className={`text-xs pr-1 ${
+                  isTooShort
+                    ? "text-red-500 dark:text-red-400"
+                    : "text-green-600 dark:text-green-400"
+                }`}
+              >
+                {charCount} / {minChars} karakter minimum
+              </p>
+            </div>
           </div>
           <Button
             type="submit"
@@ -388,6 +401,7 @@ const GeneratedComplaint = ({
 
 export default function HomePage() {
   const [userInput, setUserInput] = usePersistentState("userInput", "");
+  const { lastSaved, isSaving } = useAutoSave(userInput, "draft", 10000);
   const [promptHistory, setPromptHistory] = usePersistentState<string[]>(
     "promptHistory",
     [],
@@ -635,6 +649,8 @@ export default function HomePage() {
             userInput={userInput}
             setUserInput={setUserInput}
             isLoading={isLoading}
+            lastSaved={lastSaved}
+            isSaving={isSaving}
           />
 
           <ErrorMessage error={error} />
