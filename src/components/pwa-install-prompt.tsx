@@ -40,17 +40,19 @@ export const PwaInstallPrompt = () => {
     setDeferredPrompt(null);
   };
 
-  if (!mounted || !deferredPrompt) return <div className="h-9 w-9" />;
-
   return (
-    <Button
-      onClick={handleInstallClick}
-      variant="outline"
-      size="icon"
-      className="h-9 w-9"
-      title="Unduh aplikasi ini"
-    >
-      <Download className="h-4 w-4" />
-    </Button>
+    <div className={`h-9 w-9 transition-opacity duration-300 ${!mounted || !deferredPrompt ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      {mounted && deferredPrompt && (
+        <Button
+          onClick={handleInstallClick}
+          variant="outline"
+          size="icon"
+          className="h-9 w-9"
+          title="Unduh aplikasi ini"
+        >
+          <Download className="h-4 w-4" />
+        </Button>
+      )}
+    </div>
   );
 };

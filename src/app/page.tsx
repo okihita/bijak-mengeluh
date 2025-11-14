@@ -183,7 +183,7 @@ const ComplaintForm = ({
             <Textarea
               id="complaint-description"
               placeholder="Tulis keluhan kamu di sini..."
-              className="min-h-[120px] text-base resize-none focus:ring-2 focus:ring-primary/50 pb-6"
+              className="min-h-[80px] text-base resize-none focus:ring-2 focus:ring-primary/50"
               value={userInput}
               onChange={handleTextChange}
               disabled={isLoading}
@@ -192,10 +192,10 @@ const ComplaintForm = ({
               aria-invalid={isTooShort}
               autoComplete="off"
             />
-            {isTooShort && (
+            {isTooShort && charCount > 0 && (
               <p
                 id="char-count"
-                className="absolute bottom-3 right-3 text-xs text-red-500 bg-white dark:bg-gray-950 px-1"
+                className="absolute bottom-1.5 right-2 text-xs text-red-500 bg-white dark:bg-gray-950 px-1 rounded"
                 aria-live="polite"
               >
                 {charCount}/{minChars}
@@ -236,15 +236,10 @@ const ComplaintForm = ({
             </div>
           )}
 
-          {/* Category Templates - Collapsed by Default */}
-          <details className="group">
-            <summary className="cursor-pointer list-none">
-              <div className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                <span className="text-xs font-medium">📋 Template</span>
-                <span className="text-gray-400 group-open:rotate-180 transition-transform text-xs">▼</span>
-              </div>
-            </summary>
-            <div className="mt-2 flex flex-wrap gap-1.5 p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+          {/* Category Templates - Open by Default */}
+          <div>
+            <p className="text-xs text-muted-foreground mb-1.5">📋 Template:</p>
+            <div className="flex flex-wrap gap-1.5">
               {complaintTemplates.map((template) => (
                 <Button
                   key={template.id}
@@ -259,7 +254,7 @@ const ComplaintForm = ({
                 </Button>
               ))}
             </div>
-          </details>
+          </div>
 
           {/* Tone Selector - Clear Visual Hierarchy */}
           <div className="grid grid-cols-3 gap-2">
