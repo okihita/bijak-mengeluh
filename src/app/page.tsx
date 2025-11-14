@@ -88,6 +88,8 @@ type ComplaintFormProps = {
   isLoading: boolean;
   lastSaved: Date | null;
   isSaving: boolean;
+  tone: string;
+  setTone: (tone: string) => void;
 };
 
 const ComplaintForm = ({
@@ -97,6 +99,8 @@ const ComplaintForm = ({
   isLoading,
   lastSaved,
   isSaving,
+  tone,
+  setTone,
 }: ComplaintFormProps) => {
   const [mounted, setMounted] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
@@ -178,6 +182,41 @@ const ComplaintForm = ({
                   {template.label}
                 </Button>
               ))}
+            </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label className="text-sm font-medium">
+              Pilih Nada Komplain
+            </Label>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                type="button"
+                variant={tone === "formal" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setTone("formal")}
+                disabled={isLoading}
+              >
+                😐 Formal
+              </Button>
+              <Button
+                type="button"
+                variant={tone === "funny" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setTone("funny")}
+                disabled={isLoading}
+              >
+                😄 Lucu
+              </Button>
+              <Button
+                type="button"
+                variant={tone === "angry" ? "default" : "outline"}
+                size="sm"
+                onClick={() => setTone("angry")}
+                disabled={isLoading}
+              >
+                😠 Kesel
+              </Button>
             </div>
           </div>
 
@@ -414,13 +453,18 @@ const SuggestedContacts = ({
                 className="p-3 border rounded-lg dark:border-gray-700 transition-all"
               >
                 <div
-                  className="flex justify-between items-center cursor-pointer"
+                  className="flex justify-between items-start gap-3 cursor-pointer"
                   onClick={() =>
                     setExpandedIndex(expandedIndex === index ? null : index)
                   }
                 >
-                  <span className="font-medium text-base">{contact.name}</span>
-                  <div className="flex items-center gap-2">
+                  <span 
+                    className="font-medium text-base flex-1 line-clamp-2" 
+                    title={contact.name}
+                  >
+                    {contact.name}
+                  </span>
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     <Badge
                       variant="secondary"
                       className="dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
@@ -605,6 +649,7 @@ const GeneratedComplaint = ({
 export default function HomePage() {
   const [userInput, setUserInput] = usePersistentState("userInput", "");
   const { lastSaved, isSaving } = useAutoSave(userInput, "draft", 10000);
+  const [tone, setTone] = useState<string>("formal");
   const [promptHistory, setPromptHistory] = usePersistentState<string[]>(
     "promptHistory",
     [],
@@ -762,7 +807,10 @@ export default function HomePage() {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt: userInput }),
+        body: JSON.stringify({ 
+          prompt: userInput,
+          tone: tone 
+        }),
       });
 
       if (!response.ok) {
@@ -907,6 +955,8 @@ export default function HomePage() {
             isLoading={isLoading}
             lastSaved={lastSaved}
             isSaving={isSaving}
+            tone={tone}
+            setTone={setTone}
           />
 
           <ErrorMessage error={error} onRetry={handleRetry} />
