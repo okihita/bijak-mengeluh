@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, JSX, useEffect, useState } from "react";
+import { FormEvent, JSX, useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -519,19 +519,24 @@ const GeneratedComplaint = ({
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (generatedText && !isLoading && cardRef.current) {
+      setTimeout(() => {
+        cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }, [generatedText, isLoading]);
 
   return (
     <>
-      <Card className="shadow-xl dark:bg-card border-2 border-primary/20">
-        <CardHeader className="space-y-4 pb-4">
+      <Card ref={cardRef} className="shadow-xl dark:bg-card border-2 border-primary/20">
+        <CardHeader className="space-y-3 pb-3 pt-4">
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-1">
-              <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                ✨ Komplain Kamu Sudah Jadi!
-              </CardTitle>
-              <CardDescription className="text-base">
-                Salin dan kirim ke akun resmi kementerian terkait
-              </CardDescription>
+              <CardTitle className="text-lg font-bold">✨ Sudah Jadi!</CardTitle>
+              <CardDescription className="text-sm">Salin & kirim ke kementerian terkait</CardDescription>
             </div>
           </div>
           
@@ -540,7 +545,7 @@ const GeneratedComplaint = ({
               <Button
                 size="lg"
                 onClick={() => copy(generatedText)}
-                className="flex-1 sm:flex-none font-semibold"
+                className="flex-1 sm:flex-none font-semibold min-w-[140px]"
               >
                 {copied ? (
                   <>
@@ -549,7 +554,7 @@ const GeneratedComplaint = ({
                   </>
                 ) : (
                   <>
-                    📋 Salin Komplain
+                    📋 Salin
                   </>
                 )}
               </Button>
@@ -557,6 +562,7 @@ const GeneratedComplaint = ({
                 variant="outline"
                 size="lg"
                 onClick={() => share(generatedText)}
+                className="min-w-[100px]"
               >
                 <Share className="h-4 w-4 mr-2" />
                 Bagikan
@@ -573,6 +579,7 @@ const GeneratedComplaint = ({
                   }
                 }}
                 disabled={isGeneratingImage}
+                className="min-w-[110px]"
               >
                 <Instagram className="h-4 w-4 mr-2" />
                 {isGeneratingImage ? "Membuat..." : "Instagram"}
@@ -581,6 +588,7 @@ const GeneratedComplaint = ({
                 variant="outline"
                 size="lg"
                 onClick={() => setShowComparison(!showComparison)}
+                className="min-w-[120px]"
               >
                 {showComparison ? "Sembunyikan" : "Bandingkan"}
               </Button>
@@ -588,47 +596,45 @@ const GeneratedComplaint = ({
           )}
         </CardHeader>
         
-        <CardContent className="p-6 min-h-[200px]">
+        <CardContent className="p-4 min-h-[150px]">
           {isLoading && (
-            <div className="space-y-4">
-              <Skeleton className="h-5 w-full" />
-              <Skeleton className="h-5 w-full" />
-              <Skeleton className="h-5 w-4/5" />
-              <Skeleton className="h-5 w-full" />
-              <Skeleton className="h-5 w-3/4" />
+            <div className="space-y-3">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-4/5" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
             </div>
           )}
           
           {generatedText && !showComparison && (
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700">
-                <p className="text-lg leading-relaxed text-gray-900 dark:text-gray-100 whitespace-pre-wrap m-0">
-                  {generatedText}
-                </p>
-              </div>
+            <div className="prose dark:prose-invert max-w-none">
+              <p className="text-base leading-relaxed whitespace-pre-wrap m-0">
+                {generatedText}
+              </p>
             </div>
           )}
           
           {generatedText && showComparison && (
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-3">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <Badge variant="outline" className="text-xs">Original</Badge>
                   <span className="text-xs text-gray-500">{originalText.length} karakter</span>
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
                   <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
                     {originalText}
                   </p>
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <Badge className="text-xs">AI Generated</Badge>
                   <span className="text-xs text-gray-500">{generatedText.length} karakter</span>
                 </div>
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20 p-4 rounded-lg border-2 border-primary/20">
-                  <p className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap leading-relaxed">
+                <div className="bg-primary/5 dark:bg-primary/10 p-3 rounded-lg border border-primary/20">
+                  <p className="text-sm whitespace-pre-wrap leading-relaxed">
                     {generatedText}
                   </p>
                 </div>
