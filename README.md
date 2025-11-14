@@ -1,8 +1,10 @@
-# Bijak Mengeluh
+# Bijak Mengeluh - Frontend
 
-AI-powered complaint letter generator for Indonesian public services. This app helps citizens write effective complaint letters and identifies the appropriate government agencies to contact.
+> 🎯 AI-powered complaint letter generator for Indonesian public services
 
-> 📚 **Full documentation available in [/docs](./docs/README.md)**
+**Part of the Bijak Mengeluh ecosystem** | [Backend Repo](https://github.com/okihita/bijak-mengeluh-ai-backend) | [Style Guide](../STYLE_GUIDE.md)
+
+---
 
 ## 🚨 For Developers
 

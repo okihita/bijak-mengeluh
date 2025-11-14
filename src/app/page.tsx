@@ -858,7 +858,7 @@ export default function HomePage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
-          prompt: userInput,
+          complaint: userInput,
           tone: tone 
         }),
       });
