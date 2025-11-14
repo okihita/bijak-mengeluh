@@ -50,7 +50,7 @@ export const PwaInstallPrompt = () => {
     setIsVisible(false);
   };
 
-  if (!isVisible) return null;
+  if (!isVisible || !deferredPrompt) return null;
 
   return (
     <Button

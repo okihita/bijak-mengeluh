@@ -170,15 +170,20 @@ const ComplaintForm = ({
 
   return (
     <Card className="shadow-lg dark:bg-card">
+      <CardHeader className="text-center pb-2 pt-3">
+        <CardTitle className="text-xl font-bold">Curhatin Aja Keluhanmu</CardTitle>
+        <p className="text-xs text-muted-foreground mt-1">AI bantu bikin surat & kasih tau lapor ke mana 🎯</p>
+        <p className="text-xs text-muted-foreground/60">Bijak sana, bijak sini, bijak di mana-mana!</p>
+      </CardHeader>
       <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-3 p-4">
+        <CardContent className="space-y-3 p-4 pt-0">
           
           {/* Main Textarea - Most Important Element */}
-          <div>
+          <div className="relative">
             <Textarea
               id="complaint-description"
               placeholder="Tulis keluhan kamu di sini..."
-              className="min-h-[120px] text-base resize-none focus:ring-2 focus:ring-primary/50"
+              className="min-h-[120px] text-base resize-none focus:ring-2 focus:ring-primary/50 pb-6"
               value={userInput}
               onChange={handleTextChange}
               disabled={isLoading}
@@ -187,9 +192,18 @@ const ComplaintForm = ({
               aria-invalid={isTooShort}
               autoComplete="off"
             />
+            {isTooShort && (
+              <p
+                id="char-count"
+                className="absolute bottom-2 right-2 text-xs text-red-500"
+                aria-live="polite"
+              >
+                {charCount}/{minChars}
+              </p>
+            )}
             
             {/* Progress bar - Visual feedback */}
-            <div className="space-y-1 mt-2">
+            <div className="mt-2">
               <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                 <div
                   className={`h-full transition-all duration-300 ${
@@ -201,20 +215,6 @@ const ComplaintForm = ({
                   }`}
                   style={{ width: `${progress}%` }}
                 />
-              </div>
-              
-              <div className="flex justify-end">
-                <p
-                  id="char-count"
-                  className={`text-xs font-medium ${
-                    isTooShort
-                      ? "text-red-500"
-                      : "text-green-600"
-                  }`}
-                  aria-live="polite"
-                >
-                  {charCount}/{minChars}
-                </p>
               </div>
             </div>
           </div>
@@ -955,7 +955,7 @@ export default function HomePage() {
         {error && `Error: ${error}`}
       </div>
       
-      <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
+      <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-14">
         <div className="w-full max-w-3xl mx-auto">
           <div className="flex justify-between items-center mb-2">
             <PwaInstallPrompt />
