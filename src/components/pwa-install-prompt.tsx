@@ -52,12 +52,7 @@ export const PwaInstallPrompt = () => {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
 
-    if (outcome === "accepted") {
-      console.log("User accepted the A2HS prompt");
-    } else {
-      console.log("User dismissed the A2HS prompt");
-    }
-
+    // User choice handled
     setDeferredPrompt(null);
     setIsVisible(false);
   };
