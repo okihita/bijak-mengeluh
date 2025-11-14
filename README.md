@@ -2,7 +2,19 @@
 
 AI-powered complaint letter generator for Indonesian public services. This app helps citizens write effective complaint letters and identifies the appropriate government agencies to contact.
 
-## Recent Updates (Phase 1 - Nov 2025)
+> 📚 **Full documentation available in [/docs](./docs/README.md)**
+
+## Quick Links
+
+- 📖 [Documentation Index](./docs/README.md)
+- 🗺️ [Product Roadmap](./docs/ROADMAP.md)
+- 🧪 [Testing Guide](./docs/testing/usability-test-guide.md)
+- 🚀 [Deployment Guide](./docs/deployment/deployment-guide.md)
+- 📜 [Development History](./docs/README.md#development-history)
+
+---
+
+## Recent Updates (Phase 4 - Nov 14, 2025)
 
 ### Accessibility (WCAG 2.1 AA Compliant)
 - ♿ **Full screen reader support** with ARIA labels and live regions
