@@ -4,19 +4,15 @@ export const generateShareImage = async (
 ): Promise<Blob> => {
   return new Promise(async (resolve, reject) => {
     try {
-      // Dynamically import html2canvas
       const html2canvas = (await import("html2canvas")).default;
       
-      const container = document.createElement("div");
-      container.style.cssText = `
-        width: 1080px;
-        padding: 80px;
-        background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        position: absolute;
-        left: -10000px;
-        top: 0;
-      `;
+      // Create isolated iframe to avoid CSS inheritance
+      const iframe = document.createElement('iframe');
+      iframe.style.cssText = 'position: absolute; left: -10000px; width: 1080px; height: 2000px;';
+      document.body.appendChild(iframe);
+      
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (!iframeDoc) throw new Error("Cannot access iframe document");
 
       const escapedText = text
         .replace(/&/g, "&amp;")
@@ -32,27 +28,40 @@ export const generateShareImage = async (
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 
-      container.innerHTML = `
-        <div style="background: #ffffff; border-radius: 24px; padding: 60px;">
-          <div style="font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 40px;">
-            📝 Surat Keluhan
+      iframeDoc.open();
+      iframeDoc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { margin: 0; padding: 0; }
+          </style>
+        </head>
+        <body>
+          <div style="width: 1080px; padding: 80px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+            <div style="background: #ffffff; border-radius: 24px; padding: 60px;">
+              <div style="font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 40px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                📝 Surat Keluhan
+              </div>
+              <div style="font-size: 24px; line-height: 1.8; color: #374151; white-space: pre-wrap; word-wrap: break-word; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                ${escapedText.length > 400 ? escapedText.substring(0, 400) + "..." : escapedText}
+              </div>
+              ${escapedMinistry ? `<div style="margin-top: 40px; padding: 20px; background: #f3f4f6; border-radius: 12px; font-size: 20px; color: #6b7280; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">📍 ${escapedMinistry}</div>` : ""}
+              <div style="margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; font-size: 20px; color: #9ca3af; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                bijakmengeluh.id
+              </div>
+            </div>
           </div>
-          <div style="font-size: 24px; line-height: 1.8; color: #374151; white-space: pre-wrap; word-wrap: break-word;">
-            ${escapedText.length > 400 ? escapedText.substring(0, 400) + "..." : escapedText}
-          </div>
-          ${escapedMinistry ? `<div style="margin-top: 40px; padding: 20px; background: #f3f4f6; border-radius: 12px; font-size: 20px; color: #6b7280;">📍 ${escapedMinistry}</div>` : ""}
-          <div style="margin-top: 60px; padding-top: 40px; border-top: 2px solid #e5e7eb; font-size: 20px; color: #9ca3af; text-align: center;">
-            bijakmengeluh.id
-          </div>
-        </div>
-      `;
+        </body>
+        </html>
+      `);
+      iframeDoc.close();
 
-      document.body.appendChild(container);
+      // Wait for rendering
+      await new Promise(resolve => setTimeout(resolve, 200));
 
-      // Small delay to ensure rendering
-      await new Promise(resolve => setTimeout(resolve, 100));
-
-      const canvas = await html2canvas(container, {
+      const canvas = await html2canvas(iframeDoc.body, {
         scale: 2,
         backgroundColor: null,
         logging: false,
@@ -60,7 +69,7 @@ export const generateShareImage = async (
         allowTaint: true,
       });
 
-      document.body.removeChild(container);
+      document.body.removeChild(iframe);
 
       canvas.toBlob((blob) => {
         if (blob) {
@@ -70,9 +79,8 @@ export const generateShareImage = async (
         }
       }, "image/png", 1.0);
     } catch (error) {
-      // Clean up if container still exists
-      const containers = document.querySelectorAll('[style*="left: -10000px"]');
-      containers.forEach(c => c.remove());
+      // Cleanup
+      document.querySelectorAll('iframe[style*="left: -10000px"]').forEach(el => el.remove());
       reject(error);
     }
   });
