@@ -81,17 +81,22 @@ const useWebShare = () => {
 
   const shareAsImage = async (text: string, ministry?: string) => {
     try {
+      console.log("Starting image generation...");
       const { generateShareImage } = await import("@/lib/share-image");
+      console.log("Module loaded, generating image...");
       const blob = await generateShareImage(text, ministry);
+      console.log("Image generated, blob size:", blob.size);
       const file = new File([blob], "keluhan.png", { type: "image/png" });
 
       if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        console.log("Using native share...");
         await navigator.share({ 
           files: [file],
           title: "Surat Keluhan",
           text: "Surat keluhan dari bijakmengeluh.id"
         });
       } else {
+        console.log("Downloading image...");
         // Fallback: download image
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
@@ -101,10 +106,11 @@ const useWebShare = () => {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+        console.log("Download triggered");
       }
     } catch (error) {
       console.error("Error sharing image:", error);
-      alert("Gagal membuat gambar. Silakan coba lagi.");
+      alert(`Gagal membuat gambar: ${error instanceof Error ? error.message : "Unknown error"}`);
     }
   };
 
