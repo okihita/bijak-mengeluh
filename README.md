@@ -2,90 +2,26 @@
 
 > 🇮🇩 AI-powered complaint letter generator for Indonesian public services
 
-**Helping Indonesian citizens write effective complaints and find the right government agencies to contact.**
+**Helping Indonesian citizens write effective complaints and find the right government agencies.**
+
+**Live:** https://bijakmengeluh.id | **Version:** 1.5.0
 
 ---
 
-## 🚨 Priority: Cost Optimization
+## 📊 Current Status
 
-**Current Monthly Cost:** ~$77-85  
-**Target:** < $50/month
+### ✅ Production Ready
+- **Frontend:** Next.js 16 + React 19 (Vercel)
+- **Backend:** AWS Lambda + Bedrock (ap-southeast-2)
+- **Coverage:** 34 National Ministries
+- **Cost:** ~$77-85/month
 
-### Immediate Actions Needed
-1. **Review Pinecone plan** - $70/month (biggest cost)
-   - Check if serverless is cheaper than pod
-   - Consider alternatives (Weaviate, Qdrant)
-2. **Implement request caching** - Reduce Bedrock calls
-3. **Add rate limiting** - Prevent abuse
-
-See [COST_ANALYSIS.md](./COST_ANALYSIS.md) for details.
-
----
-
-## 🤖 For AI Agents
-
-### When Updating Documentation
-**If any .md file exceeds 500 lines:**
-1. Create a summary at the top (max 50 lines)
-2. Move detailed history to `docs/archive/[filename]-archive.md`
-3. Keep only current phase and next steps in main file
-4. Link to archive for full history
-
-**Example:**
-```markdown
-# Document Title
-
-## Summary
-[50 lines max - current status and key info]
-
-## Current Phase
-[Active work]
-
-## Next Steps
-[Upcoming work]
-
----
-📜 [Full History](./docs/archive/document-archive.md)
-```
-
----
-
-## 📦 Repositories
-
-This project consists of two main repositories:
-
-### 🎨 [Frontend](./aic-complaint-app)
-Next.js 16 web application with PWA support
-- **Tech:** React 19, TypeScript, Tailwind CSS v4
-- **Features:** Real-time quality scoring, tone selector, dark mode
-- **Deployment:** Vercel (auto-deploy from main)
-- **URL:** https://bijakmengeluh.id
-
-### 🧠 [Backend](./bijak-mengeluh-ai-backend)
-AWS Lambda serverless API with AI processing
-- **Tech:** Python 3.12, AWS Bedrock, Pinecone, DynamoDB
-- **Features:** Parallel processing, ministry matching, social media lookup
-- **Deployment:** AWS SAM (ap-southeast-2)
-- **URL:** https://brain.bijakmengeluh.id
-
----
-
-## 🏗️ Architecture
-
-```
-User Browser → Next.js (Vercel) → API Gateway → Lambda → Bedrock AI
-                                                    ├─→ Pinecone
-                                                    └─→ DynamoDB
-```
-
----
-
-## 📖 Documentation
-
-- [Style Guide](./STYLE_GUIDE.md) - **Unified coding standards**
-- [Frontend Docs](./aic-complaint-app/docs/README.md)
-- [Backend Docs](./bijak-mengeluh-ai-backend/README.MD)
-- [Development Workflow](./aic-complaint-app/docs/DEVELOPMENT.md)
+### 🎯 Next Priority: Cost Reduction
+**Target:** <$50/month (35% reduction)  
+**Plan:** [LOCAL_GOVT_EXPANSION_SPEC.md](./LOCAL_GOVT_EXPANSION_SPEC.md)
+- Replace Pinecone ($70/mo) → DynamoDB ($0.50/mo)
+- Expand to 604 agencies (38 provinces)
+- **Save $840/year**
 
 ---
 
@@ -105,18 +41,125 @@ sam build && sam deploy --profile bijak-mengeluh-aws-iam
 
 ---
 
-## 📝 Unified Naming Conventions
+## 📦 Architecture
 
-| Concept | Term | Frontend | Backend |
-|---------|------|----------|---------|
-| User input | `complaint` | ✅ | ✅ |
-| AI output | `generatedComplaint` | ✅ | ✅ |
-| Government agency | `ministry` | ✅ | ✅ |
-| Confidence | `matchScore` | ✅ | ✅ |
+```
+User → Next.js (Vercel) → API Gateway → Lambda → Bedrock AI
+                                           ├─→ Pinecone (Vector DB)
+                                           └─→ DynamoDB (Metadata)
+```
 
-See [STYLE_GUIDE.md](./STYLE_GUIDE.md) for complete conventions.
+**Tech Stack:**
+- **Frontend:** Next.js 16, React 19, TypeScript, Tailwind v4
+- **Backend:** Python 3.12, AWS Bedrock, Pinecone, DynamoDB
+- **Features:** PWA, Instagram sharing, real-time scoring, dark mode
 
 ---
 
-**Last Updated:** Nov 14, 2025  
-**Version:** Frontend 1.4.0 | Backend 1.1.0
+## 📖 Documentation
+
+### Essential
+- **[LOCAL_GOVT_EXPANSION_SPEC.md](./LOCAL_GOVT_EXPANSION_SPEC.md)** - Next major feature
+- **[COST_ANALYSIS.md](./COST_ANALYSIS.md)** - Cost breakdown & optimization
+- **[STYLE_GUIDE.md](./STYLE_GUIDE.md)** - Coding standards
+
+### Reference
+- [Frontend README](./aic-complaint-app/README.md)
+- [Backend README](./bijak-mengeluh-ai-backend/README.MD)
+- [Development Guide](./docs/DEVELOPMENT.md)
+- [Roadmap](./docs/ROADMAP.md)
+
+---
+
+## 🎯 Roadmap (User Priority)
+
+### Phase 1: Cost Optimization (NEXT)
+**Timeline:** 4 weeks | **Impact:** High | **Cost:** -$70/month
+
+1. ✅ Spec complete: [LOCAL_GOVT_EXPANSION_SPEC.md](./LOCAL_GOVT_EXPANSION_SPEC.md)
+2. ⏳ Replace Pinecone with DynamoDB keyword matching
+3. ⏳ Expand to 604 agencies (38 provinces)
+4. ⏳ Deploy & monitor (parallel run)
+
+**User Benefit:** Find local agencies (Dinas Kesehatan, Dinas PU, etc.)
+
+---
+
+### Phase 2: Local Coverage (Q1 2026)
+**Timeline:** 8 weeks | **Impact:** Very High | **Cost:** $0
+
+1. Add 514 cities/regencies (7,744 agencies total)
+2. Location-aware routing ("Jakarta Selatan" → local Dinas)
+3. Crowdsourced data updates
+
+**User Benefit:** Precise local agency matching
+
+---
+
+### Phase 3: User Experience (Q2 2026)
+**Timeline:** 4 weeks | **Impact:** Medium | **Cost:** $0
+
+1. Complaint history with search
+2. Follow-up tracking
+3. Success stories showcase
+4. Mobile app (PWA → native)
+
+**User Benefit:** Track complaint progress
+
+---
+
+### Phase 4: Community (Q2 2026)
+**Timeline:** 6 weeks | **Impact:** High | **Cost:** $0
+
+1. Public complaint database (anonymized)
+2. Upvote similar complaints
+3. Agency response tracking
+4. Community moderation
+
+**User Benefit:** Collective voice, transparency
+
+---
+
+## 💰 Cost Breakdown
+
+| Service | Current | After Phase 1 | Savings |
+|---------|---------|---------------|---------|
+| Pinecone | $70/mo | $0 | $70/mo |
+| DynamoDB | $5/mo | $5.50/mo | -$0.50/mo |
+| Bedrock | $2-5/mo | $2-5/mo | $0 |
+| Lambda | $0-3/mo | $0-3/mo | $0 |
+| **Total** | **$77-85/mo** | **$7-13/mo** | **$70/mo** |
+
+**Annual Savings:** $840
+
+---
+
+## 🤝 Contributing
+
+### For AI Agents
+- Keep docs under 500 lines (move history to `docs/archive/`)
+- Follow [STYLE_GUIDE.md](./STYLE_GUIDE.md)
+- Update this README when adding features
+- Prioritize user needs over technical elegance
+
+### For Humans
+- Report issues: GitHub Issues
+- Suggest features: Discussions
+- Contribute: Pull Requests welcome
+
+---
+
+## 📝 Naming Conventions
+
+| Concept | Term | Example |
+|---------|------|---------|
+| User input | `complaint` | "Jalan rusak..." |
+| AI output | `generatedComplaint` | "Kepada Yth..." |
+| Agency | `ministry` | "Kementerian PUPR" |
+| Match confidence | `matchScore` | 0.85 (85%) |
+
+---
+
+**Last Updated:** Nov 15, 2025  
+**Maintainer:** @okihita  
+**License:** MIT

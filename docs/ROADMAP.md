@@ -1,285 +1,158 @@
-# Product Roadmap
+# Roadmap - Bijak Mengeluh
 
-**Last Updated:** Nov 14, 2025  
-**Current Version:** 1.4.0
-
----
-
-## Completed Phases
-
-### ✅ Phase 1: Foundation & UX (Nov 14, 2025)
-- Micro-interactions and animations
-- Skeleton loaders
-- Enhanced error states
-- Smart input assistance
-- Progress indicators
-
-### ✅ Phase 2: Advanced UX (Nov 14, 2025)
-- Preview modal
-- Comparison view
-- Expandable agency cards
-- Keyboard shortcuts
-- Swipe-to-delete
-
-### ✅ Phase 3: Intelligence (Nov 14, 2025)
-- Local analytics dashboard
-- Complaint quality scoring
-- Smart suggestions
-
-### ✅ Phase 4: Performance & Accessibility (Nov 14, 2025)
-- WCAG 2.1 AA compliance
-- Real-time quality feedback
-- Keyboard navigation
-- Mobile optimization
+**Prioritized by User Impact**
 
 ---
 
-## Planned Phases
+## 🎯 Phase 1: Cost Optimization + Local Coverage (NEXT)
+**Timeline:** 4 weeks  
+**Impact:** 🔥 Very High  
+**Cost:** -$70/month
 
-### Phase 5: Advanced Features (Q1 2026)
-**Status:** 📋 Planned  
-**Priority:** High
+### Goals
+1. Replace Pinecone ($70/mo) with DynamoDB ($0.50/mo)
+2. Expand from 34 ministries to 604 agencies (38 provinces)
+3. Enable local agency matching (Dinas Kesehatan, Dinas PU, etc.)
 
-#### Features
-- [ ] **PDF Export**
-  - Generate printable complaint letters
-  - Include ministry information
-  - QR code for tracking
+### User Benefits
+- ✅ Find local government agencies (not just national)
+- ✅ More relevant complaint routing
+- ✅ Faster response times (local agencies more responsive)
 
-- [ ] **Email Integration**
-  - Send complaints directly to ministries
-  - CC user's email
-  - Track delivery status
+### Implementation
+- [x] Spec complete: [LOCAL_GOVT_EXPANSION_SPEC.md](../LOCAL_GOVT_EXPANSION_SPEC.md)
+- [ ] Setup DynamoDB schema
+- [ ] Collect top 10 provinces data (380 agencies)
+- [ ] Implement keyword matching algorithm
+- [ ] Deploy parallel run (DynamoDB + Pinecone fallback)
+- [ ] Monitor & tune (target >85% match rate)
+- [ ] Full cutover & remove Pinecone
 
-- [ ] **Voice Input**
-  - Speech-to-text for complaints
-  - Support Indonesian language
-  - Real-time transcription
-
-- [ ] **Share to Social Media**
-  - Direct share to X/Twitter
-  - Pre-filled text with ministry handle
-  - Image generation for posts
-
-#### Technical Requirements
-- PDF generation library (jsPDF or react-pdf)
-- Email service integration (SendGrid/AWS SES)
-- Web Speech API for voice input
-- Social media APIs
+**Savings:** $840/year
 
 ---
 
-### Phase 6: Collaboration (Q2 2026)
-**Status:** 📋 Planned  
-**Priority:** Medium
+## 🏙️ Phase 2: City/Regency Coverage (Q1 2026)
+**Timeline:** 8 weeks  
+**Impact:** 🔥 Very High  
+**Cost:** $0
 
-#### Features
-- [ ] **User Accounts**
-  - Save complaints to cloud
-  - Sync across devices
-  - Profile management
+### Goals
+1. Add 514 cities/regencies (7,744 agencies total)
+2. Location-aware routing
+3. Hierarchical matching (city → province → national)
 
-- [ ] **Complaint Templates**
-  - Pre-built templates by category
-  - Community-contributed templates
-  - Template marketplace
+### User Benefits
+- ✅ Precise local agency matching
+- ✅ "Jalan rusak di Jakarta Selatan" → Jakarta Selatan Dinas PU
+- ✅ Better complaint resolution rates
 
-- [ ] **Follow-up Tracking**
-  - Track complaint status
-  - Set reminders
-  - Update history
-
-- [ ] **Community Features**
-  - See similar complaints
-  - Upvote/downvote ministries
-  - Success stories
-
-#### Technical Requirements
-- Authentication system (NextAuth.js)
-- Database (Supabase/Firebase)
-- Real-time updates (WebSockets)
-- Moderation system
+### Implementation
+- [ ] Collect city-level data (crowdsource)
+- [ ] Implement location extraction from complaint
+- [ ] Add hierarchical matching logic
+- [ ] Deploy incrementally (top 50 cities first)
 
 ---
 
-### Phase 7: Intelligence Enhancement (Q3 2026)
-**Status:** 💡 Idea Stage  
-**Priority:** Medium
+## 📱 Phase 3: User Experience (Q2 2026)
+**Timeline:** 4 weeks  
+**Impact:** 🔥 High  
+**Cost:** $0
 
-#### Features
-- [ ] **AI Suggestions**
-  - Suggest relevant laws/regulations
-  - Recommend similar cases
-  - Predict success rate
+### Goals
+1. Complaint history & tracking
+2. Follow-up reminders
+3. Success stories showcase
+4. Enhanced mobile experience
 
-- [ ] **Multi-language Support**
-  - English translation
-  - Regional languages (Javanese, Sundanese)
-  - Auto-detect language
+### User Benefits
+- ✅ Track complaint status
+- ✅ Get reminded to follow up
+- ✅ See what works (success stories)
+- ✅ Better mobile UX
 
-- [ ] **Advanced Analytics**
-  - Ministry response rates
-  - Success patterns
-  - Trending issues
-
-- [ ] **Smart Routing**
-  - Multi-ministry complaints
-  - Escalation paths
-  - Alternative contacts
-
-#### Technical Requirements
-- Enhanced AI models
-- Translation API
-- Analytics database
-- Graph database for relationships
+### Features
+- [ ] Complaint history page with search
+- [ ] Status tracking (submitted, in progress, resolved)
+- [ ] Email/push notifications for follow-ups
+- [ ] Success stories section (anonymized)
+- [ ] Mobile app (PWA → native)
 
 ---
 
-### Phase 8: Mobile App (Q4 2026)
-**Status:** 💡 Idea Stage  
-**Priority:** Low
+## 🤝 Phase 4: Community Features (Q2 2026)
+**Timeline:** 6 weeks  
+**Impact:** 🔥 High  
+**Cost:** $0
 
-#### Features
-- [ ] **Native Mobile Apps**
-  - iOS app (Swift/React Native)
-  - Android app (Kotlin/React Native)
-  - Offline-first architecture
+### Goals
+1. Public complaint database (anonymized)
+2. Upvote similar complaints
+3. Agency response tracking
+4. Community moderation
 
-- [ ] **Mobile-Specific Features**
-  - Camera integration for evidence
-  - Location auto-detection
-  - Push notifications
-  - Haptic feedback
+### User Benefits
+- ✅ Collective voice (strength in numbers)
+- ✅ See if others have same issue
+- ✅ Track agency responsiveness
+- ✅ Transparency & accountability
 
-- [ ] **Widget Support**
-  - Quick complaint widget
-  - Status tracking widget
-  - Statistics widget
-
-#### Technical Requirements
-- React Native or Flutter
-- Native modules
-- App Store/Play Store accounts
-- Push notification service
+### Features
+- [ ] Public complaint feed (opt-in, anonymized)
+- [ ] Upvote/downvote system
+- [ ] Agency response rate dashboard
+- [ ] Community moderation tools
+- [ ] Trending complaints section
 
 ---
 
-## Feature Requests
+## 🔮 Future Ideas (Backlog)
 
-### High Priority
-1. **PDF Export** - Most requested feature
-2. **Email Integration** - Direct ministry contact
-3. **Voice Input** - Accessibility improvement
+### Smart Features
+- AI-powered follow-up suggestions
+- Complaint template library (user-contributed)
+- Multi-language support (regional languages)
+- Voice input for complaints
 
-### Medium Priority
-4. **User Accounts** - Cloud sync
-5. **Templates** - Faster complaint creation
-6. **Follow-up Tracking** - Status updates
+### Integration
+- WhatsApp bot for complaint submission
+- Telegram bot
+- Integration with LAPOR! (government system)
+- API for third-party apps
 
-### Low Priority
-7. **Multi-language** - Broader reach
-8. **Native Apps** - Better mobile experience
-9. **Community Features** - Social proof
-
----
-
-## Technical Debt
-
-### Current
-- [ ] Add unit tests (Jest + React Testing Library)
-- [ ] Add E2E tests (Playwright)
-- [ ] Implement error boundary
-- [ ] Add performance monitoring (Sentry)
-- [ ] Optimize bundle size
-
-### Future
-- [ ] Migrate to TypeScript strict mode
-- [ ] Implement CI/CD pipeline
-- [ ] Add code coverage requirements
-- [ ] Set up staging environment
-- [ ] Implement feature flags
+### Analytics
+- Complaint heatmap (geographic)
+- Agency response time leaderboard
+- Most common complaint types
+- Success rate by agency
 
 ---
 
-## Success Metrics
+## 📊 Success Metrics
 
-### Current (Phase 4)
-- ✅ Accessibility score: 100
-- ✅ Performance score: 95+
-- ✅ User satisfaction: 9.0/10
-- ✅ Mobile usage: 60%
+### Phase 1
+- Match rate: >85%
+- Cost: <$1/month
+- Coverage: 604 agencies
+- User satisfaction: >4.5/5
 
-### Targets (Phase 5)
-- 📊 Daily active users: 1,000+
-- 📊 Complaint success rate: 70%+
-- 📊 Average quality score: 85+
-- 📊 Return user rate: 40%+
+### Phase 2
+- Coverage: 7,744 agencies
+- Location accuracy: >90%
+- Resolution rate: +20%
 
-### Targets (Phase 6)
-- 📊 Registered users: 10,000+
-- 📊 Template usage: 50%+
-- 📊 Community engagement: 30%+
-- 📊 Cloud sync adoption: 60%+
+### Phase 3
+- User retention: +30%
+- Follow-up rate: +50%
+- Mobile engagement: +40%
 
----
-
-## Release Schedule
-
-### 2025
-- ✅ Q4: Phases 1-4 (Foundation, UX, Intelligence, Accessibility)
-
-### 2026
-- 📅 Q1: Phase 5 (Advanced Features)
-- 📅 Q2: Phase 6 (Collaboration)
-- 📅 Q3: Phase 7 (Intelligence Enhancement)
-- 📅 Q4: Phase 8 (Mobile App)
+### Phase 4
+- Community size: 10,000+ users
+- Public complaints: 1,000+
+- Agency engagement: 50+ agencies
 
 ---
 
-## Contributing
-
-Want to contribute to the roadmap?
-
-1. Check [GitHub Issues](https://github.com/okihita/aic-complaint-app/issues)
-2. Submit feature requests
-3. Vote on existing requests
-4. Join discussions
-
----
-
-## Changelog
-
-### v1.4.0 (Nov 14, 2025)
-- Added WCAG 2.1 AA accessibility
-- Real-time quality scoring
-- Keyboard shortcuts
-- Mobile optimization
-
-### v1.3.0 (Nov 14, 2025)
-- Local analytics dashboard
-- Complaint quality scoring
-- Smart suggestions
-
-### v1.2.0 (Nov 14, 2025)
-- Preview modal
-- Comparison view
-- Expandable agency cards
-- Swipe-to-delete
-
-### v1.1.0 (Nov 14, 2025)
-- Micro-interactions
-- Skeleton loaders
-- Enhanced error states
-- Smart input assistance
-
-### v1.0.0 (Oct 2025)
-- Initial release
-- Basic complaint generation
-- Ministry matching
-- Social media lookup
-
----
-
-**Document Version:** 1.0  
-**Maintained by:** Product Team  
-**Review Cycle:** Quarterly
+**Last Updated:** Nov 15, 2025  
+**Next Review:** Dec 15, 2025
