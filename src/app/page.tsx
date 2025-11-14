@@ -19,6 +19,7 @@ import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { complaintTemplates } from "@/lib/templates";
 import { usePersistentState, useAutoSave } from "@/lib/hooks";
+import { suggestionPhrases } from "@/lib/suggestions";
 
 type SuggestedContact = {
   name: string;
@@ -94,9 +95,11 @@ const ComplaintForm = ({
   isSaving,
 }: ComplaintFormProps) => {
   const [mounted, setMounted] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(true);
   const charCount = userInput.trim().length;
   const minChars = 20;
   const isTooShort = charCount <= minChars;
+  const progress = Math.min((charCount / 200) * 100, 100);
 
   useEffect(() => {
     setMounted(true);
@@ -104,6 +107,24 @@ const ComplaintForm = ({
 
   const handleTemplateSelect = (template: string) => {
     setUserInput(template);
+    setShowSuggestions(false);
+  };
+
+  const handleSuggestionClick = (phrase: string) => {
+    const newText = userInput ? `${userInput} ${phrase}` : phrase;
+    setUserInput(newText);
+  };
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    let text = e.target.value;
+    
+    // Auto-capitalize first letter of sentences
+    text = text.replace(/(^\w|[.!?]\s+\w)/g, (match) => match.toUpperCase());
+    
+    setUserInput(text);
+    if (text.length > 10) {
+      setShowSuggestions(false);
+    }
   };
 
   const formatLastSaved = (date: Date | null) => {
@@ -152,6 +173,30 @@ const ComplaintForm = ({
               ))}
             </div>
           </div>
+
+          {showSuggestions && charCount < 10 && (
+            <div className="grid gap-2">
+              <Label className="text-sm font-medium">
+                Atau mulai dengan frasa ini:
+              </Label>
+              <div className="flex flex-wrap gap-2">
+                {suggestionPhrases.map((phrase, index) => (
+                  <Button
+                    key={index}
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleSuggestionClick(phrase)}
+                    disabled={isLoading}
+                    className="text-xs"
+                  >
+                    {phrase}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="grid gap-2">
             <Label htmlFor="complaint-description" className="sr-only">
               Isi Keluhanmu di Sini
@@ -161,9 +206,26 @@ const ComplaintForm = ({
               placeholder="Contoh: 'Jalanan depan rumah gue di Palmerah ancur banget udah 3 bulan...'"
               className="min-h-[140px] text-base"
               value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
+              onChange={handleTextChange}
               disabled={isLoading}
             />
+            
+            {/* Progress bar */}
+            <div className="space-y-1">
+              <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  className={`h-full transition-all duration-300 ${
+                    progress < 30
+                      ? "bg-red-500"
+                      : progress < 70
+                        ? "bg-yellow-500"
+                        : "bg-green-500"
+                  }`}
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            </div>
+
             <div className="flex justify-between items-center">
               <p className="text-xs text-gray-500 dark:text-gray-400">
                 {mounted && (
