@@ -150,7 +150,17 @@ npx prettier --write .
 
 ## Deployment
 
-### Vercel (Recommended)
+### Auto-Deploy (Configured)
+The app is connected to Vercel via GitHub webhook. Simply push to main branch:
+
+```bash
+git push origin main
+# Vercel will automatically build and deploy
+```
+
+### Manual Deployment Options
+
+#### Vercel (Recommended)
 ```bash
 vercel --prod
 ```
