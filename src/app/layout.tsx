@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,7 +27,6 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <PwaInstallPrompt />
       </body>
     </html>
   );

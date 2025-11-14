@@ -17,6 +17,7 @@ import { AlertTriangle, Check, Spinner } from "@/components/icons";
 import { History, Share, X, Instagram } from "lucide-react";
 import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
+import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
 import { complaintTemplates } from "@/lib/templates";
 import { usePersistentState, useAutoSave } from "@/lib/hooks";
 import { suggestionPhrases } from "@/lib/suggestions";
@@ -174,8 +175,11 @@ const ComplaintForm = ({
           Curhatin Aja Keluhanmu
         </CardTitle>
         <CardDescription className="text-base sm:text-lg px-4 max-w-2xl mx-auto">
-          Tulis keluhan kamu, AI kami akan bantu bikin surat yang profesional dan kasih tau harus lapor ke mana 🎯
+          AI bantu bikin surat profesional & kasih tau lapor ke mana 🎯
         </CardDescription>
+        <p className="text-xs text-muted-foreground/60">
+          Bijak sana, bijak sini, bijak di mana-mana!
+        </p>
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-6 p-4 sm:p-6">
@@ -1021,18 +1025,20 @@ export default function HomePage() {
       
       <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
         <div className="w-full max-w-3xl mx-auto">
-          <div className="flex justify-end items-center mb-4">
-            {/* Desktop navigation link */}
-            <div className="hidden sm:block mr-4">
-              <Link
-                href="/history"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
-              >
-                <History className="h-5 w-5" />
-                Riwayat
-              </Link>
+          <div className="flex justify-between items-center mb-4">
+            <PwaInstallPrompt />
+            <div className="flex items-center gap-4">
+              <div className="hidden sm:block">
+                <Link
+                  href="/history"
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
+                >
+                  <History className="h-5 w-5" />
+                  Riwayat
+                </Link>
+              </div>
+              <ThemeToggle />
             </div>
-            <ThemeToggle />
           </div>
           <ComplaintForm
             handleSubmit={handleSubmit}
