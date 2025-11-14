@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bijak Mengeluh
+
+AI-powered complaint letter generator for Indonesian public services. This app helps citizens write effective complaint letters and identifies the appropriate government agencies to contact.
+
+## Features
+
+- **AI-Generated Complaints**: Transform casual complaints into formal, well-structured letters
+- **Smart Agency Matching**: Automatically suggests relevant government ministries/agencies with confidence scores
+- **Social Media Integration**: Finds verified official X/Twitter accounts for direct contact
+- **Complaint History**: Tracks your previous complaints locally
+- **PWA Support**: Install as a mobile app for offline access
+- **Dark Mode**: Full theme support with system preference detection
+
+## Tech Stack
+
+- Next.js 16 with Turbopack
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Radix UI components
+- AI backend integration
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Set up environment variables:
+```bash
+# .env.local
+NEXT_PUBLIC_API_GATEWAY_URL=your_api_gateway_url
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. User enters a complaint in casual Indonesian language
+2. AI analyzes the complaint and generates a formal letter
+3. System suggests relevant government agencies with rationale
+4. Provides verified social media handles for direct contact
+5. User can copy or share the generated complaint
