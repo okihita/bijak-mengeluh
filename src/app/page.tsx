@@ -14,9 +14,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { AlertTriangle, Check, Spinner } from "@/components/icons";
-import { History, Share, X } from "lucide-react"; // Added Home and History icons
-import Link from "next/link"; // Added Link for navigation
-import { BottomNavigation } from "@/components/bottom-navigation"; // Added usePathname for active link highlighting
+import { History, Share, X } from "lucide-react";
+import Link from "next/link";
+import { BottomNavigation } from "@/components/bottom-navigation";
+import { complaintTemplates } from "@/lib/templates";
 
 type SuggestedContact = {
   name: string;
@@ -110,6 +111,10 @@ const ComplaintForm = ({
   const minChars = 20;
   const isTooShort = charCount <= minChars;
 
+  const handleTemplateSelect = (template: string) => {
+    setUserInput(template);
+  };
+
   return (
     <Card className="shadow-lg dark:bg-card">
       <CardHeader className="text-center">
@@ -123,6 +128,27 @@ const ComplaintForm = ({
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="grid gap-4 p-4 sm:p-6">
+          <div className="grid gap-2">
+            <Label className="text-sm font-medium">
+              Pilih Kategori (Opsional)
+            </Label>
+            <div className="flex flex-wrap gap-2">
+              {complaintTemplates.map((template) => (
+                <Button
+                  key={template.id}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleTemplateSelect(template.template)}
+                  disabled={isLoading}
+                  className="text-sm"
+                >
+                  <span className="mr-1">{template.icon}</span>
+                  {template.label}
+                </Button>
+              ))}
+            </div>
+          </div>
           <div className="grid gap-2">
             <Label htmlFor="complaint-description" className="sr-only">
               Isi Keluhanmu di Sini
