@@ -15,6 +15,7 @@ export default function HistoryPage() {
   const [promptHistory, setPromptHistory] = usePersistentState<string[]>("promptHistory", []);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
+  const [swipedIndex, setSwipedIndex] = useState<number | null>(null);
 
   const filteredHistory = promptHistory.filter((prompt) =>
     prompt.toLowerCase().includes(searchQuery.toLowerCase())
@@ -34,10 +35,28 @@ export default function HistoryPage() {
   const deleteItem = (index: number) => {
     const actualIndex = promptHistory.length - 1 - index;
     setPromptHistory(promptHistory.filter((_, i) => i !== actualIndex));
+    setSwipedIndex(null);
   };
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent, index: number) => {
+    const touch = e.touches[0];
+    (e.currentTarget as HTMLElement).dataset.startX = touch.clientX.toString();
+  };
+
+  const handleTouchMove = (e: React.TouchEvent, index: number) => {
+    const touch = e.touches[0];
+    const startX = parseFloat((e.currentTarget as HTMLElement).dataset.startX || "0");
+    const diff = touch.clientX - startX;
+    
+    if (diff < -50) {
+      setSwipedIndex(index);
+    } else if (diff > 50) {
+      setSwipedIndex(null);
+    }
   };
 
   const totalComplaints = promptHistory.length;
@@ -122,11 +141,16 @@ export default function HistoryPage() {
           {sortedHistory.length > 0 ? (
             <div className="space-y-3">
               {sortedHistory.map((prompt, index) => (
-                <Card key={index} className="group hover:shadow-md transition-shadow">
+                <Card
+                  key={index}
+                  className="group hover:shadow-md transition-all relative overflow-hidden"
+                  onTouchStart={(e) => handleTouchStart(e, index)}
+                  onTouchMove={(e) => handleTouchMove(e, index)}
+                >
                   <CardContent className="p-4">
                     <div className="flex justify-between items-start gap-3">
                       <p className="text-sm flex-1 line-clamp-2">{prompt}</p>
-                      <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className={`flex gap-1 transition-opacity ${swipedIndex === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
                         <Button
                           variant="ghost"
                           size="sm"
@@ -151,6 +175,11 @@ export default function HistoryPage() {
                       </Badge>
                     </div>
                   </CardContent>
+                  {swipedIndex === index && (
+                    <div className="absolute right-0 top-0 bottom-0 w-16 bg-red-500 flex items-center justify-center">
+                      <Trash2 className="h-5 w-5 text-white" />
+                    </div>
+                  )}
                 </Card>
               ))}
             </div>

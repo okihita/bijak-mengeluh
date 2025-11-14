@@ -21,6 +21,7 @@ import { complaintTemplates } from "@/lib/templates";
 import { usePersistentState, useAutoSave } from "@/lib/hooks";
 import { suggestionPhrases } from "@/lib/suggestions";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import confetti from "canvas-confetti";
 
 type SuggestedContact = {
@@ -210,6 +211,8 @@ const ComplaintForm = ({
               value={userInput}
               onChange={handleTextChange}
               disabled={isLoading}
+              aria-label="Tulis keluhan Anda di sini"
+              aria-describedby="char-count"
             />
             
             {/* Progress bar */}
@@ -247,11 +250,13 @@ const ComplaintForm = ({
                 )}
               </p>
               <p
+                id="char-count"
                 className={`text-xs pr-1 ${
                   isTooShort
                     ? "text-red-500 dark:text-red-400"
                     : "text-green-600 dark:text-green-400"
                 }`}
+                aria-live="polite"
               >
                 {charCount} / {minChars} karakter minimum
               </p>
@@ -361,128 +366,214 @@ const SuggestedContacts = ({
   isLoading,
   renderSocialHandle,
   generatedText,
-}: SuggestedContactsProps) => (
-  <Card className="shadow-md dark:bg-card">
-    <CardHeader>
-      <CardTitle className="text-xl">Saran Kontak</CardTitle>
-    </CardHeader>
-    <CardContent className="p-4">
-      {isLoading && !contacts.length && (
-        <div className="space-y-3">
-          <Skeleton className="h-16 w-full" />
-          <Skeleton className="h-16 w-full" />
-        </div>
-      )}
-      {contacts.length > 0 && (
-        <div className="space-y-4">
-          {contacts.map((contact, index) => (
-            <div
-              key={index}
-              className="p-3 border rounded-lg dark:border-gray-700"
-            >
-              <div className="flex justify-between items-center">
-                <span className="font-medium text-base">{contact.name}</span>
-                <Badge
-                  variant="secondary"
-                  className="dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
-                >
-                  {Math.round(contact.score * 100)}%
-                </Badge>
-              </div>
-              {index === 0 && rationale && (
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 pt-2 border-t dark:border-gray-700">
-                  <span className="font-semibold text-gray-700 dark:text-gray-300">
-                    Nape?
-                  </span>{" "}
-                  {rationale}
-                </p>
-              )}
+}: SuggestedContactsProps) => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
-              {index === 0 && (
-                <div className="pt-2 mt-2 border-t dark:border-gray-700">
-                  <Label className="text-xs font-semibold text-gray-500 dark:text-gray-400">
-                    Akun Resmi X/Twitter
-                  </Label>
-                  <div className="mt-1">
-                    {isLoading ? (
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Lagi nyari...
-                      </p>
-                    ) : (
-                      renderSocialHandle()
-                    )}
+  return (
+    <Card className="shadow-md dark:bg-card">
+      <CardHeader>
+        <CardTitle className="text-xl">Saran Kontak</CardTitle>
+      </CardHeader>
+      <CardContent className="p-4">
+        {isLoading && !contacts.length && (
+          <div className="space-y-3">
+            <Skeleton className="h-16 w-full" />
+            <Skeleton className="h-16 w-full" />
+          </div>
+        )}
+        {contacts.length > 0 && (
+          <div className="space-y-4">
+            {contacts.map((contact, index) => (
+              <div
+                key={index}
+                className="p-3 border rounded-lg dark:border-gray-700 transition-all"
+              >
+                <div
+                  className="flex justify-between items-center cursor-pointer"
+                  onClick={() =>
+                    setExpandedIndex(expandedIndex === index ? null : index)
+                  }
+                >
+                  <span className="font-medium text-base">{contact.name}</span>
+                  <div className="flex items-center gap-2">
+                    <Badge
+                      variant="secondary"
+                      className="dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
+                    >
+                      {Math.round(contact.score * 100)}%
+                    </Badge>
+                    <span className="text-gray-400">
+                      {expandedIndex === index ? "▼" : "▶"}
+                    </span>
                   </div>
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-      {!isLoading && !contacts.length && generatedText && (
-        <p className="text-base text-gray-500 dark:text-gray-400">
-          Gak nemu kontak spesifik.
-        </p>
-      )}
-    </CardContent>
-  </Card>
-);
+
+                {expandedIndex === index && (
+                  <div className="mt-3 space-y-3 animate-in fade-in duration-200">
+                    {index === 0 && rationale && (
+                      <p className="text-sm text-gray-600 dark:text-gray-400 pt-2 border-t dark:border-gray-700">
+                        <span className="font-semibold text-gray-700 dark:text-gray-300">
+                          Alasan:
+                        </span>{" "}
+                        {rationale}
+                      </p>
+                    )}
+
+                    {index === 0 && (
+                      <div className="pt-2 border-t dark:border-gray-700">
+                        <Label className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                          Akun Resmi X/Twitter
+                        </Label>
+                        <div className="mt-1">
+                          {isLoading ? (
+                            <p className="text-sm text-gray-500 dark:text-gray-400">
+                              Lagi nyari...
+                            </p>
+                          ) : (
+                            renderSocialHandle()
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="text-xs text-gray-500 dark:text-gray-400 space-y-1">
+                      <p>💼 Kementerian/Lembaga Pemerintah</p>
+                      <p>📧 Hubungi melalui portal resmi atau media sosial</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        {!isLoading && !contacts.length && generatedText && (
+          <p className="text-base text-gray-500 dark:text-gray-400">
+            Gak nemu kontak spesifik.
+          </p>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
 
 type GeneratedComplaintProps = {
   generatedText: string;
   isLoading: boolean;
+  originalText: string;
 };
 
 const GeneratedComplaint = ({
   generatedText,
   isLoading,
+  originalText,
 }: GeneratedComplaintProps) => {
   const { copied, copy } = useCopyToClipboard();
   const { share } = useWebShare();
+  const [showPreview, setShowPreview] = useState(false);
+  const [showComparison, setShowComparison] = useState(false);
 
   return (
-    <Card className="lg:col-span-2 shadow-lg dark:bg-card">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-xl">Draf Komplain Buatan AI</CardTitle>
-        {generatedText && (
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => copy(generatedText)}
-            >
-              {copied ? <Check className="h-4 w-4 mr-2" /> : null}
-              {copied ? "Udah dicopy!" : "Salin"}
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => share(generatedText)}
-            >
-              <Share className="h-4 w-4 mr-2" />
-              Bagiin
-            </Button>
+    <>
+      <Card className="lg:col-span-2 shadow-lg dark:bg-card">
+        <CardHeader className="flex flex-row items-center justify-between">
+          <CardTitle className="text-xl">Draf Komplain Buatan AI</CardTitle>
+          {generatedText && (
+            <div className="flex gap-2 flex-wrap">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowComparison(!showComparison)}
+              >
+                {showComparison ? "Sembunyikan" : "Bandingkan"}
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowPreview(true)}
+              >
+                Preview
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => copy(generatedText)}
+              >
+                {copied ? <Check className="h-4 w-4 mr-2" /> : null}
+                {copied ? "Tersalin!" : "Salin"}
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => share(generatedText)}
+              >
+                <Share className="h-4 w-4 mr-2" />
+                Bagikan
+              </Button>
+            </div>
+          )}
+        </CardHeader>
+        <CardContent className="p-4 min-h-[300px]">
+          {isLoading && (
+            <div className="space-y-3">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-2/3" />
+            </div>
+          )}
+          {generatedText && !showComparison && (
+            <p className="text-base text-gray-800 dark:text-gray-300 whitespace-pre-wrap">
+              {generatedText}
+            </p>
+          )}
+          {generatedText && showComparison && (
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h3 className="font-semibold mb-2 text-sm text-gray-600 dark:text-gray-400">
+                  Original ({originalText.length} karakter)
+                </h3>
+                <p className="text-sm text-gray-700 dark:text-gray-400 whitespace-pre-wrap">
+                  {originalText}
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2 text-sm text-gray-600 dark:text-gray-400">
+                  AI Generated ({generatedText.length} karakter)
+                </h3>
+                <p className="text-sm text-gray-800 dark:text-gray-300 whitespace-pre-wrap">
+                  {generatedText}
+                </p>
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Preview Modal */}
+      <Dialog open={showPreview} onOpenChange={setShowPreview}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Preview Komplain</DialogTitle>
+          </DialogHeader>
+          <div className="prose dark:prose-invert max-w-none">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+              <p className="whitespace-pre-wrap">{generatedText}</p>
+            </div>
+            <div className="mt-4 flex gap-2 justify-end">
+              <Button onClick={() => copy(generatedText)} size="sm">
+                Salin
+              </Button>
+              <Button onClick={() => window.print()} size="sm" variant="outline">
+                Print
+              </Button>
+            </div>
           </div>
-        )}
-      </CardHeader>
-      <CardContent className="p-4 min-h-[300px]">
-        {isLoading && (
-          <div className="space-y-3">
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-3/4" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-5/6" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-2/3" />
-          </div>
-        )}
-        {generatedText && (
-          <p className="text-base text-gray-800 dark:text-gray-300 whitespace-pre-wrap">
-            {generatedText}
-          </p>
-        )}
-      </CardContent>
-    </Card>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 
@@ -508,6 +599,24 @@ export default function HomePage() {
 
   const [analysisSteps, setAnalysisSteps] =
     useState<AnalysisStep[]>(initialSteps);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      // Ctrl/Cmd + K to focus search
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        document.getElementById("complaint-description")?.focus();
+      }
+      // Escape to clear focus
+      if (e.key === "Escape") {
+        (document.activeElement as HTMLElement)?.blur();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, []);
 
   useEffect(() => {
     if (isLoading) {
@@ -737,7 +846,13 @@ export default function HomePage() {
 
   return (
     <>
-      <main className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded"
+      >
+        Skip to main content
+      </a>
+      <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
         <div className="w-full max-w-3xl mx-auto">
           <div className="flex justify-end items-center mb-4">
             {/* Desktop navigation link */}
@@ -778,6 +893,7 @@ export default function HomePage() {
               <GeneratedComplaint
                 generatedText={generatedText}
                 isLoading={isLoading}
+                originalText={lastSubmittedInput}
               />
             </div>
           )}
