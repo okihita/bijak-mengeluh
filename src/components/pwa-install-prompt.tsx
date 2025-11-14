@@ -16,26 +16,17 @@ interface BeforeInstallPromptEvent extends Event {
 export const PwaInstallPrompt = () => {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      setIsVisible(true);
     };
 
     window.addEventListener("beforeinstallprompt", handler);
-
-    const isStandaloneIOS =
-      "standalone" in navigator &&
-      (navigator as { standalone?: boolean }).standalone;
-    if (
-      window.matchMedia("(display-mode: standalone)").matches ||
-      isStandaloneIOS
-    ) {
-      setIsVisible(false);
-    }
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
@@ -47,10 +38,9 @@ export const PwaInstallPrompt = () => {
     deferredPrompt.prompt();
     await deferredPrompt.userChoice;
     setDeferredPrompt(null);
-    setIsVisible(false);
   };
 
-  if (!isVisible || !deferredPrompt) return null;
+  if (!mounted || !deferredPrompt) return <div className="h-9 w-9" />;
 
   return (
     <Button

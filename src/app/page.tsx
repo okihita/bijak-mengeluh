@@ -195,7 +195,7 @@ const ComplaintForm = ({
             {isTooShort && (
               <p
                 id="char-count"
-                className="absolute bottom-2 right-2 text-xs text-red-500"
+                className="absolute bottom-3 right-3 text-xs text-red-500 bg-white dark:bg-gray-950 px-1"
                 aria-live="polite"
               >
                 {charCount}/{minChars}
@@ -236,6 +236,31 @@ const ComplaintForm = ({
             </div>
           )}
 
+          {/* Category Templates - Collapsed by Default */}
+          <details className="group">
+            <summary className="cursor-pointer list-none">
+              <div className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                <span className="text-xs font-medium">📋 Template</span>
+                <span className="text-gray-400 group-open:rotate-180 transition-transform text-xs">▼</span>
+              </div>
+            </summary>
+            <div className="mt-2 flex flex-wrap gap-1.5 p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+              {complaintTemplates.map((template) => (
+                <Button
+                  key={template.id}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleTemplateSelect(template.template)}
+                  disabled={isLoading}
+                  className="text-xs h-7"
+                >
+                  {template.icon} {template.label}
+                </Button>
+              ))}
+            </div>
+          </details>
+
           {/* Tone Selector - Clear Visual Hierarchy */}
           <div className="grid grid-cols-3 gap-2">
             <Button
@@ -272,31 +297,6 @@ const ComplaintForm = ({
               <span className="text-xs">Kesel</span>
             </Button>
           </div>
-
-          {/* Category Templates - Collapsed by Default */}
-          <details className="group">
-            <summary className="cursor-pointer list-none">
-              <div className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                <span className="text-xs font-medium">📋 Template</span>
-                <span className="text-gray-400 group-open:rotate-180 transition-transform text-xs">▼</span>
-              </div>
-            </summary>
-            <div className="mt-2 flex flex-wrap gap-1.5 p-2 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
-              {complaintTemplates.map((template) => (
-                <Button
-                  key={template.id}
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => handleTemplateSelect(template.template)}
-                  disabled={isLoading}
-                  className="text-xs h-7"
-                >
-                  {template.icon} {template.label}
-                </Button>
-              ))}
-            </div>
-          </details>
 
           {/* Submit Button - Clear CTA */}
           <Button
@@ -941,13 +941,6 @@ export default function HomePage() {
 
   return (
     <>
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded"
-      >
-        Skip to main content
-      </a>
-      
       {/* Screen reader announcements */}
       <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
         {isLoading && "Sedang memproses keluhan Anda"}
@@ -955,7 +948,7 @@ export default function HomePage() {
         {error && `Error: ${error}`}
       </div>
       
-      <main id="main-content" className="container mx-auto p-4 sm:p-6 md:p-8 pb-14">
+      <main className="container mx-auto p-4 sm:p-6 md:p-8 pb-14">
         <div className="w-full max-w-3xl mx-auto">
           <div className="flex justify-between items-center mb-2">
             <PwaInstallPrompt />

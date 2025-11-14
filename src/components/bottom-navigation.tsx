@@ -10,14 +10,14 @@ export function BottomNavigation() {
       <div className="flex justify-around h-12 items-center">
         <Link
           href="/"
-          className={`flex flex-col items-center justify-center gap-0.5 text-xs ${pathname === "/" ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400"}`}
+          className={`flex flex-col items-center justify-center gap-0.5 text-xs ${pathname === "/" ? "text-red-600 dark:text-red-400" : "text-gray-500 dark:text-gray-400"}`}
         >
           <Home className="h-4 w-4" />
           <span>Complaint</span>
         </Link>
         <Link
           href="/history"
-          className={`flex flex-col items-center justify-center gap-0.5 text-xs ${pathname === "/history" ? "text-blue-600 dark:text-blue-400" : "text-gray-500 dark:text-gray-400"}`}
+          className={`flex flex-col items-center justify-center gap-0.5 text-xs ${pathname === "/history" ? "text-red-600 dark:text-red-400" : "text-gray-500 dark:text-gray-400"}`}
         >
           <History className="h-4 w-4" />
           <span>History</span>
