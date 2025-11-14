@@ -22,6 +22,7 @@ import { usePersistentState, useAutoSave } from "@/lib/hooks";
 import { suggestionPhrases } from "@/lib/suggestions";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { scoreComplaint } from "@/lib/scorer";
 import confetti from "canvas-confetti";
 
 type SuggestedContact = {
@@ -103,6 +104,9 @@ const ComplaintForm = ({
   const minChars = 20;
   const isTooShort = charCount <= minChars;
   const progress = Math.min((charCount / 200) * 100, 100);
+  
+  // Calculate quality score
+  const qualityScore = charCount > minChars ? scoreComplaint(userInput) : null;
 
   useEffect(() => {
     setMounted(true);
@@ -195,6 +199,25 @@ const ComplaintForm = ({
                   >
                     {phrase}
                   </Button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Quality Score & Suggestions */}
+          {qualityScore && qualityScore.suggestions.length > 0 && (
+            <div className="grid gap-2">
+              <div className="flex items-center justify-between">
+                <Label className="text-sm font-medium">Kualitas Komplain</Label>
+                <Badge variant={qualityScore.overall >= 80 ? "default" : qualityScore.overall >= 60 ? "secondary" : "destructive"}>
+                  {qualityScore.overall}/100
+                </Badge>
+              </div>
+              <div className="text-xs space-y-1">
+                {qualityScore.suggestions.map((suggestion, i) => (
+                  <p key={i} className="text-yellow-600 dark:text-yellow-400">
+                    💡 {suggestion}
+                  </p>
                 ))}
               </div>
             </div>

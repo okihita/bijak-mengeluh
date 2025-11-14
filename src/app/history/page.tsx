@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { usePersistentState } from "@/lib/hooks";
+import { AnalyticsDashboard } from "@/components/analytics-dashboard";
 
 export default function HistoryPage() {
   const [promptHistory, setPromptHistory] = usePersistentState<string[]>("promptHistory", []);
@@ -82,6 +83,9 @@ export default function HistoryPage() {
           </div>
 
           <h1 className="text-3xl font-bold mb-6">Riwayat Komplain</h1>
+
+          {/* Analytics Dashboard */}
+          <AnalyticsDashboard />
 
           {/* Statistics Card */}
           {totalComplaints > 0 && (
