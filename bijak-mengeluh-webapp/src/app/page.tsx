@@ -30,6 +30,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { scoreComplaint } from "@/lib/scorer";
 import confetti from "canvas-confetti";
+import { Onboarding } from "@/components/onboarding";
+import { SettingsPanel } from "@/components/settings-panel";
 
 export type SuggestedContact = {
   name: string;
@@ -280,6 +282,8 @@ export default function HomePage() {
 
   return (
     <>
+      <Onboarding />
+      <SettingsPanel />
       {/* Screen reader announcements */}
       <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
         {isLoading && "Sedang memproses keluhan Anda"}
