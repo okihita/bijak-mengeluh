@@ -51,3 +51,5 @@ next-env.d.ts
 # Local reports (never commit)
 /reports/
 reports/
+# Temporary specs
+v2.*-spec.md
