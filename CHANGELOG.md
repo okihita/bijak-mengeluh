@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.1] - 2025-11-16
+
+### Changed
+- **ComplaintForm header** - Shortened subtitle to fit one line
+  - "AI bantu bikin surat & kasih tau lapor ke mana" → "AI rapikan bahasa & tunjukkan kontak yang tepat"
+  - More accurate (not "surat", but "bahasa")
+  - Fits on one line on mobile
+
+### Removed
+- **Tagline** - Removed "Bijak sana, bijak sini, bijak di mana-mana!" for cleaner UI
+
+---
+
 ## [2.2.0] - 2025-11-16
 
 ### Added

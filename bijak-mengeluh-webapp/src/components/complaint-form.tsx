@@ -131,8 +131,7 @@ export const ComplaintForm = ({
     <Card className="shadow-lg dark:bg-card">
       <CardHeader className="text-center pb-4 pt-6 px-6">
         <CardTitle className="text-2xl font-bold">Curhatin Aja Keluhanmu</CardTitle>
-        <p className="text-sm text-muted-foreground mt-2">AI bantu bikin surat & kasih tau lapor ke mana 🎯</p>
-        <p className="text-xs text-muted-foreground/60 mt-1">Bijak sana, bijak sini, bijak di mana-mana!</p>
+        <p className="text-sm text-muted-foreground mt-2">AI rapikan bahasa & tunjukkan kontak yang tepat 🎯</p>
       </CardHeader>
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4 px-6 pb-6">
