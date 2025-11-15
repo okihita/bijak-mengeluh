@@ -20,27 +20,24 @@
 
 ## Phase 2: Local Coverage 🗺️
 
-**Progress:** ░░░░░░░░░░ 0%
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q1 2026
 
 **Goal:** 8,314 agencies (all Indonesia)
 
 ### 2.1: Top 10 Provinces (380 agencies)
 - Manual entry for quality
 - Covers 80% of user complaints
-- Timeline: 4 weeks
-- Cost: $0 (manual work)
+- Timeline: 4 weeks | Cost: $0
 
 ### 2.2: All 38 Provinces (570 agencies)
 - Automated scraping
 - 100% provincial coverage
-- Timeline: 2 weeks
-- Cost: $0.10
+- Timeline: 2 weeks | Cost: $0.10
 
 ### 2.3: 514 Cities (7,710 agencies)
 - Automated scraping + crowdsourcing
 - Full Indonesia coverage
-- Timeline: 4 weeks
-- Cost: $0.51
+- Timeline: 4 weeks | Cost: $0.51
 
 **Total Cost:** $0.61 one-time (cheaper than 1 month of Pinecone!)
 
@@ -48,22 +45,49 @@
 
 ## Phase 3: User Experience 📱
 
-**Progress:** ░░░░░░░░░░ 0%
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q2 2026
 
 **Goal:** Track complaint progress
 
-- Complaint history (save, search, filter)
-- Follow-up tracking (mark sent, track responses)
-- Success stories (showcase resolved complaints)
-- Mobile app (PWA → native)
+### Frontend Features
+- PDF Export (printable letters)
+- Email Integration (send directly to agencies)
+- Voice Input (speech-to-text Indonesian)
+- Enhanced Social Sharing (X/Twitter)
+- User Accounts (cloud sync)
+- Complaint Templates (pre-built & community)
+- Follow-up Tracking (status updates & reminders)
 
 **Why:** Users ask "Did my complaint work? What happened?"
 
 ---
 
-## Phase 4: Community 🤝
+## Phase 4: Backend Performance ⚡
 
-**Progress:** ░░░░░░░░░░ 0%
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q2 2026
+
+**Goal:** Faster, cheaper, more reliable
+
+### Performance
+- Response Streaming (real-time updates via SSE)
+- Caching Layer (40% cost reduction)
+- Retry Logic (99%+ reliability)
+- Request Compression (60-70% bandwidth reduction)
+
+### AI Improvements
+- Enhanced Prompts (better quality outputs)
+- Structured Output (JSON mode for reliability)
+- Temperature Tuning (0.0-0.7 based on use case)
+- Context Optimization (25% token reduction)
+- Prompt Injection Protection (security hardening)
+
+**Impact:** <3s response time, 50-60% cost reduction
+
+---
+
+## Phase 5: Community 🤝
+
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q3 2026
 
 **Goal:** Collective voice and transparency
 
@@ -71,18 +95,89 @@
 - Upvote system (support similar issues)
 - Agency rankings (response times, resolution rates)
 - Community moderation (verify, report, contribute)
+- Success stories (showcase resolved complaints)
 
 **Why:** "I'm not alone. Others have this problem too."
 
 ---
 
+## Phase 6: Intelligence 🧠
+
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q3 2026
+
+**Goal:** Smarter complaints
+
+- AI Suggestions (relevant laws & regulations)
+- Multi-language (English, regional languages)
+- Advanced Analytics (ministry response rates)
+- Smart Routing (multi-ministry complaints)
+- Sentiment Analysis (adjust tone based on frustration)
+- Image Analysis (extract details from photos)
+
+---
+
+## Phase 7: Scale & Monitoring 📊
+
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q4 2026
+
+**Goal:** Handle growth
+
+- Rate Limiting (prevent abuse)
+- Advanced Monitoring (CloudWatch + X-Ray)
+- A/B Testing Framework (data-driven optimization)
+- Auto-Scaling (handle traffic spikes)
+- CI/CD Pipeline (automated deployments)
+
+**Targets:**
+- 10,000 requests/day
+- 100 concurrent users
+- 99.9% uptime
+
+---
+
+## Phase 8: Mobile App 📲
+
+**Progress:** ░░░░░░░░░░ 0% | **Timeline:** 2027
+
+**Goal:** Native mobile experience
+
+- iOS & Android apps
+- Camera Integration (evidence photos)
+- Offline Mode (work without internet)
+- Push Notifications (status updates)
+
+---
+
 ## Future Ideas 💡
 
-- Multi-language support (English, regional languages)
+### Community Requests
+- Batch complaint generation
+- Export to Word/PDF
 - WhatsApp/Telegram bot
-- Analytics dashboard (trending complaints)
 - Legal compliance checker
-- Gamification (points for resolved complaints)
+- Gamification (points, badges, leaderboard)
+
+### Research & Exploration
+- Fine-tuned models (custom Indonesian government complaints)
+- RAG implementation (retrieve relevant examples)
+- Multi-agent system (specialized agents per complaint type)
+- Blockchain integration (immutable records)
+
+---
+
+## Success Metrics
+
+### Current
+- ✅ Match accuracy: 100%
+- ✅ Response time: <2s
+- ✅ Cost: $7-13/mo
+
+### 2026 Targets
+- 📈 Daily active users: 1,000+
+- 📈 Complaint success rate: 70%+
+- 📈 Return user rate: 40%+
+- 📈 Response time: <3s
+- 📈 Cost per request: <$0.0005
 
 ---
 
