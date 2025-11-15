@@ -16,13 +16,13 @@ Quick reference for coding standards.
 
 ### Frontend (TypeScript)
 
-| Type | Format | Example |
-|------|--------|---------|
-| Component | PascalCase | `ComplaintForm.tsx` |
-| Function | camelCase | `generateComplaint()` |
-| Variable | camelCase | `userComplaint` |
-| Constant | UPPER_SNAKE | `MAX_LENGTH` |
-| Type | PascalCase | `ComplaintData` |
+| Type      | Format      | Example               |
+|-----------|-------------|-----------------------|
+| Component | PascalCase  | `ComplaintForm.tsx`   |
+| Function  | camelCase   | `generateComplaint()` |
+| Variable  | camelCase   | `userComplaint`       |
+| Constant  | UPPER_SNAKE | `MAX_LENGTH`          |
+| Type      | PascalCase  | `ComplaintData`       |
 
 ### Backend (Python)
 

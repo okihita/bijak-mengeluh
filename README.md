@@ -136,7 +136,8 @@ We're not trying to replace community organizing or activism. We're building inf
 ## Documentation
 
 - [ROADMAP.md](./ROADMAP.md) - What we're thinking about next
-- [docs/product/research.md](./docs/product/RESEARCH.md) - How civic tech works globally
+- [docs/product/STRATEGIC_INSPIRATION.md](./docs/product/STRATEGIC_INSPIRATION.md) - Global civic tech inspiration
+- [docs/product/VOICE_AND_TONE.md](./docs/product/VOICE_AND_TONE.md) - Language and brand guidelines
 - [CHANGELOG.md](./CHANGELOG.md) - Version history
 - [docs/NOTES.md](./docs/NOTES.md) - Development diary
 - [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) - Technical deep dive

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,6 +25,17 @@ type ComplaintFormProps = {
   setTone: (tone: string) => void;
 };
 
+const placeholderHints = [
+  "Jalan rusak? Lampu mati? Sampah menumpuk? Tulis aja di sini...",
+  "Contoh: Trotoar depan kampus rusak, bahaya buat pejalan kaki",
+  "Ketik apa adanya. Nanti AI yang rapikan biar sopan 😎",
+  "Komplain yang jelas = lebih cepat ditanggapi. Yuk mulai!",
+  "Tidak usah mikir format. Tulis aja masalahnya, beres.",
+  "Dari keluhan jadi solusi dalam 30 detik. Coba sekarang!",
+  "Kamu punya suara. Kamu punya hak. Gunakan sekarang.",
+  "Satu keluhan kamu bisa ubah lingkungan. Mulai dari sini.",
+];
+
 export const ComplaintForm = ({
   handleSubmit,
   userInput,
@@ -37,6 +48,11 @@ export const ComplaintForm = ({
 }: ComplaintFormProps) => {
   const [mounted, setMounted] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(true);
+  const [placeholderText, setPlaceholderText] = useState("");
+  const [hintIndex, setHintIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  
   const charCount = userInput.trim().length;
   const minChars = 20;
   const isTooShort = charCount <= minChars;
@@ -49,12 +65,57 @@ export const ComplaintForm = ({
     setMounted(true);
   }, []);
 
-  const handleTemplateSelect = (template: string) => {
+  // Typewriter effect
+  useEffect(() => {
+    // Stop animation if user is typing
+    if (userInput.length > 0) {
+      setPlaceholderText("");
+      return;
+    }
+
+    const currentHint = placeholderHints[hintIndex];
+    
+    if (isTyping) {
+      // Typing phase
+      if (charIndex < currentHint.length) {
+        const timeout = setTimeout(() => {
+          setPlaceholderText(currentHint.slice(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        }, 40); // Faster typing: 60ms → 40ms
+        return () => clearTimeout(timeout);
+      } else {
+        // Pause after completion
+        const timeout = setTimeout(() => {
+          setIsTyping(false);
+          setCharIndex(currentHint.length);
+        }, 2000); // Stay for 2 seconds
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      // Deleting phase
+      if (charIndex > 0) {
+        const timeout = setTimeout(() => {
+          setPlaceholderText(currentHint.slice(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        }, 20); // Faster backspace: 30ms → 20ms
+        return () => clearTimeout(timeout);
+      } else {
+        // Move to next hint
+        const timeout = setTimeout(() => {
+          setHintIndex((hintIndex + 1) % placeholderHints.length);
+          setIsTyping(true);
+        }, 500);
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [charIndex, isTyping, hintIndex, userInput.length]);
+
+  const handleTemplateSelect = useCallback((template: string) => {
     setUserInput(template);
     setShowSuggestions(false);
-  };
+  }, [setUserInput]);
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
     let text = e.target.value;
     
     // Auto-capitalize first letter of sentences
@@ -64,7 +125,7 @@ export const ComplaintForm = ({
     if (text.length > 10) {
       setShowSuggestions(false);
     }
-  };
+  }, [setUserInput]);
 
   return (
     <Card className="shadow-lg dark:bg-card">
@@ -80,7 +141,7 @@ export const ComplaintForm = ({
           <div className="relative">
             <Textarea
               id="complaint-description"
-              placeholder="Tulis keluhan kamu di sini..."
+              placeholder={placeholderText}
               className="min-h-[120px] text-base resize-none focus:ring-2 focus:ring-primary/50 leading-relaxed"
               value={userInput}
               onChange={handleTextChange}

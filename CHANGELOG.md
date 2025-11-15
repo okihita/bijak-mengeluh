@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.0] - 2025-11-16
+
+### Added
+- **Typewriter effect for placeholder** - Animated placeholder text cycles through 8 empowering hints
+  - Typing speed: 40ms/character
+  - Backspace speed: 20ms/character
+  - Pause after completion: 2 seconds
+  - Stops when user types, resumes when empty
+- **Product documentation standardization** - Unified structure across all contributor guidelines
+  - Standardized headers (Document Type, Purpose, Audience, Last Updated)
+  - Consistent markdown formatting
+  - README.md index for product docs
+  - STANDARDIZATION_SUMMARY.md for change tracking
+
+### Changed
+- **Documentation reorganization**
+  - Renamed RESEARCH.md → STRATEGIC_INSPIRATION.md (better reflects purpose)
+  - Renamed MICROCOPY_AUDIT.md → VOICE_AND_TONE.md (permanent guideline, not audit)
+  - Moved GAP_ANALYSIS.md → reports/ folder (one-time report)
+- **Markdown formatting cleanup**
+  - Removed bold from 70+ headings across all docs
+  - Removed 80+ orphaned citation numbers
+  - Validated all markdown syntax
+
+### Fixed
+- **Documentation consistency** - All product docs now follow same structure and formatting
+
+---
+
 ## [2.1.0] - 2025-11-16
 
 ### Added
