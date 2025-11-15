@@ -10,10 +10,9 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useCopyToClipboard, useWebShare } from "@/lib/hooks";
-import { Check } from "@/components/icons";
+import { Check, Spinner } from "@/components/icons";
 import { Share, Instagram } from "lucide-react";
 
 type GeneratedComplaintProps = {
@@ -22,6 +21,21 @@ type GeneratedComplaintProps = {
   originalText: string;
   ministry?: string;
 };
+
+const thinkingMessages = [
+  "🤔 Membaca keluhan Anda...",
+  "🔍 Mencari instansi yang tepat dari 121 pilihan...",
+  "✍️ Menulis surat formal...",
+  "🎩 Merapikan bahasa biar sopan...",
+  "📝 Menambahkan 'Kepada Yth.'...",
+  "🧐 Memastikan tidak ada typo...",
+  "💼 Menyiapkan format resmi...",
+  "🎯 Mencocokkan dengan database instansi...",
+  "😤 Menerjemahkan kekesalan Anda...",
+  "🎭 Mengubah 'anjir' jadi 'dengan hormat'...",
+  "🧙 Menyulap rant jadi surat resmi...",
+  "🚀 Hampir selesai...",
+];
 
 export const GeneratedComplaint = ({
   generatedText,
@@ -34,7 +48,26 @@ export const GeneratedComplaint = ({
   const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // Cycle through thinking messages
+  useEffect(() => {
+    if (!isLoading) return;
+
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prev) => (prev + 1) % thinkingMessages.length);
+    }, 1500);
+
+    return () => clearInterval(interval);
+  }, [isLoading]);
+
+  // Reset message index when loading starts
+  useEffect(() => {
+    if (isLoading) {
+      setCurrentMessageIndex(0);
+    }
+  }, [isLoading]);
 
   useEffect(() => {
     if (generatedText && !isLoading && cardRef.current) {
@@ -113,12 +146,24 @@ export const GeneratedComplaint = ({
         
         <CardContent className="p-4 min-h-[150px]">
           {isLoading && (
-            <div className="space-y-3">
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-4/5" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-3/4" />
+            <div className="space-y-4 py-4">
+              {thinkingMessages.slice(0, 4).map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex items-center gap-3 transition-all duration-300 ${
+                    index === currentMessageIndex % 4
+                      ? "text-blue-600 dark:text-blue-400 font-medium scale-105"
+                      : "text-gray-400 dark:text-gray-600"
+                  }`}
+                >
+                  {index === currentMessageIndex % 4 ? (
+                    <Spinner className="h-5 w-5 animate-spin" />
+                  ) : (
+                    <div className="h-5 w-5" />
+                  )}
+                  <span className="text-sm">{msg}</span>
+                </div>
+              ))}
             </div>
           )}
           

@@ -22,11 +22,11 @@ describe('GeneratedComplaint Component', () => {
     ministry: 'Test Ministry',
   };
 
-  it('shows skeleton when loading', () => {
+  it('shows thinking text when loading', () => {
     render(<GeneratedComplaint {...mockProps} isLoading={true} />);
-    // Skeleton should be visible
-    const skeletons = document.querySelectorAll('.animate-pulse');
-    expect(skeletons.length).toBeGreaterThan(0);
+    // Thinking text should be visible
+    const thinkingText = screen.getByText(/Membaca keluhan/i);
+    expect(thinkingText).toBeInTheDocument();
   });
 
   it('shows generated text when not loading', () => {
