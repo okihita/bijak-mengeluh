@@ -18,6 +18,11 @@ import { History, Share, X, Instagram } from "lucide-react";
 import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
+import { ComplaintForm } from "@/components/complaint-form";
+import { GeneratedComplaint } from "@/components/generated-complaint";
+import { SuggestedContacts } from "@/components/suggested-contacts";
+import { ErrorMessage } from "@/components/error-message";
+import { AnalysisSteps } from "@/components/analysis-steps";
 import { complaintTemplates } from "@/lib/templates";
 import { usePersistentState, useAutoSave } from "@/lib/hooks";
 import { suggestionPhrases } from "@/lib/suggestions";
@@ -116,7 +121,6 @@ function complaintReducer(state: ComplaintState, action: ComplaintAction): Compl
   }
 }
 
-import { GeneratedComplaint } from "@/components/generated-complaint";
 import { useAnalysisStepsAnimation } from "@/lib/hooks";
 export default function HomePage() {
   const [userInput, setUserInput] = usePersistentState("userInput", "");
