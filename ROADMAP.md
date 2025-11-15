@@ -2,12 +2,14 @@
 
 ---
 
-## Phase 1: Cost Optimization (NOW - 90% done)
+## Phase 1: Cost Optimization 💰
 
-**Goal:** <$50/mo | **Savings:** $840/year
+**Progress:** ████████░░ 90%
+
+**Goal:** Save $840/year by ditching Pinecone
 
 - ✅ DynamoDB setup
-- ✅ Keyword matching (100% accuracy)
+- ✅ Keyword matching (100% accuracy!)
 - ✅ DKI Jakarta scrape (90 agencies)
 - ⏳ Remove Pinecone dependency
 - ⏳ Scrape 34 national ministries
@@ -16,30 +18,37 @@
 
 ---
 
-## Phase 2: Local Coverage (Q1 2026)
+## Phase 2: Local Coverage 🗺️
 
-**Goal:** 8,314 agencies | **Cost:** $0.61 one-time
+**Progress:** ░░░░░░░░░░ 0%
+
+**Goal:** 8,314 agencies (all Indonesia)
 
 ### 2.1: Top 10 Provinces (380 agencies)
 - Manual entry for quality
-- 80% of user complaints covered
+- Covers 80% of user complaints
 - Timeline: 4 weeks
+- Cost: $0 (manual work)
 
 ### 2.2: All 38 Provinces (570 agencies)
 - Automated scraping
 - 100% provincial coverage
 - Timeline: 2 weeks
+- Cost: $0.10
 
 ### 2.3: 514 Cities (7,710 agencies)
 - Automated scraping + crowdsourcing
 - Full Indonesia coverage
 - Timeline: 4 weeks
+- Cost: $0.51
 
-**Method:** Serper API (free tier) + Bedrock ($0.02) + manual verification
+**Total Cost:** $0.61 one-time (cheaper than 1 month of Pinecone!)
 
 ---
 
-## Phase 3: User Experience (Q2 2026)
+## Phase 3: User Experience 📱
+
+**Progress:** ░░░░░░░░░░ 0%
 
 **Goal:** Track complaint progress
 
@@ -48,27 +57,33 @@
 - Success stories (showcase resolved complaints)
 - Mobile app (PWA → native)
 
+**Why:** Users ask "Did my complaint work? What happened?"
+
 ---
 
-## Phase 4: Community (Q2 2026)
+## Phase 4: Community 🤝
 
-**Goal:** Collective voice
+**Progress:** ░░░░░░░░░░ 0%
+
+**Goal:** Collective voice and transparency
 
 - Public database (anonymized complaints)
 - Upvote system (support similar issues)
 - Agency rankings (response times, resolution rates)
 - Community moderation (verify, report, contribute)
 
+**Why:** "I'm not alone. Others have this problem too."
+
 ---
 
-## Future Ideas
+## Future Ideas 💡
 
-- Multi-language support
+- Multi-language support (English, regional languages)
 - WhatsApp/Telegram bot
-- Analytics dashboard
+- Analytics dashboard (trending complaints)
 - Legal compliance checker
-- Gamification (points, badges, leaderboard)
+- Gamification (points for resolved complaints)
 
 ---
 
-**Last Updated:** Nov 15, 2025
+**Last Updated:** Nov 15, 2025 | **Next Review:** Dec 2025
