@@ -88,9 +88,9 @@ Cost: $77-85/mo | Coverage: 34 agencies
 **v2.0** (Nov 2025)
 ```
 User → Next.js → Lambda → Bedrock + DynamoDB
-Cost: $7-13/mo | Coverage: 124 agencies
+Cost: $7-13/mo | Coverage: 121 agencies
 ```
-*Win:* 10x cheaper, 3.6x more agencies
+*Win:* 10x cheaper, 3.5x more agencies
 
 **Future**
 ```
@@ -112,12 +112,9 @@ Cost: $0.61 one-time + $0.006/mo
 - DynamoDB query: <200ms
 
 **Coverage**
-
 - v1.0: 34 agencies
-
-- v2.0: 124 agencies (+265%)
-
-- Target: 8,314 agencies (+24,329%!)
+- v2.0: 121 agencies (+256%)
+- Target: 8,314 agencies (+24,347%!)
 
 **Cost**
 
@@ -182,28 +179,20 @@ git commit -m "feat: description"
 
 ## Next Steps
 
-**Immediate**
+**Phase 1: Complete ✅**
+- ✅ Pinecone fully removed
+- ✅ National ministries scraped (31/34)
+- ✅ Error boundary added
+- ✅ Documentation consolidated
 
-- Remove Pinecone completely (90% done)
-
-- Scrape 34 national ministries
-
-- Celebrate $840/year savings 🎉
-
-**Q1 2026**
-
+**Q1 2026 (Phase 2)**
 - Top 10 provinces (380 agencies)
-
 - Manual entry for quality
-
 - 80% of complaints covered
 
-**Q2 2026**
-
+**Q2 2026 (Phase 3)**
 - All Indonesia (8,314 agencies)
-
 - Crowdsourcing for updates
-
 - Mobile app (PWA → native)
 
 ---

@@ -8,7 +8,6 @@ Quick reference for coding standards.
 
 **Frontend:** camelCase functions, PascalCase components  
 **Backend:** snake_case everything, PascalCase classes  
-**API:** Use `complaint` (not `prompt`), `ministry` (not `contact`)  
 **Commits:** Conventional format (`feat:`, `fix:`, `docs:`)
 
 ---
@@ -42,26 +41,22 @@ Quick reference for coding standards.
 ### Request
 ```json
 {
-
   "complaint": "Jalan rusak parah",
   "tone": "formal"
 }
-
 ```
 
 ### Response
 ```json
 {
-
-  "generatedComplaint": "Kepada Yth...",
-  "suggestedMinistries": [...],
+  "generated_text": "Kepada Yth...",
+  "suggested_contacts": [...],
   "rationale": "...",
-  "socialHandle": {...}
+  "social_handle_info": {...}
 }
-
 ```
 
-**Why `complaint` not `prompt`?** More descriptive, user-facing term.
+**Note:** Backend uses snake_case, frontend converts to camelCase.
 
 ---
 
@@ -118,23 +113,13 @@ docs: update README
 ## Code Style
 
 ### Frontend
-
-- Use TypeScript strict mode
-
 - Prefer functional components
-
 - Use Tailwind for styling
-
 - Extract reusable logic to hooks
 
 ### Backend
-
 - Type hints for all functions
-
 - Docstrings for public APIs
-
-- Use async/await for I/O
-
 - Keep handlers thin (logic in services)
 
 ---
@@ -149,7 +134,6 @@ npx tsc --noEmit
 
 # Backend
 sam build
-python -m pytest
 ```
 
 ---

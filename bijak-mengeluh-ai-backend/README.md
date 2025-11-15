@@ -1,49 +1,27 @@
-DEPRECATED IN FAVOR OF MONOREPO
+# Backend - Bijak Mengeluh
 
-# Bijak Mengeluh - Backend
+Lambda functions for complaint generation and agency matching.
 
-AWS Lambda backend for AI complaint generation and agency matching.
+## Prerequisites
 
----
+- AWS CLI with profile `bijak-mengeluh-aws-iam`
+- SAM CLI
+- Secrets in Parameter Store (see [Deployment Guide](../docs/deployment/deployment-guide.md))
 
-## Quick Start
-
-```bash
-# Setup secrets (first time)
-./scripts/setup-secrets.sh
-
-# Deploy
-sam build && sam deploy
-```
-
----
-
-## Features
-
-- AI text generation (Bedrock Claude)
-- Agency matching (DynamoDB keyword index)
-- Social media discovery
-- Parallel processing (4-6s response)
-
----
-
-## Stack
-
-- AWS Lambda (Python 3.12)
-- AWS Bedrock (Claude 3 Haiku)
-- DynamoDB (keyword index)
-- API Gateway
-
----
-
-## API
+## Quick Deploy
 
 ```bash
-curl -X POST https://brain.bijakmengeluh.id/generate \
-  -H "Content-Type: application/json" \
-  -d '{"complaint": "Jalan rusak", "tone": "formal"}'
+bash scripts/deploy.sh
 ```
 
----
+## Local Development
 
-**See parent README for full documentation**
+```bash
+sam build
+sam local start-api
+# Test: curl http://localhost:3000/generate -X POST -d '{"complaint":"test","tone":"formal"}'
+```
+
+## Testing
+
+See [Testing Guide](../docs/testing/test-guide.md).

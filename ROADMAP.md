@@ -8,18 +8,18 @@
 
 **Goal:** Save $840/year by ditching Pinecone
 
-
 - ✅ DynamoDB setup
-
 - ✅ Keyword matching (100% accuracy!)
-
 - ✅ DKI Jakarta scrape (90 agencies)
-
 - ✅ Remove Pinecone dependency
-
-- ⏳ Scrape 34 national ministries
+- ✅ Scrape national ministries (31/34 done)
 
 **Result:** $7-13/mo (down from $77-85/mo)
+
+**Technical Debt:**
+- ⚠️ 0% test coverage (backend + frontend)
+- ⚠️ No error monitoring (Sentry)
+- ⚠️ 3 ministries failed scraping (retry needed)
 
 ---
 
@@ -30,30 +30,27 @@
 **Goal:** 8,314 agencies (all Indonesia)
 
 ### 2.1: Top 10 Provinces (380 agencies)
-
-- Manual entry for quality
-
+- Manual data entry (name, website, social media)
 - Covers 80% of user complaints
-
 - Timeline: 4 weeks | Cost: $0
 
 ### 2.2: All 38 Provinces (570 agencies)
-
-- Automated scraping
-
+- Automated scraping with LLM verification
 - 100% provincial coverage
-
 - Timeline: 2 weeks | Cost: $0.10
 
 ### 2.3: 514 Cities (7,710 agencies)
-
 - Automated scraping + crowdsourcing
-
 - Full Indonesia coverage
-
 - Timeline: 4 weeks | Cost: $0.51
 
-**Total Cost:** $0.61 one-time (cheaper than 1 month of Pinecone!)
+**Total Cost:** $0.61 one-time
+
+**Success Criteria:**
+- ✅ 8,314 agencies in database
+- ✅ 95%+ match accuracy maintained
+- ✅ <3s response time
+- ✅ Cost stays under $15/mo
 
 ---
 
