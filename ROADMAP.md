@@ -1,251 +1,216 @@
 # Roadmap
 
+**Current Version:** v2.0 (Nov 2025)  
+**Next Release:** v3.0 (when ready)
+
 ---
 
-## Phase 1: Cost Optimization 💰
+## ✅ v1.0 - Initial Release (Oct 2025)
 
-**Progress:** ██████████ 100%
+**Delivered:**
+- 34 national agencies
+- AI complaint generation (formal/funny/angry tones)
+- Pinecone vector search
+- Instagram Story sharing
+- PWA support
+- Dark mode
 
-**Goal:** Save $840/year by ditching Pinecone
+**Cost:** $77-85/mo
 
-- ✅ DynamoDB setup
-- ✅ Keyword matching (100% accuracy!)
-- ✅ DKI Jakarta scrape (90 agencies)
-- ✅ Remove Pinecone dependency
-- ✅ Scrape national ministries (31/34 done)
+---
 
-**Result:** $7-13/mo (down from $77-85/mo)
+## ✅ v2.0 - Cost Optimization (Nov 2025)
 
-**Technical Debt:**
+**Progress:** ██████████ 100% | **Status:** Production
+
+**Delivered:**
+- DynamoDB keyword matching (replaced Pinecone)
+- 121 agencies (31 national + 90 DKI Jakarta)
+- 100% match accuracy
+- 50% faster response time (8-10s → 4-6s)
+- 90% cost reduction ($77/mo → $7.50/mo)
+
+**Savings:** $840/year
+
+**Known Issues:**
 - ⚠️ 0% test coverage (backend + frontend)
-- ⚠️ No error monitoring (Sentry)
-- ⚠️ 3 ministries failed scraping (retry needed)
+- ⚠️ No error monitoring
+- ⚠️ 3 national ministries missing (scraping failed)
 
 ---
 
-## Phase 2: Local Coverage 🗺️
+## 🚧 v3.0 - Local Coverage
 
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q1 2026
+**Progress:** ░░░░░░░░░░ 0% | **Status:** Planned
 
-**Goal:** 8,314 agencies (all Indonesia)
+**Goal:** Expand to 380 agencies (top 10 provinces)
 
-### 2.1: Top 10 Provinces (380 agencies)
-- Manual data entry (name, website, social media)
-- Covers 80% of user complaints
-- Timeline: 4 weeks | Cost: $0
+### Coverage Expansion
+- **Top 10 provinces:** 380 agencies
+- **Method:** Manual data entry (quality over speed)
+- **Coverage:** 80% of Indonesian complaints
+- **Cost:** $0 (manual entry)
 
-### 2.2: All 38 Provinces (570 agencies)
-- Automated scraping with LLM verification
-- 100% provincial coverage
-- Timeline: 2 weeks | Cost: $0.10
+### Quality Improvements
+- Add automated tests (pytest + Jest)
+- 80% test coverage target
+- Error boundaries (frontend)
+- CloudWatch alarms (backend)
 
-### 2.3: 514 Cities (7,710 agencies)
-- Automated scraping + crowdsourcing
-- Full Indonesia coverage
-- Timeline: 4 weeks | Cost: $0.51
+### Performance
+- Response streaming (SSE)
+- Caching layer (Redis/ElastiCache)
+- Request batching
 
-**Total Cost:** $0.61 one-time
+**Success Criteria:**
+- ✅ 380 agencies in database
+- ✅ 95%+ match accuracy maintained
+- ✅ <2s response time (P95)
+- ✅ 80% test coverage
+- ✅ Cost stays under $15/mo
+
+**Estimated Cost:** $10.50/mo (+40%)
+
+---
+
+## 🔮 v4.0 - User Experience
+
+**Progress:** ░░░░░░░░░░ 0% | **Status:** Planned
+
+**Goal:** Track complaint progress and improve UX
+
+### Complaint Tracking
+- Follow-up reminders
+- Status updates (submitted/in-progress/resolved)
+- Success stories showcase
+- Community voting on complaints
+
+### Enhanced Features
+- PDF export (printable letters)
+- Email integration (send directly to agencies)
+- Voice input (speech-to-text Indonesian)
+- Enhanced social sharing (X/Twitter, WhatsApp)
+- User accounts (cloud sync, optional)
+- Community complaint templates
+
+### Multi-language
+- English support
+- Auto-detect language
+- Bilingual complaints (Indonesian + English)
+
+**Success Criteria:**
+- ✅ Complaint tracking functional
+- ✅ 50% user retention (return visits)
+- ✅ PDF export working
+- ✅ Voice input 90%+ accuracy
+
+**Estimated Cost:** $18/mo (+80% from v3.0)
+
+---
+
+## 🌟 v5.0 - National Coverage
+
+**Goal:** All Indonesia (8,314 agencies)
+
+### Full Coverage
+- **All 38 provinces:** 570 agencies
+- **514 cities:** 7,710 agencies
+- **Method:** Automated scraping + crowdsourcing
+- **Cost:** $0.61 one-time
+
+### Crowdsourcing
+- Community can add/update agencies
+- Verification system (upvotes/downvotes)
+- Gamification (badges, leaderboards)
+
+### AI Improvements
+- Multi-model support (GPT-4, Gemini)
+- Tone detection (auto-select formal/funny/angry)
+- Complaint quality scoring
+- Auto-suggest improvements
 
 **Success Criteria:**
 - ✅ 8,314 agencies in database
-- ✅ 95%+ match accuracy maintained
+- ✅ 95%+ match accuracy
 - ✅ <3s response time
-- ✅ Cost stays under $15/mo
+- ✅ Cost stays under $20/mo
 
 ---
 
-## Phase 3: User Experience 📱
-
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q2 2026
-
-**Goal:** Track complaint progress
-
-### Frontend Features
-
-- PDF Export (printable letters)
-
-- Email Integration (send directly to agencies)
-
-- Voice Input (speech-to-text Indonesian)
-
-- Enhanced Social Sharing (X/Twitter)
-
-- User Accounts (cloud sync)
-
-- Complaint Templates (pre-built & community)
-
-- Follow-up Tracking (status updates & reminders)
-
-**Why:** Users ask "Did my complaint work? What happened?"
-
----
-
-## Phase 4: Backend Performance ⚡
-
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q2 2026
-
-**Goal:** Faster, cheaper, more reliable
-
-### Performance
-
-- Response Streaming (real-time updates via SSE)
-
-- Caching Layer (40% cost reduction)
-
-- Retry Logic (99%+ reliability)
-
-- Request Compression (60-70% bandwidth reduction)
-
-### AI Improvements
-
-- Enhanced Prompts (better quality outputs)
-
-- Structured Output (JSON mode for reliability)
-
-- Temperature Tuning (0.0-0.7 based on use case)
-
-- Context Optimization (25% token reduction)
-
-- Prompt Injection Protection (security hardening)
-
-**Impact:** <3s response time, 50-60% cost reduction
-
----
-
-## Phase 5: Community 🤝
-
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q3 2026
-
-**Goal:** Collective voice and transparency
-
-
-- Public database (anonymized complaints)
-
-- Upvote system (support similar issues)
-
-- Agency rankings (response times, resolution rates)
-
-- Community moderation (verify, report, contribute)
-
-- Success stories (showcase resolved complaints)
-
-**Why:** "I'm not alone. Others have this problem too."
-
----
-
-## Phase 6: Intelligence 🧠
-
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q3 2026
-
-**Goal:** Smarter complaints
-
-
-- AI Suggestions (relevant laws & regulations)
-
-- Multi-language (English, regional languages)
-
-- Advanced Analytics (ministry response rates)
-
-- Smart Routing (multi-ministry complaints)
-
-- Sentiment Analysis (adjust tone based on frustration)
-
-- Image Analysis (extract details from photos)
-
----
-
-## Phase 7: Scale & Monitoring 📊
-
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** Q4 2026
-
-**Goal:** Handle growth
-
-
-- Rate Limiting (prevent abuse)
-
-- Advanced Monitoring (CloudWatch + X-Ray)
-
-- A/B Testing Framework (data-driven optimization)
-
-- Auto-Scaling (handle traffic spikes)
-
-- CI/CD Pipeline (automated deployments)
-
-**Targets:**
-
-- 10,000 requests/day
-
-- 100 concurrent users
-
-- 99.9% uptime
-
----
-
-## Phase 8: Mobile App 📲
-
-**Progress:** ░░░░░░░░░░ 0% | **Timeline:** 2027
+## 🚀 v6.0 - Mobile App
 
 **Goal:** Native mobile experience
 
+### Mobile App
+- React Native (iOS + Android)
+- Offline mode (full PWA features)
+- Push notifications (follow-up reminders)
+- Camera integration (photo evidence)
+- Location services (auto-detect city)
 
-- iOS & Android apps
+### Backend Improvements
+- Multi-region deployment (Jakarta + Singapore)
+- CDN for static assets
+- Database replication
+- Auto-scaling policies
 
-- Camera Integration (evidence photos)
-
-- Offline Mode (work without internet)
-
-- Push Notifications (status updates)
+**Success Criteria:**
+- ✅ App Store + Play Store published
+- ✅ 10K+ downloads in first month
+- ✅ 4.5+ star rating
+- ✅ 99.9% uptime
 
 ---
 
-## Future Ideas 💡
+## 📊 Version Comparison
 
-### Community Requests
-
-- Batch complaint generation
-
-- Export to Word/PDF
-
-- WhatsApp/Telegram bot
-
-- Legal compliance checker
-
-- Gamification (points, badges, leaderboard)
-
-### Research & Exploration
-
-- Fine-tuned models (custom Indonesian government complaints)
-
-- RAG implementation (retrieve relevant examples)
-
-- Multi-agent system (specialized agents per complaint type)
-
-- Blockchain integration (immutable records)
+| Version | Status | Agencies | Cost/mo | Key Feature |
+|---------|--------|----------|---------|-------------|
+| v1.0 | Released Oct 2025 | 34 | $77 | Initial release |
+| v2.0 | Released Nov 2025 | 121 | $7.50 | DynamoDB migration |
+| v3.0 | Planned | 380 | $10.50 | Top 10 provinces |
+| v4.0 | Planned | 380 | $18 | Complaint tracking |
+| v5.0 | Planned | 8,314 | $20 | All Indonesia |
+| v6.0 | Planned | 8,314 | $25 | Mobile app |
 
 ---
 
 ## Success Metrics
 
-### Current
+### v3.0 Targets
+- 380 agencies
+- 80% test coverage
+- <2s response time
+- $10.50/mo cost
 
-- ✅ Match accuracy: 100%
+### v4.0 Targets
+- 50% user retention
+- Complaint tracking functional
+- PDF export working
 
-- ✅ Response time: <2s
+### v5.0 Targets
+- 8,314 agencies
+- 95%+ match accuracy
+- <3s response time
+- $20/mo cost
 
-- ✅ Cost: $7-13/mo
-
-### 2026 Targets
-
-- 📈 Daily active users: 1,000+
-
-- 📈 Complaint success rate: 70%+
-
-- 📈 Return user rate: 40%+
-
-- 📈 Response time: <3s
-
-- 📈 Cost per request: <$0.0005
+### v6.0 Targets
+- 10K+ app downloads
+- 4.5+ star rating
+- 99.9% uptime
 
 ---
 
-**Last Updated:** Nov 15, 2025 | **Next Review:** Dec 2025
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to help with any version.
+
+**Priority areas:**
+- v3.0: Manual agency data entry
+- v3.0: Automated tests
+- v4.0: Complaint tracking design
+- v5.0: Crowdsourcing platform
+
+---
+
+**Last Updated:** Nov 15, 2025

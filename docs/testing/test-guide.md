@@ -4,7 +4,7 @@
 
 ⚠️ **No automated tests yet** (0% coverage)
 
-Planned for Phase 2:
+Planned for v3.0:
 - Backend: pytest with 80% coverage target
 - Frontend: Jest + React Testing Library
 
@@ -14,7 +14,7 @@ Use [manual-test-checklist.md](./manual-test-checklist.md) for production verifi
 
 ---
 
-## Future Test Coverage (Phase 2)
+## Future Test Coverage (v3.0)
 
 ### Backend Tests (pytest)
 

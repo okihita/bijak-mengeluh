@@ -139,3 +139,102 @@ sam build
 ---
 
 **Full guide:** See `docs/archive/` for detailed examples
+
+---
+
+## Local Reports Workflow
+
+**Philosophy:** Keep development context local, git history clean.
+
+### Reports Directory
+
+```
+reports/              # Git-ignored, never pushed
+├── deployment/       # Deployment logs
+├── stability/        # Daily sanity checks
+├── performance/      # Speed benchmarks
+└── usability/        # User feedback notes
+```
+
+### When to Use
+
+**DO use reports/ for:**
+- Daily stability checks
+- Deployment notes
+- Performance benchmarks
+- User feedback tracking
+- Debugging context
+
+**DON'T use reports/ for:**
+- Production documentation (use docs/)
+- Permanent records (use git commits)
+- Shared team info (use GitHub Issues)
+
+### Quick Commands
+
+```bash
+# Daily check
+curl -o /dev/null -s -w "$(date): Frontend %{time_total}s\n" https://bijakmengeluh.id >> reports/stability/$(date +%Y-%m).log
+
+# After deployment
+echo "$(date): Deployed - <description>" >> reports/deployment/$(date +%Y-%m).log
+
+# Performance test
+echo "$(date): API response $(curl -o /dev/null -s -w '%{time_total}s' https://brain.bijakmengeluh.id/generate -X POST -d '{\"complaint\":\"test\",\"tone\":\"formal\"}')" >> reports/performance/$(date +%Y-%m).log
+```
+
+### Retention
+
+- Keep current + last 2 months
+- Delete older reports (they're local only)
+- Archive manually if needed for reference
+
+See `reports/README.md` for templates and examples.
+
+---
+
+## Historical Context
+
+### Why This Style Guide Exists
+
+**Problem (Nov 14, 2025):** Frontend and backend had inconsistent naming conventions, making them feel disconnected despite being part of the same project.
+
+**Issues:**
+- Frontend: `prompt`, Backend: `user_prompt`
+- Frontend: `contact`, Backend: `ministry`
+- No unified term for "complaint"
+- Different naming styles (camelCase vs snake_case)
+
+**Solution:** Created unified style guide and aligned both repositories.
+
+**Impact:**
+- Clear API contracts
+- Consistent terminology
+- Better developer experience
+- Easier onboarding
+
+### Key Decisions
+
+**Why snake_case for backend?**
+- Python convention (PEP 8)
+- Better readability for long names
+- Consistent with AWS SDK
+
+**Why camelCase for frontend?**
+- JavaScript/TypeScript convention
+- React ecosystem standard
+- Next.js best practices
+
+**Why "complaint" not "prompt"?**
+- User-facing term
+- Clear domain language
+- Matches Indonesian "keluhan"
+
+**Why "agency" not "ministry"?**
+- More accurate (includes local Dinas)
+- Scalable terminology
+- Matches DynamoDB schema
+
+---
+
+**Last Updated:** Nov 15, 2025

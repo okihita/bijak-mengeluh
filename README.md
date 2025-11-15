@@ -44,11 +44,9 @@ See [docs/deployment/](./docs/deployment/) for full setup.
 - 100% match accuracy
 - <2s response time
 
-**🚧 Next (Phase 2)**
+**🚧 Next (v3.0)**
 
-- Expand to 8,314 agencies (all Indonesia)
-- Top 10 provinces (380 agencies)
-- Timeline: Q1 2026
+- Expand to 380 agencies (top 10 provinces)
 
 ---
 
@@ -83,13 +81,25 @@ v2.0: $7-13/mo  (DynamoDB FTW 🎉)
 
 ## Documentation
 
-- [ROADMAP.md](./ROADMAP.md) - What's next
-- [STYLE_GUIDE.md](./STYLE_GUIDE.md) - Code standards
-- [docs/NOTES.md](./docs/NOTES.md) - Dev diary
-- [docs/API.md](./docs/API.md) - API reference
-- [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) - User issues & solutions
-- [docs/deployment/](./docs/deployment/) - Deployment guide
-- [docs/testing/](./docs/testing/) - Testing guide
+**Getting Started:**
+- [Quick Start](#quick-start) - 5 min setup
+- [Architecture](./docs/ARCHITECTURE.md) - System design
+- [Contributing](./CONTRIBUTING.md) - How to help
+
+**For Users:**
+- [Troubleshooting](./docs/TROUBLESHOOTING.md) - Fix issues
+- [Changelog](./CHANGELOG.md) - Version history
+
+**For Developers:**
+- [API Reference](./docs/API.md) - Endpoints
+- [Style Guide](./STYLE_GUIDE.md) - Code standards
+- [Deployment](./docs/deployment/) - Deploy guide
+- [Testing](./docs/testing/) - Test guide
+
+**Project Info:**
+- [Roadmap](./ROADMAP.md) - What's next
+- [Notes](./docs/NOTES.md) - Dev diary
+- [Archive](./docs/archive/) - Historical context
 
 ---
 

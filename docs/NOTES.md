@@ -185,12 +185,17 @@ git commit -m "feat: description"
 - ✅ Error boundary added
 - ✅ Documentation consolidated
 
-**Q1 2026 (Phase 2)**
+**v3.0 (Next)**
 - Top 10 provinces (380 agencies)
 - Manual entry for quality
 - 80% of complaints covered
 
-**Q2 2026 (Phase 3)**
+**v4.0**
+- Complaint tracking
+- PDF export
+- Voice input
+
+**v5.0**
 - All Indonesia (8,314 agencies)
 - Crowdsourcing for updates
 - Mobile app (PWA → native)

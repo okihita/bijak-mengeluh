@@ -47,3 +47,7 @@ next-env.d.ts
 # Local development
 .turbo
 *.local
+
+# Local reports (never commit)
+/reports/
+reports/
