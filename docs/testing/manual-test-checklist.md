@@ -12,23 +12,33 @@ Quick production verification checklist.
 - [ ] Suggested agency appears (Dinas PU Jakarta Selatan)
 - [ ] Social media handle shows
 
-### 2. Instagram Sharing
+### 2. Agency Matching Accuracy
+- [ ] Test: "sampah menumpuk Jakarta Pusat" → Dinas Kebersihan Jakarta Pusat
+- [ ] Test: "banjir Kemang" → Dinas SDA Jakarta Selatan
+- [ ] Test: "polusi udara Jakarta" → Kementerian LHK (national)
+
+### 3. Tone Variations
+- [ ] Select "Formal" → Check for "Kepada Yth", "Hormat saya"
+- [ ] Select "Lucu" → Check for humor/wordplay
+- [ ] Select "Marah" → Check for assertive language (no profanity)
+
+### 4. Instagram Sharing
 - [ ] Click "Share ke Instagram Story"
 - [ ] Image generates (9:16 format)
 - [ ] Text is readable
 - [ ] Download works
 
-### 3. History
+### 5. History
 - [ ] Click "Riwayat" in bottom nav
 - [ ] Previous complaint appears
 - [ ] Copy button works
 - [ ] Delete button works
 
-### 4. Dark Mode
+### 6. Dark Mode
 - [ ] Toggle theme switch
 - [ ] All text readable in both modes
 
-### 5. Mobile
+### 7. Mobile
 - [ ] Test on mobile device or DevTools
 - [ ] All buttons tappable
 - [ ] No horizontal scroll

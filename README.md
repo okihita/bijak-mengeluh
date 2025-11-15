@@ -86,6 +86,8 @@ v2.0: $7-13/mo  (DynamoDB FTW 🎉)
 - [ROADMAP.md](./ROADMAP.md) - What's next
 - [STYLE_GUIDE.md](./STYLE_GUIDE.md) - Code standards
 - [docs/NOTES.md](./docs/NOTES.md) - Dev diary
+- [docs/API.md](./docs/API.md) - API reference
+- [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) - User issues & solutions
 - [docs/deployment/](./docs/deployment/) - Deployment guide
 - [docs/testing/](./docs/testing/) - Testing guide
 

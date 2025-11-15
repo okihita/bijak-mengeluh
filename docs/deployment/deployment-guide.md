@@ -68,6 +68,107 @@ curl https://brain.bijakmengeluh.id/generate -X POST \
 open https://bijakmengeluh.id
 ```
 
+---
+
+## DynamoDB Table Structure
+
+**Table:** `BijakMengeluhAgencies`  
+**Primary Key:** `agency_id` (String)
+
+**Attributes:**
+- `name` - Agency full name
+- `category` - Type (e.g., "Pekerjaan Umum")
+- `jurisdiction` - Geographic scope (e.g., "Jakarta Selatan")
+- `keywords` - Search terms (e.g., "jalan,rusak,lubang")
+- `social_media` - Contact handles
+
+**GSI:** `jurisdiction-index` for city-level queries
+
+---
+
+## Monitoring
+
+### CloudWatch Dashboards
+
+**Lambda Metrics:**
+- Invocations, Errors, Duration, Throttles
+- Log group: `/aws/lambda/BijakMengeluhComplaintGenerationFunction`
+
+**DynamoDB Metrics:**
+- Read/Write capacity units
+- Throttled requests
+
+**Bedrock Metrics:**
+- Model invocations
+- Token usage
+
+### Alarms (Recommended)
+
+```bash
+# Lambda errors >5 in 5 minutes
+aws cloudwatch put-metric-alarm \
+  --alarm-name BijakMengeluh-Lambda-Errors \
+  --metric-name Errors \
+  --namespace AWS/Lambda \
+  --statistic Sum \
+  --period 300 \
+  --threshold 5 \
+  --comparison-operator GreaterThanThreshold
+
+# API latency >3s
+aws cloudwatch put-metric-alarm \
+  --alarm-name BijakMengeluh-High-Latency \
+  --metric-name Duration \
+  --namespace AWS/Lambda \
+  --statistic Average \
+  --period 60 \
+  --threshold 3000 \
+  --comparison-operator GreaterThanThreshold
+```
+
+---
+
+## Rollback Procedures
+
+### Backend Rollback
+
+**Option 1: CloudFormation Stack Rollback**
+```bash
+aws cloudformation cancel-update-stack \
+  --stack-name cloudformation-stack-2025-aws-hackathon-bijak-mengeluh \
+  --profile bijak-mengeluh-aws-iam \
+  --region ap-southeast-2
+```
+
+**Option 2: Redeploy Previous Version**
+```bash
+git checkout <previous-commit>
+cd bijak-mengeluh-ai-backend
+bash scripts/deploy.sh
+```
+
+### Frontend Rollback
+
+**Vercel Dashboard:**
+1. Go to https://vercel.com/dashboard
+2. Select `bijak-mengeluh-webapp` project
+3. Click "Deployments" tab
+4. Find previous working deployment
+5. Click "..." → "Promote to Production"
+
+**CLI:**
+```bash
+vercel rollback <deployment-url>
+```
+
+### Emergency Contacts
+
+- AWS Support: Check AWS Console for support options
+- Vercel Support: https://vercel.com/support
+- On-call: Check team documentation
+
+---
+
 ## Troubleshooting
 
 ### Backend Issues
@@ -93,16 +194,3 @@ open https://bijakmengeluh.id
 **API calls fail:**
 - Verify `NEXT_PUBLIC_API_URL` in Vercel dashboard
 - Check CORS in backend `template.yaml`
-
-## Rollback
-
-```bash
-# Backend
-aws cloudformation describe-stack-events \
-  --stack-name cloudformation-stack-2025-aws-hackathon-bijak-mengeluh \
-  --profile bijak-mengeluh-aws-iam \
-  --region ap-southeast-2
-
-# Frontend (Vercel)
-# Use Vercel dashboard to rollback to previous deployment
-```

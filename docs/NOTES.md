@@ -4,7 +4,7 @@ The story of how we built this thing.
 
 ---
 
-## Oct 2025: The Beginning
+## Oct-Nov 2025: The Journey
 
 **Initial Setup** (Oct 14-15)
 

@@ -33,6 +33,8 @@ sam deploy \
   --stack-name "$STACK_NAME" \
   --profile "$PROFILE" \
   --region "$REGION" \
+  --resolve-s3 \
+  --capabilities CAPABILITY_IAM \
   --parameter-overrides \
     SerperApiKey="$SERPER_KEY"
 

@@ -31,7 +31,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { scoreComplaint } from "@/lib/scorer";
 import confetti from "canvas-confetti";
 
-type SuggestedContact = {
+export type SuggestedContact = {
   name: string;
   score: number;
   description: string;
