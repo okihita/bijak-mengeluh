@@ -4,15 +4,6 @@ Description: >
   SAM template for the AI Complaint Assistant backend.
 
 Parameters:
-
-  PineconeApiKey:
-    Type: String
-    NoEcho: true # Hides the key in logs
-    Description: API Key for Pinecone
-  PineconeIndexName:
-    Type: String
-    Description: Name of the Pinecone index
-    Default: 2025-aws-hackathon
   
   SerperApiKey:
     Type: String
@@ -80,8 +71,6 @@ Resources:
       Timeout: 60
       Environment:
         Variables:
-          PINECONE_API_KEY: !Ref PineconeApiKey # Sets the env var from the parameter
-          PINECONE_INDEX_NAME: !Ref PineconeIndexName # Sets the env var from the parameter
           CACHE_TABLE_NAME: !Ref CacheTableName
           FINDER_FUNCTION_NAME: !GetAtt BijakMengeluhSocialFinderFunction.Arn
       Policies:

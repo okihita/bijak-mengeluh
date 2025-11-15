@@ -4,7 +4,7 @@ import logging
 from typing import Dict, Any
 from concurrent.futures import ThreadPoolExecutor
 
-from services import BedrockService, PineconeService, SocialLookupService
+from services import BedrockService, SocialLookupService
 from services.dynamodb_matcher import DynamoDBMatcher
 
 logger = logging.getLogger()
@@ -12,34 +12,24 @@ logger.setLevel(logging.INFO)
 
 # Initialize services (reused across warm Lambda invocations)
 bedrock_service = BedrockService()
-pinecone_service = PineconeService()
 social_lookup_service = SocialLookupService()
 dynamodb_matcher = DynamoDBMatcher()
 
 def process_complaint(user_prompt: str, tone: str = "formal") -> Dict[str, Any]:
     """
     Main business logic to process a user complaint with parallel execution.
-    1. Try DynamoDB keyword matching first (fast, cheap)
-    2. Fallback to Pinecone if DynamoDB returns no results
-    3. Generate formal complaint text (parallel)
-    4. Generate rationale for top ministry (parallel with social lookup)
-    5. Retrieve social media handle
+    1. Use DynamoDB keyword matching to find relevant agencies.
+    2. Generate formal complaint text (parallel).
+    3. Generate rationale for the top ministry (parallel with social lookup).
+    4. Retrieve social media handle for the top ministry.
     
     Args:
-        user_prompt: The user's complaint text
-        tone: The tone of the complaint (formal, funny, angry)
+        user_prompt: The user's complaint text.
+        tone: The tone of the complaint (formal, funny, angry).
     """
-    # Step 1: Try DynamoDB first
+    # Step 1: Match agencies using DynamoDB
     suggested_contacts = dynamodb_matcher.match_agencies(user_prompt, top_k=3)
-    
-    # Fallback to Pinecone if no DynamoDB results
-    if not suggested_contacts:
-        logger.info("DynamoDB returned no results, falling back to Pinecone")
-        query_embedding = bedrock_service.get_embedding(user_prompt)
-        if query_embedding:
-            suggested_contacts = pinecone_service.find_relevant_ministries(query_embedding, 3)
-    else:
-        logger.info(f"DynamoDB matched {len(suggested_contacts)} agencies")
+    logger.info(f"DynamoDB matched {len(suggested_contacts)} agencies")
     
     # Step 2: Generate complaint text in parallel
     generated_text = bedrock_service.generate_complaint_text(user_prompt, tone)

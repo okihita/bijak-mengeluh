@@ -4,6 +4,16 @@ All notable changes to Bijak Mengeluh Backend.
 
 ---
 
+## [1.4.0] - Nov 15, 2025 - Phase 3: Finalize DynamoDB Migration
+
+### Removed
+- Removed Pinecone fallback logic from `complaint_handler`.
+- Deleted `pinecone_service.py`.
+- Removed `pinecone-client` from `requirements.txt`.
+- Removed Pinecone configuration from `template.yaml`.
+
+---
+
 ## [1.3.0] - Nov 14, 2025 - Phase 3: DynamoDB Migration
 
 ### Added
@@ -127,9 +137,9 @@ All notable changes to Bijak Mengeluh Backend.
 
 ## Migration Notes
 
-### v1.3.0 - Pinecone to DynamoDB
+### v1.4.0 - Pinecone to DynamoDB (Final)
 - **Why:** Cost reduction ($70/mo → $5/mo)
-- **Impact:** Similar accuracy, faster queries
+- **Impact:** Similar accuracy, faster queries. Pinecone is now fully removed.
 - **Action:** None (backward compatible)
 
 ### v1.0.0 - Parallel Processing

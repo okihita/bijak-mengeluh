@@ -4,7 +4,7 @@
 
 ## Phase 1: Cost Optimization 💰
 
-**Progress:** ████████░░ 90%
+**Progress:** ██████████ 100%
 
 **Goal:** Save $840/year by ditching Pinecone
 
@@ -15,7 +15,7 @@
 
 - ✅ DKI Jakarta scrape (90 agencies)
 
-- ⏳ Remove Pinecone dependency
+- ✅ Remove Pinecone dependency
 
 - ⏳ Scrape 34 national ministries
 
