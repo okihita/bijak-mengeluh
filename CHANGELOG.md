@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.0] - 2025-11-16
+
+### Added
+- **Premium Instagram Story design** - Pixel-perfect image generation
+  - Inter font family (professional, not system default)
+  - Sophisticated color palette (subtle gradients, rich blacks)
+  - 8px grid spacing system
+  - Soft layered shadows (0 20px 60px rgba(0,0,0,0.08))
+  - Proper typography hierarchy (36px body, 26px agency, 28px branding)
+  - Glassmorphism effects with backdrop blur
+  - WCAG AA contrast ratios
+  - 1080×1920px optimized for Instagram Stories
+
+### Changed
+- **Image layout** - Cleaner, more professional design
+  - Removed quote icon (cleaner look)
+  - Removed tagline from branding (simpler)
+  - Improved spacing and breathing room
+  - Better visual hierarchy
+  - Subtle background gradient (not harsh red)
+
+### Fixed
+- **Share cancellation** - No error popup when user cancels sharing
+  - Detects AbortError (user cancelled)
+  - Silent fail on cancellation
+  - Only shows error for actual failures
+
+---
+
 ## [2.2.1] - 2025-11-16
 
 ### Changed

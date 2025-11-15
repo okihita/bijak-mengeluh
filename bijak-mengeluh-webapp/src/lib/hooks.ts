@@ -100,8 +100,16 @@ export const useWebShare = () => {
         console.log("Download triggered");
       }
     } catch (error) {
+      // Only show error if it's not a user cancellation
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.log("User cancelled share");
+        return; // Silent fail on cancel
+      }
       console.error("Error sharing image:", error);
-      alert(`Gagal membuat gambar: ${error instanceof Error ? error.message : "Unknown error"}`);
+      // Only alert for actual errors, not cancellations
+      if (error instanceof Error && !error.message.includes('cancel') && !error.message.includes('abort')) {
+        alert(`Gagal membuat gambar: ${error.message}`);
+      }
     }
   };
 
