@@ -68,20 +68,20 @@ export const ComplaintForm = ({
 
   return (
     <Card className="shadow-lg dark:bg-card">
-      <CardHeader className="text-center pb-2 pt-3">
-        <CardTitle className="text-xl font-bold">Curhatin Aja Keluhanmu</CardTitle>
-        <p className="text-xs text-muted-foreground mt-1">AI bantu bikin surat & kasih tau lapor ke mana 🎯</p>
-        <p className="text-xs text-muted-foreground/60">Bijak sana, bijak sini, bijak di mana-mana!</p>
+      <CardHeader className="text-center pb-4 pt-6 px-6">
+        <CardTitle className="text-2xl font-bold">Curhatin Aja Keluhanmu</CardTitle>
+        <p className="text-sm text-muted-foreground mt-2">AI bantu bikin surat & kasih tau lapor ke mana 🎯</p>
+        <p className="text-xs text-muted-foreground/60 mt-1">Bijak sana, bijak sini, bijak di mana-mana!</p>
       </CardHeader>
       <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-3 p-4 pt-0">
+        <CardContent className="space-y-4 px-6 pb-6">
           
           {/* Main Textarea - Most Important Element */}
           <div className="relative">
             <Textarea
               id="complaint-description"
               placeholder="Tulis keluhan kamu di sini..."
-              className="min-h-[80px] text-base resize-none focus:ring-2 focus:ring-primary/50"
+              className="min-h-[120px] text-base resize-none focus:ring-2 focus:ring-primary/50 leading-relaxed"
               value={userInput}
               onChange={handleTextChange}
               disabled={isLoading}
@@ -93,7 +93,7 @@ export const ComplaintForm = ({
             {isTooShort && charCount > 0 && (
               <p
                 id="char-count"
-                className="absolute bottom-1.5 right-2 text-xs text-red-500 bg-white dark:bg-gray-950 px-1 rounded"
+                className="absolute bottom-2 right-3 text-xs text-red-500 bg-white dark:bg-gray-950 px-2 py-0.5 rounded"
                 aria-live="polite"
               >
                 {charCount}/{minChars}
@@ -101,10 +101,10 @@ export const ComplaintForm = ({
             )}
             
             {/* Progress bar - Visual feedback */}
-            <div className="mt-2">
-              <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div className="mt-3">
+              <div className="h-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                 <div
-                  className={`h-full transition-all duration-300 ${
+                  className={`h-full transition-all duration-300 ease-out ${
                     progress < 30
                       ? "bg-red-500"
                       : progress < 70
@@ -119,14 +119,14 @@ export const ComplaintForm = ({
 
           {/* Quality Score - Immediate Feedback */}
           {qualityScore && qualityScore.suggestions.length > 0 && (
-            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-2 text-xs" id="quality-feedback" role="status" aria-live="polite">
-              <div className="flex items-center gap-2 mb-1">
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3 text-xs" id="quality-feedback" role="status" aria-live="polite">
+              <div className="flex items-center gap-2 mb-2">
                 <span className="font-semibold text-yellow-800 dark:text-yellow-200">💡 Tips</span>
-                <Badge variant={qualityScore.overall >= 80 ? "default" : qualityScore.overall >= 60 ? "secondary" : "destructive"} className="text-xs h-4">
+                <Badge variant={qualityScore.overall >= 80 ? "default" : qualityScore.overall >= 60 ? "secondary" : "destructive"} className="text-xs h-5">
                   {qualityScore.overall}
                 </Badge>
               </div>
-              <ul className="space-y-0.5 text-yellow-700 dark:text-yellow-300">
+              <ul className="space-y-1 text-yellow-700 dark:text-yellow-300">
                 {qualityScore.suggestions.slice(0, 2).map((suggestion, i) => (
                   <li key={i}>• {suggestion}</li>
                 ))}
@@ -136,8 +136,8 @@ export const ComplaintForm = ({
 
           {/* Category Templates - Open by Default */}
           <div>
-            <p className="text-xs text-muted-foreground mb-1.5">📋 Template:</p>
-            <div className="flex flex-wrap gap-1.5">
+            <p className="text-xs text-muted-foreground mb-2 font-medium">📋 Template:</p>
+            <div className="flex flex-wrap gap-2">
               {complaintTemplates.map((template) => (
                 <Button
                   key={template.id}
@@ -146,7 +146,7 @@ export const ComplaintForm = ({
                   size="sm"
                   onClick={() => handleTemplateSelect(template.template)}
                   disabled={isLoading}
-                  className="text-xs h-7"
+                  className="text-xs h-8"
                 >
                   {template.icon} {template.label}
                 </Button>
@@ -155,17 +155,17 @@ export const ComplaintForm = ({
           </div>
 
           {/* Tone Selector - Clear Visual Hierarchy */}
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-3">
             <Button
               type="button"
               variant={tone === "formal" ? "default" : "outline"}
               size="sm"
               onClick={() => setTone("formal")}
               disabled={isLoading}
-              className="flex flex-col items-center gap-0.5 h-auto py-2"
+              className="flex flex-col items-center gap-1 h-auto py-3"
             >
-              <span className="text-xl">😐</span>
-              <span className="text-xs">Formal</span>
+              <span className="text-2xl">😐</span>
+              <span className="text-xs font-medium">Formal</span>
             </Button>
             <Button
               type="button"
@@ -173,10 +173,10 @@ export const ComplaintForm = ({
               size="sm"
               onClick={() => setTone("funny")}
               disabled={isLoading}
-              className="flex flex-col items-center gap-0.5 h-auto py-2"
+              className="flex flex-col items-center gap-1 h-auto py-3"
             >
-              <span className="text-xl">😄</span>
-              <span className="text-xs">Lucu</span>
+              <span className="text-2xl">😄</span>
+              <span className="text-xs font-medium">Lucu</span>
             </Button>
             <Button
               type="button"
@@ -184,10 +184,10 @@ export const ComplaintForm = ({
               size="sm"
               onClick={() => setTone("angry")}
               disabled={isLoading}
-              className="flex flex-col items-center gap-0.5 h-auto py-2"
+              className="flex flex-col items-center gap-1 h-auto py-3"
             >
-              <span className="text-xl">😠</span>
-              <span className="text-xs">Kesel</span>
+              <span className="text-2xl">😠</span>
+              <span className="text-xs font-medium">Kesel</span>
             </Button>
           </div>
 
@@ -195,12 +195,12 @@ export const ComplaintForm = ({
           <Button
             type="submit"
             size="lg"
-            className="w-full font-semibold"
+            className="w-full font-semibold text-base h-12"
             disabled={isLoading || isTooShort}
           >
             {isLoading ? (
               <>
-                <Spinner className="mr-2 h-4 w-4" />
+                <Spinner className="mr-2 h-5 w-5" />
                 Diproses...
               </>
             ) : (

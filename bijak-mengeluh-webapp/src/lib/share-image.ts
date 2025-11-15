@@ -1,6 +1,6 @@
 export const generateShareImage = async (
   text: string,
-  ministry?: string
+  agency?: string
 ): Promise<Blob> => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -20,7 +20,7 @@ export const generateShareImage = async (
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
       
-      const escapedMinistry = ministry
+      const escapedAgency = agency
         ?.replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -60,14 +60,14 @@ export const generateShareImage = async (
                 ${escapedText.length > 260 ? escapedText.substring(0, 260) + "..." : escapedText}
               </div>
 
-              <!-- Ministry Tag -->
-              ${escapedMinistry ? `
+              <!-- Agency Tag -->
+              ${escapedAgency ? `
               <div style="margin-top: 60px; padding: 28px 36px; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-radius: 24px; border-left: 8px solid #dc2626; position: relative; z-index: 1;">
                 <div style="font-size: 20px; color: #991b1b; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
                   Ditujukan ke
                 </div>
                 <div style="font-size: 28px; color: #7f1d1d; font-weight: 800; letter-spacing: -0.5px;">
-                  ${escapedMinistry}
+                  ${escapedAgency}
                 </div>
               </div>
               ` : ''}

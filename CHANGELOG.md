@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.0] - 2025-11-16
+
+### Added
+- **Animated thinking messages** - 12 entertaining messages during AI generation (cycles every 1.5s)
+- **Dual-layer spinner effect** - Ping animation overlay for active loading state
+- **Desktop navigation** - Sticky header with Home/History links (hidden on mobile)
+- **Onboarding modal** - First-time user guide showing capabilities/limitations
+- **Settings panel** - Global controls for auto-save and confidence display
+- **Help tooltips** - Contextual help with Radix UI integration
+- **Confidence badges** - AI confidence indicators (High/Medium/Low) with color coding
+- **UX compliance testing** - 32 tests covering Microsoft HAI, Nielsen, WCAG 2.1 AA
+- **100% test coverage** - 65 tests across 11 suites, all passing
+
+### Changed
+- **Philosophy rewrite** - From adversarial to collaborative tone
+- **Output format** - Casual social media comments instead of formal letters
+- **Terminology** - "ministry/kementerian" → "agency/instansi" (reflects 90 DKI Jakarta agencies)
+- **Pixel-perfect spacing** - Consistent 4px/8px/12px/16px/24px rhythm across all components
+- **Loading animation** - Smooth 500ms transitions with scale/translate effects
+- **Card padding** - Unified 24px (px-6) horizontal, 24px (pt-6) top, 16px (pb-4) bottom
+- **Textarea height** - 80px → 120px for better comfort
+- **Progress bar** - 1.5px → 2px thickness for visibility
+- **Submit button** - 40px → 48px height with larger text
+- **Tone buttons** - Larger emojis (text-2xl) and better touch targets (py-3)
+
+### Fixed
+- **SSR localStorage errors** - Added `typeof window !== 'undefined'` checks in onboarding, settings, confidence badge
+- **Hydration mismatch** - Added `suppressHydrationWarning` to body tag for Dark Reader extension compatibility
+
+### Removed
+- **Analysis steps card** - Removed animated loading steps (no longer needed)
+- **useAnalysisStepsAnimation hook** - Cleaned up unused code
+
+---
+
 ## [2.0.0] - 2025-11-15
 
 ### Added

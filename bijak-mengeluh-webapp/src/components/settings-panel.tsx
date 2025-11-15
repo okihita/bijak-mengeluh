@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Settings, X } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,32 +8,44 @@ import { Label } from "@/components/ui/label";
 
 export function SettingsPanel() {
   const [isOpen, setIsOpen] = useState(false);
-  const [autoSave, setAutoSave] = useState(
-    localStorage.getItem("autoSave") !== "false"
-  );
-  const [showConfidence, setShowConfidence] = useState(
-    localStorage.getItem("showConfidence") === "true"
-  );
+  const [mounted, setMounted] = useState(false);
+  const [autoSave, setAutoSave] = useState(true);
+  const [showConfidence, setShowConfidence] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setMounted(true);
+    setAutoSave(localStorage.getItem("autoSave") !== "false");
+    setShowConfidence(localStorage.getItem("showConfidence") === "true");
+  }, []);
 
   const handleAutoSaveChange = (checked: boolean) => {
     setAutoSave(checked);
-    localStorage.setItem("autoSave", checked.toString());
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("autoSave", checked.toString());
+    }
   };
 
   const handleConfidenceChange = (checked: boolean) => {
     setShowConfidence(checked);
-    localStorage.setItem("showConfidence", checked.toString());
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("showConfidence", checked.toString());
+    }
   };
 
   const handleReset = () => {
     if (confirm("Reset semua pengaturan ke default?")) {
-      localStorage.removeItem("autoSave");
-      localStorage.removeItem("showConfidence");
-      localStorage.removeItem("preferredTone");
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem("autoSave");
+        localStorage.removeItem("showConfidence");
+        localStorage.removeItem("preferredTone");
+      }
       setAutoSave(true);
       setShowConfidence(false);
     }
   };
+
+  if (!mounted) return null;
 
   return (
     <>

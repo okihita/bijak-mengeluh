@@ -9,6 +9,7 @@ export function Onboarding() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
     if (!hasSeenOnboarding) {
       setShow(true);
@@ -16,7 +17,9 @@ export function Onboarding() {
   }, []);
 
   const handleDismiss = () => {
-    localStorage.setItem("hasSeenOnboarding", "true");
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("hasSeenOnboarding", "true");
+    }
     setShow(false);
   };
 

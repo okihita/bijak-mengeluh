@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { HelpTooltip } from "@/components/help-tooltip";
 
@@ -8,10 +9,16 @@ type ConfidenceBadgeProps = {
 };
 
 export function ConfidenceBadge({ confidence = 95 }: ConfidenceBadgeProps) {
-  const showConfidence = typeof window !== "undefined" && 
-    localStorage.getItem("showConfidence") === "true";
+  const [showConfidence, setShowConfidence] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  if (!showConfidence) return null;
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    setMounted(true);
+    setShowConfidence(localStorage.getItem("showConfidence") === "true");
+  }, []);
+
+  if (!mounted || !showConfidence) return null;
 
   const getColor = (conf: number) => {
     if (conf >= 90) return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100";

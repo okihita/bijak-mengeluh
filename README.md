@@ -8,71 +8,74 @@
 
 ## The Problem
 
-You see a broken road. You're angry. You want to complain. But to whom? How? What format? Which agency? What's their contact?
+You see a broken road on your commute. You're frustrated. You want to do something. But where do you even start?
 
-You give up. The road stays broken. Democracy fails.
+Which government agency handles roads? National? Provincial? Local? What's their contact? Do they have email? Should you call? Is there a form somewhere? What information do they need? What's the proper format for a complaint?
 
-**This is not a technology problem. This is a democracy problem.**
+So you do what most people do: nothing. The road stays broken. You stay frustrated. Democracy becomes something that happens to you, not something you participate in.
+
+**This isn't a technology problem. It's a friction problem.**
 
 ---
 
 ## The Solution
 
-Bijak Mengeluh removes the friction between citizen frustration and government action.
+Bijak Mengeluh removes every barrier between your frustration and government action.
 
-**What it does:**
-1. You type your rant in casual Indonesian ("Jalan rusak parah anjir 😤")
-2. AI translates it to formal bureaucratic language ("Kepada Yth. Bapak/Ibu...")
-3. AI finds the exact right agency (Dinas PU Jakarta Selatan, not national ministry)
-4. You get their Instagram/Twitter to send it directly
+**Here's how it works:**
+1. You type your complaint in everyday Indonesian: *"Jalan rusak parah anjir 😤"*
+2. AI rewrites it into something government-appropriate: *"Pak/Bu, jalan di [lokasi] rusak parah, tolong diperbaiki ya 🙏"*
+3. AI finds exactly which agency handles it (Dinas PU Jakarta Selatan, not some national ministry)
+4. You get their Instagram/Twitter to send it directly as a comment or DM
 
-**Result:** Your voice reaches the right desk. Problems get fixed. Democracy works.
+**The result:** Your voice reaches the right desk. In under 30 seconds. Without creating an account, filling a form, or navigating a phone tree.
 
 ---
 
 ## Why This Matters
 
-### Democracy is a User Experience Problem
+### Making Democracy Feel Natural
 
-Most civic tech fails because it optimizes for government, not citizens. We flip that:
-- **No accounts, no apps, no training** - Just type and go
-- **Meets citizens where they are** - Casual language, social media delivery
-- **Instant gratification** - See your polite letter in 2 seconds
-- **Viral by design** - Instagram Story format drives organic growth
+Most civic tech asks citizens to adapt to government processes. We flipped that.
 
-Every form field is a barrier. Every login is a filter. Every "submit ticket" is a test of patience. We remove all of it. Because democracy should be as easy as tweeting.
+Instead of forcing people to navigate bureaucratic workflows, we meet them where they already are: angry, on their phones, wanting immediate action. We take that raw, human frustration and translate it into something that actually works.
 
-### From Feedback to Accountability
+No accounts. No apps. No training. Just type and go.
 
-Current civic platforms are digital suggestion boxes. They collect complaints, generate reports, and hope someone cares. We're building something fundamentally different:
+The Instagram Story format isn't a gimmick—it's the point. When something is easy enough to share with friends, it spreads. When it spreads, more people use it. When more people use it, patterns emerge. When patterns emerge, problems get harder to ignore.
 
-**Transparency as infrastructure:**
-- Every complaint is public data showing systemic failures
-- 100 complaints about one road → undeniable evidence of neglect
-- "1,234 people complained about this" → political pressure that can't be ignored
-- Track which agencies respond, which ignore → accountability by default
+### From Noise to Signal
 
-**The power shift:**
-- Traditional model: Citizen → Government (one-way feedback)
-- Our model: Citizen → Government → Citizen (collective action)
-- Future model: Citizens govern together, government executes
+Right now, citizen complaints are scattered across social media, text messages to friends, conversations that go nowhere. They're noise.
 
-### The Long Game: From Complaints to Co-Governance
+What if we could turn that noise into signal?
 
-This is v2.0. The vision is bigger than fixing potholes.
+**Imagine this:**
+- 100 people complain about the same pothole through Bijak Mengeluh
+- That data becomes visible, undeniable evidence
+- "1,234 complaints about Jalan Sudirman" becomes political pressure
+- Agency response rates become public metrics
+- Citizens can see patterns: which problems are systemic, which agencies respond, which ignore
 
-**Where we are:**
-- Remove friction between frustration and action
-- 121 agencies, 2-second response time, $7/month
+We're not just helping individuals complain. We're creating collective intelligence about what's actually broken.
 
-**Where this could go:**
-- **Pattern recognition:** Cluster complaints to reveal systemic issues ("80% of Jaksel road complaints = same 3 streets")
-- **Consensus building:** Taiwan's Pol.is model—AI finds common ground across thousands of opinions
-- **Participatory budgeting:** Barcelona's Decidim—citizens vote on which projects get funded
-- **Binding accountability:** Estonia's Rahvaalgatus—10,000 signatures → government must respond
-- **Proactive governance:** IoT sensors auto-generate complaints before citizens notice
+### The Long Game
 
-**The north star:** Transform Indonesia from a representative democracy where you vote once every 5 years, to a participatory democracy where you govern every day.
+This is v2.0. It does one thing well: turn frustration into clear, actionable feedback that reaches the right people.
+
+But there's a bigger vision here.
+
+**What if complaints could reveal patterns?** Cluster analysis could show that 80% of road complaints in South Jakarta are actually about the same three streets—revealing systemic neglect, not random potholes.
+
+**What if citizens could build consensus together?** Taiwan's Pol.is platform uses AI to find common ground across thousands of opinions. Indonesia could do this too.
+
+**What if citizens voted on budgets?** Barcelona's Decidim lets residents decide which projects get funded. Democracy becomes participatory, not just representative.
+
+**What if the government had to respond?** Estonia's Rahvaalgatus platform requires government response to any petition with 10,000 signatures. Accountability becomes automatic.
+
+**What if problems got flagged before citizens noticed?** IoT sensors could detect infrastructure damage and auto-generate maintenance requests. Prevention beats reaction.
+
+These aren't promises. They're possibilities. Right now, we're focused on removing friction. But the infrastructure we're building—connecting citizens to government in real-time—could become something much bigger.
 
 Not a roadmap. A direction.
 
@@ -80,70 +83,75 @@ Not a roadmap. A direction.
 
 ## The Philosophy
 
-**Bijak Mengeluh** means "Complain Wisely" in Indonesian. But wisdom isn't about being polite. It's about being effective.
+**Bijak Mengeluh** means "Complain Wisely." But wisdom here isn't about being polite. It's about being effective.
 
-This project believes:
+Here's what we believe:
 
-**1. Anger is data.**  
-Citizen frustration is the most valuable signal in governance. Every complaint is a sensor reading. Every rant is a bug report. Aggregate them, and you have a real-time map of government failure. Ignore them, and you have a broken democracy.
+**Anger is valuable data.** Every complaint is a sensor reading on government performance. Aggregate them and you get a real-time map of what's actually broken.
 
-**2. Friction kills democracy.**  
-Every form field loses 50% of citizens. Every login is a barrier. Every "create account" is a filter that selects for privilege (time, literacy, patience). Democracy should be as easy as complaining to a friend. If it's not, it's not democracy—it's bureaucracy cosplaying as participation.
+**Friction kills participation.** Every form field loses half your users. Every login is a filter that selects for privilege—time, literacy, patience. If civic engagement requires more effort than complaining to a friend, you've already lost.
 
-**3. Virality is legitimacy.**  
-If citizens share it, it matters. If they don't, it doesn't. Traditional civic platforms measure success in "submissions" and "reports." We measure success in Instagram shares and Twitter threads. Because a complaint that goes viral is a complaint that can't be ignored.
+**Simplicity scales.** We're not building a "smart city platform" with dashboards and enterprise features. We're building one thing that works really well. Everything else is distraction.
 
-**4. Technology serves humans, not the other way around.**  
-AI should translate between how citizens think (angry, casual, emotional) and how bureaucracy works (formal, structured, detached). Not force citizens to think like bureaucrats. The goal is not to make citizens better at navigating bureaucracy. The goal is to make bureaucracy irrelevant.
+**Transparency creates accountability.** Governments respond to visibility. Make complaints public. Make response rates public. Make patterns public. Sunlight remains the best disinfectant.
 
-**5. Transparency is the only real accountability.**  
-Governments don't respond to complaints. They respond to pressure. Pressure comes from visibility. Make every complaint public. Make every agency's response rate public. Make every pattern public. Sunlight is the best disinfectant. Data is the best weapon.
+**Individual action matters.** You don't need an NGO or a lawyer to complain. You don't need to wait for someone to organize you. One person with a phone can send feedback in 30 seconds. Collective action is powerful, but individual action is instant.
 
-**6. Small tools, big change.**  
-We're not building a "smart city platform" with dashboards and analytics and enterprise features. We're building a tool that does one thing well: turn anger into action. Everything else is distraction. Complexity is the enemy of adoption. Simplicity is the path to revolution.
+**Technology should be invisible.** AI should translate between how humans think (emotional, casual, immediate) and how government communication works (clear, respectful, actionable). The best technology disappears.
 
 ---
 
 ## Current Status
 
-**Production (v2.0):**
-- 121 agencies (31 national + 90 DKI Jakarta)
+**In production:**
+- 121 agencies mapped (31 national + 90 DKI Jakarta)
 - 100% agency matching accuracy
-- <2s response time
-- $7-13/mo operating cost
+- <2s average response time
+- Running on $7-13/month
 
-**What's next:** See [ROADMAP.md](./ROADMAP.md) for backlog ideas
+**Fun facts:**
+- Saved $840/year by ditching vector search for keyword matching (and improved accuracy)
+- Instagram sharing gets 3x more engagement than copy-paste
+- Most complained about: Jalan rusak (broken roads) 🛣️
+- Fastest turnaround: 8 words → polished complaint in 1.8 seconds
 
 ---
 
-## For Developers
+## Get Involved
 
-Built on AWS (Next.js, Lambda, Bedrock, DynamoDB). See [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) for technical details and [docs/deployment/](./docs/deployment/) for setup.
+This works best when more people use it. More complaints = clearer patterns = harder to ignore.
+
+**You can help by:**
+- Using it when something's broken in your neighborhood
+- Sharing it with friends who love complaining (we all have them)
+- Contributing to the codebase—see [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
+- Adding agencies to our database
+- Testing it and breaking it—GitHub Issues welcome
+- Translating the concept to your city/country
+
+We're not trying to replace community organizing or activism. We're building infrastructure that makes both easier.
 
 ---
 
 ## Documentation
 
-- [ROADMAP.md](./ROADMAP.md) - Product backlog
-- [docs/product/research.md](./docs/product/research.md) - Global civic tech analysis
+- [ROADMAP.md](./ROADMAP.md) - What we're thinking about next
+- [docs/product/research.md](./docs/product/RESEARCH.md) - How civic tech works globally
 - [CHANGELOG.md](./CHANGELOG.md) - Version history
 - [docs/NOTES.md](./docs/NOTES.md) - Development diary
+- [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) - Technical deep dive
+- [docs/deployment/](./docs/deployment/) - Setup guide
 
----
-
-## Fun Facts
-
-- **Saved $840/year** by replacing expensive vector search with simple keyword matching (and got better accuracy)
-- **Instagram sharing** gets 3x more engagement than copy-paste
-- **Most complained about:** Jalan rusak (broken roads) 🛣️
-- **Fastest complaint:** 8 words → 247-word formal letter in 1.8 seconds
+Built on AWS (Next.js, Lambda, Bedrock, DynamoDB). MIT licensed. Fork it, break it, improve it.
 
 ---
 
 **Made by:** [@okihita](https://github.com/okihita)  
-**License:** MIT  
-**Complaints welcome:** GitHub Issues
+**Complaints welcome:** [GitHub Issues](https://github.com/okihita/bijak-mengeluh/issues)
+**Questions?** Open an issue or reach out
 
 ---
 
-*"The best way to predict the future is to build it. The best way to fix your city is to complain about it. Wisely."*
+*"The best way to predict the future is to build it.
+The best way to fix your city is to complain about it.
+Wisely."*

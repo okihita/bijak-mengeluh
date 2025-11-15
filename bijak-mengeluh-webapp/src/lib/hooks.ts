@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { AnalysisStep } from "@/app/page";
 
 export const usePersistentState = <T,>(
   key: string,
@@ -49,49 +48,6 @@ export const useAutoSave = (
   return { lastSaved, isSaving };
 };
 
-export const useAnalysisStepsAnimation = (isLoading: boolean, initialSteps: AnalysisStep[]) => {
-  const [analysisSteps, setAnalysisSteps] = useState<AnalysisStep[]>(initialSteps);
-
-  useEffect(() => {
-    if (isLoading) {
-      setAnalysisSteps(initialSteps.map((s) => ({ ...s, status: "pending" })));
-      const timeouts: NodeJS.Timeout[] = [];
-      const stepsConfig = [
-        { delay: 0, step: 0 },
-        { delay: 700, step: 1 },
-        { delay: 2000, step: 2 },
-        { delay: 2900, step: 3 },
-        { delay: 3700, step: 4 },
-      ];
-
-      stepsConfig.forEach(({ delay, step }) => {
-        timeouts.push(
-          setTimeout(() => {
-            setAnalysisSteps((prev) =>
-              prev.map((s, i) => {
-                if (i < step) return { ...s, status: "complete" };
-                if (i === step) return { ...s, status: "loading" };
-                return s;
-              })
-            );
-          }, delay)
-        );
-      });
-      
-      // Final step completion
-      timeouts.push(
-        setTimeout(() => {
-            setAnalysisSteps((prev) => prev.map(s => ({...s, status: 'complete'})))
-        }, 5000)
-      )
-
-      return () => timeouts.forEach(clearTimeout);
-    }
-  }, [isLoading, initialSteps]);
-
-  return analysisSteps;
-};
-
 export const useCopyToClipboard = () => {
   const [copied, setCopied] = useState(false);
 
@@ -114,12 +70,12 @@ export const useWebShare = () => {
     }
   };
 
-  const shareAsImage = async (text: string, ministry?: string) => {
+  const shareAsImage = async (text: string, agency?: string) => {
     try {
       console.log("Starting image generation...");
       const { generateShareImage } = await import("@/lib/share-image");
       console.log("Module loaded, generating image...");
-      const blob = await generateShareImage(text, ministry);
+      const blob = await generateShareImage(text, agency);
       console.log("Image generated, blob size:", blob.size);
       const file = new File([blob], "keluhan.png", { type: "image/png" });
 

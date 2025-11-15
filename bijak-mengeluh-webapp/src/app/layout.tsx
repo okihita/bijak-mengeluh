@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${nunitoSans.variable} font-sans antialiased`}>
+      <body className={`${nunitoSans.variable} font-sans antialiased`} suppressHydrationWarning>
         <ErrorBoundary>
           <ThemeProvider
             attribute="class"

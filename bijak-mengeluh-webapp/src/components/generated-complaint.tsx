@@ -19,7 +19,7 @@ type GeneratedComplaintProps = {
   generatedText: string;
   isLoading: boolean;
   originalText: string;
-  ministry?: string;
+  agency?: string;
 };
 
 const thinkingMessages = [
@@ -41,7 +41,7 @@ export const GeneratedComplaint = ({
   generatedText,
   isLoading,
   originalText,
-  ministry,
+  agency,
 }: GeneratedComplaintProps) => {
   const { copied, copy } = useCopyToClipboard();
   const { share, shareAsImage } = useWebShare();
@@ -80,11 +80,11 @@ export const GeneratedComplaint = ({
   return (
     <>
       <Card ref={cardRef} className="shadow-xl dark:bg-card border-2 border-primary/20">
-        <CardHeader className="space-y-3 pb-3 pt-4">
+        <CardHeader className="space-y-4 pb-4 pt-6 px-6">
           <div className="flex items-start justify-between gap-4">
-            <div className="space-y-1">
-              <CardTitle className="text-lg font-bold">✨ Sudah Jadi!</CardTitle>
-              <CardDescription className="text-sm">Salin & kirim ke kementerian terkait</CardDescription>
+            <div className="space-y-1.5">
+              <CardTitle className="text-xl font-bold">✨ Sudah Jadi!</CardTitle>
+              <CardDescription className="text-sm">Salin & kirim ke instansi terkait</CardDescription>
             </div>
           </div>
           
@@ -121,7 +121,7 @@ export const GeneratedComplaint = ({
                 onClick={async () => {
                   setIsGeneratingImage(true);
                   try {
-                    await shareAsImage(generatedText, ministry);
+                    await shareAsImage(generatedText, agency);
                   } finally {
                     setIsGeneratingImage(false);
                   }
@@ -144,24 +144,31 @@ export const GeneratedComplaint = ({
           )}
         </CardHeader>
         
-        <CardContent className="p-4 min-h-[150px]">
+        <CardContent className="px-6 pb-6 min-h-[200px]">
           {isLoading && (
-            <div className="space-y-4 py-4">
+            <div className="space-y-3 py-6">
               {thinkingMessages.slice(0, 4).map((msg, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-3 transition-all duration-300 ${
+                  className={`flex items-center gap-3 transition-all duration-500 ease-in-out ${
                     index === currentMessageIndex % 4
-                      ? "text-blue-600 dark:text-blue-400 font-medium scale-105"
-                      : "text-gray-400 dark:text-gray-600"
+                      ? "text-blue-600 dark:text-blue-400 font-semibold scale-[1.02] translate-x-1"
+                      : "text-gray-400 dark:text-gray-600 opacity-60"
                   }`}
                 >
                   {index === currentMessageIndex % 4 ? (
-                    <Spinner className="h-5 w-5 animate-spin" />
+                    <div className="relative">
+                      <Spinner className="h-5 w-5 animate-spin text-blue-600 dark:text-blue-400" />
+                      <div className="absolute inset-0 h-5 w-5 animate-ping opacity-20">
+                        <Spinner className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                      </div>
+                    </div>
                   ) : (
-                    <div className="h-5 w-5" />
+                    <div className="h-5 w-5 flex items-center justify-center">
+                      <div className="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-700" />
+                    </div>
                   )}
-                  <span className="text-sm">{msg}</span>
+                  <span className="text-sm leading-relaxed">{msg}</span>
                 </div>
               ))}
             </div>
@@ -176,24 +183,24 @@ export const GeneratedComplaint = ({
           )}
           
           {generatedText && showComparison && (
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <Badge variant="outline" className="text-xs">Original</Badge>
                   <span className="text-xs text-gray-500">{originalText.length} karakter</span>
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
                   <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">
                     {originalText}
                   </p>
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <Badge className="text-xs">AI Generated</Badge>
                   <span className="text-xs text-gray-500">{generatedText.length} karakter</span>
                 </div>
-                <div className="bg-primary/5 dark:bg-primary/10 p-3 rounded-lg border border-primary/20">
+                <div className="bg-primary/5 dark:bg-primary/10 p-4 rounded-lg border border-primary/20">
                   <p className="text-sm whitespace-pre-wrap leading-relaxed">
                     {generatedText}
                   </p>

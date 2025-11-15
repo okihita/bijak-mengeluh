@@ -22,7 +22,6 @@ import { ComplaintForm } from "@/components/complaint-form";
 import { GeneratedComplaint } from "@/components/generated-complaint";
 import { SuggestedContacts } from "@/components/suggested-contacts";
 import { ErrorMessage } from "@/components/error-message";
-import { AnalysisSteps } from "@/components/analysis-steps";
 import { complaintTemplates } from "@/lib/templates";
 import { usePersistentState, useAutoSave } from "@/lib/hooks";
 import { suggestionPhrases } from "@/lib/suggestions";
@@ -51,18 +50,6 @@ export type ApiResponse = {
   social_handle_info: SocialHandleInfo;
 };
 
-export type AnalysisStep = {
-  text: string;
-  status: "pending" | "loading" | "complete";
-};
-
-const initialSteps: AnalysisStep[] = [
-  { text: "Lagi ngecek komplainan", status: "pending" },
-  { text: "Nyari-nyari di gudang ilmu", status: "pending" },
-  { text: "Milih-milih kementerian paling top", status: "pending" },
-  { text: "Bikin alesan yang ciamik", status: "pending" },
-  { text: "Nyari akun sosmednya", status: "pending" },
-];
 
 // Reducer state and actions
 interface ComplaintState {
@@ -123,7 +110,6 @@ function complaintReducer(state: ComplaintState, action: ComplaintAction): Compl
   }
 }
 
-import { useAnalysisStepsAnimation } from "@/lib/hooks";
 export default function HomePage() {
   const [userInput, setUserInput] = usePersistentState("userInput", "");
   const { lastSaved, isSaving } = useAutoSave(userInput, "draft", 10000);
@@ -142,7 +128,6 @@ export default function HomePage() {
     rationale,
     socialHandle,
   } = state;
-  const analysisSteps = useAnalysisStepsAnimation(isLoading, initialSteps);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -291,9 +276,9 @@ export default function HomePage() {
         {error && `Error: ${error}`}
       </div>
       
-      <main className="container mx-auto p-4 sm:p-6 md:p-8 pb-14">
-        <div className="w-full max-w-3xl mx-auto">
-          <div className="flex justify-between items-center mb-2">
+      <main className="container mx-auto px-4 sm:px-6 md:px-8 py-6 pb-20">
+        <div className="w-full max-w-3xl mx-auto space-y-6">
+          <div className="flex justify-between items-center">
             <PwaInstallPrompt />
             <ThemeToggle />
           </div>
@@ -311,26 +296,23 @@ export default function HomePage() {
           <ErrorMessage error={error} onRetry={handleRetry} />
 
           {(isLoading || generatedText) && (
-            <div className="w-full mt-8 space-y-6">
+            <div className="w-full space-y-6">
               {/* Generated Complaint - Primary Focus */}
               <GeneratedComplaint
                 generatedText={generatedText}
                 isLoading={isLoading}
                 originalText={lastSubmittedInput}
-                ministry={suggestedContacts[0]?.name}
+                agency={suggestedContacts[0]?.name}
               />
               
-              {/* Secondary Info in 2-column grid on desktop */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <AnalysisSteps steps={analysisSteps} />
-                <SuggestedContacts
-                  contacts={suggestedContacts}
-                  rationale={rationale}
-                  isLoading={isLoading}
-                  renderSocialHandle={renderSocialHandle}
-                  generatedText={generatedText}
-                />
-              </div>
+              {/* Suggested Contacts */}
+              <SuggestedContacts
+                contacts={suggestedContacts}
+                rationale={rationale}
+                isLoading={isLoading}
+                renderSocialHandle={renderSocialHandle}
+                generatedText={generatedText}
+              />
             </div>
           )}
         </div>
