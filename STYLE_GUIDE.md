@@ -42,19 +42,23 @@ Quick reference for coding standards.
 ### Request
 ```json
 {
+
   "complaint": "Jalan rusak parah",
   "tone": "formal"
 }
+
 ```
 
 ### Response
 ```json
 {
+
   "generatedComplaint": "Kepada Yth...",
   "suggestedMinistries": [...],
   "rationale": "...",
   "socialHandle": {...}
 }
+
 ```
 
 **Why `complaint` not `prompt`?** More descriptive, user-facing term.
@@ -89,11 +93,17 @@ src/
 **Format:** `type: description`
 
 **Types:**
+
 - `feat:` - New feature
+
 - `fix:` - Bug fix
+
 - `docs:` - Documentation
+
 - `refactor:` - Code restructure
+
 - `test:` - Tests
+
 - `chore:` - Maintenance
 
 **Examples:**
@@ -108,15 +118,23 @@ docs: update README
 ## Code Style
 
 ### Frontend
+
 - Use TypeScript strict mode
+
 - Prefer functional components
+
 - Use Tailwind for styling
+
 - Extract reusable logic to hooks
 
 ### Backend
+
 - Type hints for all functions
+
 - Docstrings for public APIs
+
 - Use async/await for I/O
+
 - Keep handlers thin (logic in services)
 
 ---

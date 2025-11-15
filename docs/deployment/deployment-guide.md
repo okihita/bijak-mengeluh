@@ -2,12 +2,19 @@
 
 ## Pre-Deployment Checklist
 
+
 - [x] All tests passing
+
 - [x] Build successful
+
 - [x] No console errors
+
 - [x] Environment variables configured
+
 - [x] Git repository clean
+
 - [x] README updated
+
 - [x] Version tagged
 
 ## Environment Variables
@@ -218,26 +225,41 @@ curl https://bijakmengeluh.id/api/health
 
 ### 2. Test Core Features
 
+
 - [ ] Homepage loads
+
 - [ ] Templates work
+
 - [ ] Form submission works
+
 - [ ] History page works
+
 - [ ] Dark mode works
+
 - [ ] Mobile responsive
+
 - [ ] PWA installable
 
 ### 3. Monitor
 
+
 - [ ] Set up error monitoring (Sentry)
+
 - [ ] Set up analytics (Plausible/Umami)
+
 - [ ] Set up uptime monitoring (UptimeRobot)
+
 - [ ] Configure alerts
 
 ### 4. Performance
 
+
 - [ ] Run Lighthouse audit (target: 90+)
+
 - [ ] Check Core Web Vitals
+
 - [ ] Test on slow 3G
+
 - [ ] Test on various devices
 
 ---
@@ -250,8 +272,11 @@ vercel rollback
 ```
 
 ### AWS Amplify:
+
 - Go to Amplify Console
+
 - Select previous deployment
+
 - Click "Redeploy this version"
 
 ### Netlify:
@@ -327,18 +352,27 @@ All platforms provide automatic SSL certificates via Let's Encrypt.
 ## Monitoring & Maintenance
 
 ### Weekly:
+
 - [ ] Check error logs
+
 - [ ] Review analytics
+
 - [ ] Check uptime reports
 
 ### Monthly:
+
 - [ ] Update dependencies
+
 - [ ] Review performance metrics
+
 - [ ] Check security advisories
 
 ### Quarterly:
+
 - [ ] Full security audit
+
 - [ ] Performance optimization
+
 - [ ] User feedback review
 
 ---

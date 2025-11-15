@@ -29,10 +29,15 @@ This guide provides test paths for both human testers and AI agents to validate 
 13. Verify "Tersalin!" confirmation appears
 
 **Expected Results:**
+
 - ✅ Quality score shows 80-100 (green badge)
+
 - ✅ Generated complaint is formal and well-structured
+
 - ✅ At least 1 ministry suggested
+
 - ✅ Copy button works
+
 - ✅ No errors displayed
 
 ---
@@ -50,8 +55,11 @@ This guide provides test paths for both human testers and AI agents to validate 
 8. Verify button becomes enabled when > 20 characters
 
 **Expected Results:**
+
 - ✅ Button disabled when < 20 characters
+
 - ✅ Character counter shows red
+
 - ✅ Button enabled when ≥ 20 characters
 
 ---
@@ -69,9 +77,13 @@ This guide provides test paths for both human testers and AI agents to validate 
 8. Observe score increase (should be yellow/green)
 
 **Expected Results:**
+
 - ✅ Score starts low (< 60)
+
 - ✅ Suggestions appear for missing info
+
 - ✅ Score increases as details added
+
 - ✅ Badge color changes (red → yellow → green)
 
 ---
@@ -90,9 +102,13 @@ This guide provides test paths for both human testers and AI agents to validate 
 9. Press `Escape` to clear focus
 
 **Expected Results:**
+
 - ✅ All interactive elements are keyboard accessible
+
 - ✅ Focus indicators are visible
+
 - ✅ Ctrl+K focuses textarea
+
 - ✅ Escape clears focus
 
 ---
@@ -110,9 +126,13 @@ This guide provides test paths for both human testers and AI agents to validate 
 8. Verify bottom navigation is accessible
 
 **Expected Results:**
+
 - ✅ All touch targets ≥ 44px
+
 - ✅ Text is readable without zooming
+
 - ✅ No horizontal scrolling
+
 - ✅ Bottom navigation doesn't overlap content
 
 ---
@@ -129,8 +149,11 @@ This guide provides test paths for both human testers and AI agents to validate 
 7. Toggle back to light mode
 
 **Expected Results:**
+
 - ✅ Theme switches smoothly
+
 - ✅ All text has sufficient contrast
+
 - ✅ No visual glitches
 
 ---
@@ -148,8 +171,11 @@ This guide provides test paths for both human testers and AI agents to validate 
 8. Verify complaint processes successfully
 
 **Expected Results:**
+
 - ✅ Error message in Indonesian
+
 - ✅ Retry button appears
+
 - ✅ Retry works after network restored
 
 ---
@@ -164,8 +190,11 @@ This guide provides test paths for both human testers and AI agents to validate 
 5. Verify it loads the complaint
 
 **Expected Results:**
+
 - ✅ History saves locally
+
 - ✅ Can view past complaints
+
 - ✅ Can reload past complaints
 
 ---
@@ -183,6 +212,7 @@ async function testPageLoad() {
   console.assert(html.includes('Curhatin Aja Keluhanmu'), 'Title should be present');
 }
 
+
 // Test 2: API Integration
 async function testAPIIntegration() {
   const response = await fetch('https://brain.bijakmengeluh.id/generate', {
@@ -197,6 +227,7 @@ async function testAPIIntegration() {
   console.assert(data.generated_text, 'Should have generated text');
   console.assert(data.suggested_contacts.length > 0, 'Should have contacts');
 }
+
 
 // Test 3: Accessibility
 async function testAccessibility() {
@@ -214,6 +245,7 @@ async function testAccessibility() {
   console.assert(liveRegion !== null, 'Live region should exist');
 }
 
+
 // Test 4: Form Validation
 async function testFormValidation() {
   const textarea = document.querySelector('#complaint-description');
@@ -229,6 +261,7 @@ async function testFormValidation() {
   textarea.dispatchEvent(new Event('input', { bubbles: true }));
   console.assert(!button.disabled, 'Button should be enabled for valid input');
 }
+
 
 // Test 5: Quality Scoring
 async function testQualityScoring() {
@@ -249,6 +282,7 @@ async function testQualityScoring() {
   // Score should improve
 }
 
+
 // Run all tests
 async function runAllTests() {
   console.log('Starting usability tests...');
@@ -259,6 +293,7 @@ async function runAllTests() {
   await testQualityScoring();
   console.log('All tests completed!');
 }
+
 ```
 
 ---
@@ -266,39 +301,62 @@ async function runAllTests() {
 ## Accessibility Checklist
 
 ### Screen Reader Testing
+
 - [ ] Navigate with Tab key through all interactive elements
+
 - [ ] Verify ARIA labels are announced
+
 - [ ] Verify live regions announce status changes
+
 - [ ] Verify form errors are announced
+
 - [ ] Verify success messages are announced
 
 ### Keyboard Testing
+
 - [ ] All functionality accessible via keyboard
+
 - [ ] Focus indicators visible
+
 - [ ] Ctrl+K focuses textarea
+
 - [ ] Escape clears focus
+
 - [ ] Enter submits form
 
 ### Visual Testing
+
 - [ ] Color contrast meets WCAG AA (4.5:1)
+
 - [ ] Text readable at 200% zoom
+
 - [ ] No information conveyed by color alone
+
 - [ ] Focus indicators have 3:1 contrast
 
 ### Touch Testing
+
 - [ ] All touch targets ≥ 44px
+
 - [ ] No accidental activations
+
 - [ ] Swipe gestures work (if applicable)
+
 - [ ] Pinch zoom works
 
 ---
 
 ## Performance Checklist
 
+
 - [ ] Page loads in < 3 seconds
+
 - [ ] First Contentful Paint < 1.8s
+
 - [ ] Time to Interactive < 3.8s
+
 - [ ] Cumulative Layout Shift < 0.1
+
 - [ ] API response time < 6 seconds
 
 ---
@@ -306,11 +364,17 @@ async function runAllTests() {
 ## Browser Compatibility
 
 Test on:
+
 - [ ] Chrome (latest)
+
 - [ ] Firefox (latest)
+
 - [ ] Safari (latest)
+
 - [ ] Edge (latest)
+
 - [ ] Mobile Safari (iOS 14+)
+
 - [ ] Chrome Android (latest)
 
 ---
@@ -318,21 +382,33 @@ Test on:
 ## Success Criteria
 
 ### Must Pass
+
 - ✅ All happy path tests pass
+
 - ✅ Accessibility score 100 (Lighthouse)
+
 - ✅ No console errors
+
 - ✅ API integration works
+
 - ✅ Mobile responsive
 
 ### Should Pass
+
 - ✅ Quality scoring accurate
+
 - ✅ Error handling graceful
+
 - ✅ Dark mode works
+
 - ✅ History feature works
 
 ### Nice to Have
+
 - ✅ Keyboard shortcuts work
+
 - ✅ PWA installable
+
 - ✅ Offline support
 
 ---
