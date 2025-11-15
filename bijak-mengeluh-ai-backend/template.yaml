@@ -1,0 +1,136 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM template for the AI Complaint Assistant backend.
+
+Parameters:
+
+  PineconeApiKey:
+    Type: String
+    NoEcho: true # Hides the key in logs
+    Description: API Key for Pinecone
+  PineconeIndexName:
+    Type: String
+    Description: Name of the Pinecone index
+    Default: 2025-aws-hackathon
+  
+  SerperApiKey:
+    Type: String
+    NoEcho: true
+    Description: API Key for Serper.dev
+  CacheTableName:
+    Type: String
+    Description: Name of the DynamoDB table for caching
+    Default: BijakMengeluhSocialsCacheTable
+  
+  BrandedApiDomainName:
+    Type: String
+    Description: Custom domain name for the API
+    Default: brain.bijakmengeluh.id
+  BrandedApiDomainCertificateArn:
+    Type: String
+    Description: ACM Certificate ARN for the custom domain
+    Default: arn:aws:acm:ap-southeast-2:986517526233:certificate/ccf38539-1caa-4ae9-8f86-70ab1b4408c0
+
+Resources:
+
+  # --- Define the DynamoDB Table for Caching ---
+  BijakMengeluhCacheTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref CacheTableName
+      AttributeDefinitions:
+        - AttributeName: "ministry_name"
+          AttributeType: S
+      KeySchema:
+        - AttributeName: "ministry_name"
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+
+
+  # --- Define the HTTP API Separately ---
+  ComplaintGenerationHttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+
+      CorsConfiguration:
+        AllowOrigins:
+          - 'http://localhost:3000'
+          - 'https://bijakmengeluh.id'
+        AllowHeaders: ["Content-Type"]
+        AllowMethods: ["POST", "OPTIONS"]
+        MaxAge: 600
+
+      Domain:
+        DomainName: !Ref BrandedApiDomainName
+        CertificateArn: !Ref BrandedApiDomainCertificateArn
+        EndpointConfiguration: REGIONAL
+
+
+  # --- Define the Lambda Function ---
+  BijakMengeluhComplaintGenerationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/ # Points to your code folder
+      Handler: handlers.complaint_handler.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      MemorySize: 512 # Optimized for cost (was 1024)
+      Timeout: 60
+      Environment:
+        Variables:
+          PINECONE_API_KEY: !Ref PineconeApiKey # Sets the env var from the parameter
+          PINECONE_INDEX_NAME: !Ref PineconeIndexName # Sets the env var from the parameter
+          CACHE_TABLE_NAME: !Ref CacheTableName
+          FINDER_FUNCTION_NAME: !GetAtt BijakMengeluhSocialFinderFunction.Arn
+      Policies:
+        - AmazonBedrockFullAccess # Grants permissions to call Bedrock
+        - DynamoDBCrudPolicy: # Grants CRUD permissions to the cache table
+            TableName: !Ref BijakMengeluhCacheTable
+        - Statement: # DynamoDB agencies table permissions
+            Effect: Allow
+            Action:
+              - dynamodb:Query
+              - dynamodb:GetItem
+              - dynamodb:Scan
+            Resource:
+              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies
+              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies/index/*
+        - Statement: # Custom IAM statement to allow invoking the finder function
+            Effect: Allow
+            Action:
+              - lambda:InvokeFunction
+            Resource: !GetAtt BijakMengeluhSocialFinderFunction.Arn
+      Events:
+        GenerateApi:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref ComplaintGenerationHttpApi
+            Path: /generate
+            Method: post
+  
+  # --- Define the Live Real Time People Search Function ---
+  BijakMengeluhSocialFinderFunction:
+    Type: AWS::Serverless::Function # Create a new Lambda function
+    Properties:
+      CodeUri: src/
+      Handler: handlers.social_finder_handler.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      MemorySize: 512 # Optimized for cost (was 768)
+      Timeout: 30
+      Environment:
+        Variables:
+          SERPER_API_KEY: !Ref SerperApiKey
+      Policies:
+        - AmazonBedrockFullAccess
+
+Outputs:
+  ApiEndpoint:
+    Description: API Gateway endpoint URL for Prod stage for Generate function
+    Value: !Sub https://${ComplaintGenerationHttpApi}.execute-api.${AWS::Region}.amazonaws.com/generate
+  BrandedApiEndpoint:
+    Description: Custom domain API endpoint
+    Value: !Sub https://${BrandedApiDomainName}/generate
