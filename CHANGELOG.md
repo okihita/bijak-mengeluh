@@ -67,20 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned for v3.0
-- [ ] Expand to 380 agencies (top 10 provinces)
-- [ ] Add automated tests (pytest + Jest)
-- [ ] Implement error boundaries
-- [ ] Set up CloudWatch alarms
-- [ ] Add response streaming
-- [ ] Multi-language support (English)
-
-### Planned for v4.0
-- [ ] All Indonesia coverage (8,314 agencies)
-- [ ] Complaint tracking (follow-up status)
-- [ ] Community voting on complaints
-- [ ] Success stories showcase
-- [ ] Mobile app (native)
+Nothing yet. See [ROADMAP.md](./ROADMAP.md) for backlog ideas.
 
 ---
 
@@ -94,6 +81,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 **See also:**
-- [ROADMAP.md](./ROADMAP.md) - Future plans
+- [ROADMAP.md](./ROADMAP.md) - Product backlog
 - [docs/NOTES.md](./docs/NOTES.md) - Development diary
 - [docs/archive/PHASE1_COMPLETE.md](./docs/archive/PHASE1_COMPLETE.md) - Phase 1 details

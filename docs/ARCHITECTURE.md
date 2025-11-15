@@ -193,25 +193,11 @@ def match_agency(complaint: str) -> List[Agency]:
 
 ## Scaling Projections
 
-### v3.0: 380 Agencies
+Current production (v2.0): $7-13/mo for 121 agencies.
 
-**Changes:**
-- DynamoDB: 3x reads → $1.50/mo
-- Lambda: 20% more invocations → $6/mo
-- Bedrock: 50% more requests → $3/mo
+For expansion scenarios (380 agencies, 8,314 agencies), see historical analysis in [docs/archive/COST_ANALYSIS.md](./archive/COST_ANALYSIS.md).
 
-**Total:** $10.50/mo (+40%)
-
-### v4.0: 8,314 Agencies
-
-**Changes:**
-- DynamoDB: 10x reads → $5/mo
-- Lambda: 60% more invocations → $8/mo
-- Bedrock: 150% more requests → $5/mo
-
-**Total:** $18/mo (+140%)
-
-**Still 77% cheaper than v1.0 Pinecone!**
+**Key insight:** DynamoDB scales linearly with agency count while remaining 77% cheaper than v1.0 Pinecone.
 
 ---
 
@@ -335,19 +321,9 @@ bash scripts/deploy.sh
 
 ---
 
-## Future Improvements
+## Improvement Ideas
 
-**v3.0:**
-- Add caching layer (Redis/ElastiCache)
-- Implement request batching
-- Add response streaming
-- Set up CloudWatch alarms
-
-**v4.0:**
-- Multi-region deployment
-- CDN for static assets
-- Database replication
-- Auto-scaling policies
+See [ROADMAP.md](../ROADMAP.md) for infrastructure and optimization ideas (caching, multi-region, CDN, etc.).
 
 ---
 

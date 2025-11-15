@@ -177,29 +177,15 @@ git commit -m "feat: description"
 
 ---
 
-## Next Steps
+## Completed (v2.0)
 
-**Phase 1: Complete ✅**
 - ✅ Pinecone fully removed
 - ✅ National ministries scraped (31/34)
 - ✅ Error boundary added
 - ✅ Documentation consolidated
 
-**v3.0 (Next)**
-- Top 10 provinces (380 agencies)
-- Manual entry for quality
-- 80% of complaints covered
-
-**v4.0**
-- Complaint tracking
-- PDF export
-- Voice input
-
-**v5.0**
-- All Indonesia (8,314 agencies)
-- Crowdsourcing for updates
-- Mobile app (PWA → native)
-
 ---
+
+**Next steps:** See [ROADMAP.md](../ROADMAP.md) for backlog ideas.
 
 **Full historical docs:** `docs/archive/`

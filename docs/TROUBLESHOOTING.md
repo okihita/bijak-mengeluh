@@ -21,7 +21,7 @@ Common issues and solutions for Bijak Mengeluh users.
 **Solution:**
 - Add specific location: "sampah menumpuk" → "sampah menumpuk di Jakarta Selatan"
 - Currently supports: 31 national agencies + 90 DKI Jakarta agencies
-- Other provinces coming in v3.0
+- Other provinces: See [ROADMAP.md](../ROADMAP.md) for expansion plans
 
 ### Response Takes Too Long (>5s)
 
@@ -204,7 +204,7 @@ A: Try selecting "Formal" tone explicitly. Default tone may vary.
 A: Yes! Copy text and edit in any text editor before sending.
 
 **Q: Why doesn't my city have agencies?**  
-A: v2.0 covers national + DKI Jakarta only. More provinces coming in v3.0.
+A: v2.0 covers national + DKI Jakarta only. See [ROADMAP.md](../ROADMAP.md) for expansion plans.
 
 **Q: Is my complaint data stored?**  
 A: Only in your browser's LocalStorage. We don't store complaints on servers.
