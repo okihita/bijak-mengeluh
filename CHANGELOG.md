@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.4.0] - 2025-11-16
 
 ### Added
+- **Agency directory page** - Browse all 386 government agencies
+  - Search by name or category
+  - Filter by province (DKI Jakarta, West Java, Central Java, East Java, Banten)
+  - View agency details (name, location, keywords)
+  - Accessible via bottom navigation
+  - Real-time count displayed on homepage
+  - Fixed: Increased API limit from 50 to 500 to show all agencies
 - **Typography specification** - Mobile-first responsive type system
   - Consistent sizing: `text-sm sm:text-base` pattern
   - Type scale: H1-H4 with responsive breakpoints
@@ -40,9 +47,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **Agency counts** - Corrected throughout docs
-  - v1.0: 31 agencies (not 34)
-  - v2.0+: 121 agencies (31 + 90)
-  - Math verified: 31 national + 90 DKI Jakarta = 121
+  - v1.0: 31 agencies (national only)
+  - v2.0-v2.3: 121 agencies (31 national + 90 DKI Jakarta)
+  - v2.4: 386 agencies (98 DKI Jakarta + 288 Java provinces)
+  - Breakdown: DKI Jakarta (98), Central Java (74), East Java (85), West Java (85), Banten (44)
 
 ---
 

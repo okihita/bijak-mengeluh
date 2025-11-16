@@ -167,13 +167,16 @@ When routing complaints, follow this priority:
 
 | Level | Agencies | Status |
 |-------|----------|--------|
-| National | 31 | ✅ Complete |
-| DKI Jakarta (Provincial + City) | 90 | ✅ Complete |
+| DKI Jakarta | 98 | ✅ Complete |
+| Central Java | 74 | ✅ Complete |
+| East Java | 85 | ✅ Complete |
+| West Java | 85 | ✅ Complete |
+| Banten | 44 | ✅ Complete |
 | Other Provinces | 0 | ⏳ Planned |
 | Districts | 0 | ⏳ Future |
 | Villages | 0 | ⏳ Future |
 
-**Total:** 121 agencies  
+**Total:** 386 agencies
 **Target:** 8,314 agencies (all Indonesia)
 
 ---

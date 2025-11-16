@@ -1,14 +1,106 @@
-# Product Spec: v2.4 - The Agency Atlas 🗺️
+# Product Spec: v2.4 - Agency Directory
 
-## Vision
+## Implementation Status
 
-Transform Bijak Mengeluh from a single-purpose complaint tool into a **civic infrastructure map**. The directory isn't just a fallback—it's a discovery engine that shows citizens what government actually looks like, makes agencies shareable like restaurant recommendations, and turns bureaucracy into something browsable.
+**✅ Completed:**
+- 386 agencies in database (98 DKI Jakarta + 288 Java provinces)
+- Basic directory page with search and filter
+- Province filtering (5 provinces)
+- Agency cards with emoji, name, location, keywords
+- Bottom navigation integration
+- Real-time agency count on homepage
+- Fixed API limit issue (50 → 500)
 
-**Tagline:** "433 ways to fix your city"
+**❌ Not Implemented (Future):**
+- Agency detail pages (`/agency/[id]`)
+- Map view with city grouping
+- Category icons and colors
+- "Buat Keluhan" button (pre-fill form)
+- Share to Instagram Story
+- Deep links for agencies
+- Popular agencies carousel
+- AI fallback integration
+
+---
+
+## Testing Requirements
+
+### Agency Count Verification
+
+**Problem:** Homepage claimed 424 agencies, but directory only showed 41.
+
+**Root Cause:** API had default limit too low (50), and frontend used `limit=50`.
+
+**Fix:** Frontend now uses `limit=500` to fetch all agencies.
+
+**Test Checklist:**
+- [ ] Homepage shows correct total (should match API `/agencies?limit=1` total field)
+- [ ] Directory page shows all agencies (not just first 50)
+- [ ] Filter by province shows correct count per province
+- [ ] Search results aren't limited to 50
+- [ ] Verify: `curl "https://brain.bijakmengeluh.id/agencies?limit=500" | jq '.agencies | length'` returns 386
+
+**Actual Breakdown:**
+- DKI Jakarta: 98
+- Central Java: 74
+- East Java: 85
+- West Java: 85
+- Banten: 44
+- **Total: 386**
+
+---
+
+### Agency Level Filtering
+
+**Problem:** National agencies (Kementerian) were incorrectly grouped under "DKI Jakarta" province.
+
+**Root Cause:** Database has `province: "DKI Jakarta"` for national agencies (since they're headquartered there), but they serve all of Indonesia.
+
+**Solution:** Use `level` field instead of just `province` for filtering.
+
+**Implementation:**
+1. **Level Filter (Chips):** Semua | Nasional | Provinsi | Kota/Kabupaten
+2. **Province Filter (Dropdown):** Only shown when level ≠ national
+3. **Smart Filtering:**
+   - `level: 'national'` → Show all Kementerian (ignore province)
+   - `level: 'provincial'` → Filter by province
+   - `level: 'city'` → Filter by province/city
+   - No level selected → Show all
+
+**Agency Levels:**
+- National: 23 agencies (Kementerian)
+- Provincial: 9 agencies (Dinas Provinsi)
+- City: 66 agencies (Dinas Kota/Kabupaten)
+- Unknown: 288 agencies (need level field added)
+
+**UI Benefits:**
+- Cleaner: 4 level chips instead of 6 province chips
+- Scalable: Dropdown handles 34 provinces easily
+- Accurate: National agencies not mixed with local ones
+- Contextual: Province dropdown only appears when relevant
+
+**Test Checklist:**
+- [ ] "Nasional" filter shows only Kementerian (23 agencies)
+- [ ] "Nasional" filter hides province dropdown
+- [ ] "Provinsi" filter shows province dropdown
+- [ ] "Kota" filter shows province dropdown
+- [ ] Kementerian don't appear in DKI Jakarta filter
+- [ ] Level badges show on agency cards (blue=national, purple=provincial, green=city)
+
+---
+
+## Original Vision
+
+Transform Bijak Mengeluh from a single-purpose complaint tool into a **civic infrastructure map**. The directory isn't just a fallback—it's a discovery engine that shows citizens what government actually looks like.
+
+**Original Tagline:** "433 ways to fix your city"  
+**Actual:** 386 agencies
 
 ## Overview
 
-Expand from 121 agencies (31 national + 90 DKI Jakarta) to **433 agencies** by integrating the 312 Java agencies. Add a beautiful, shareable directory that makes government agencies as discoverable as coffee shops on Google Maps.
+**Goal:** Expand agency coverage and add browsable directory  
+**Achieved:** 386 agencies (98 DKI Jakarta + 74 Central Java + 85 East Java + 85 West Java + 44 Banten)  
+**Status:** Basic directory implemented, advanced features deferred
 
 ## Goals
 

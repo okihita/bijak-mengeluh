@@ -114,6 +114,7 @@ export default function HomePage() {
   const [userInput, setUserInput] = usePersistentState("userInput", "");
   const { lastSaved, isSaving } = useAutoSave(userInput, "draft", 10000);
   const [tone, setTone] = useState<string>("formal");
+  const [agencyCount, setAgencyCount] = useState<number | null>(null);
   const [promptHistory, setPromptHistory] = usePersistentState<string[]>(
     "promptHistory",
     [],
@@ -128,6 +129,14 @@ export default function HomePage() {
     rationale,
     socialHandle,
   } = state;
+
+  // Fetch agency count
+  useEffect(() => {
+    fetch('https://brain.bijakmengeluh.id/agencies?limit=1')
+      .then(r => r.json())
+      .then(data => setAgencyCount(data.total || 0))
+      .catch(() => setAgencyCount(null));
+  }, []);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -296,7 +305,7 @@ export default function HomePage() {
               <CardContent className="pt-6 text-center">
                 <p className="text-lg font-semibold mb-2">Atau cari instansi manual</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                  Jelajahi 1100+ instansi berdasarkan lokasi dan kategori
+                  Jelajahi {agencyCount || '400+'} instansi berdasarkan lokasi dan kategori
                 </p>
                 <Link href="/directory">
                   <Button className="gap-2">

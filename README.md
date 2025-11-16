@@ -104,18 +104,12 @@ Here's what we believe:
 ## Current Status
 
 **In production (v2.4):**
-- 121 agencies mapped (31 national + 90 DKI Jakarta)
+- 386 agencies mapped (98 DKI Jakarta + 288 Java provinces)
 - 100% agency matching accuracy
 - <2s average response time
 - Running on $7-13/mo
 - Instagram Story sharing (9:16 format)
 - Three tones: formal, funny, angry
-
-**Fun facts:**
-- Saved $840/year by ditching vector search for keyword matching (and improved accuracy)
-- Instagram sharing gets 3x more engagement than copy-paste
-- Most complained about: Jalan rusak (broken roads) 🛣️
-- Fastest turnaround: 8 words → polished comment in 1.8 seconds
 
 ---
 
