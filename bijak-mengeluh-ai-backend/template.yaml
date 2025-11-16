@@ -49,7 +49,7 @@ Resources:
           - 'http://localhost:3000'
           - 'https://bijakmengeluh.id'
         AllowHeaders: ["Content-Type"]
-        AllowMethods: ["POST", "OPTIONS"]
+        AllowMethods: ["GET", "POST", "OPTIONS"]
         MaxAge: 600
 
       Domain:
@@ -115,6 +115,57 @@ Resources:
           SERPER_API_KEY: !Ref SerperApiKey
       Policies:
         - AmazonBedrockFullAccess
+
+  # --- Agencies Directory Functions ---
+  BijakMengeluhAgenciesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: handlers.agencies_handler.lambda_handler
+      Runtime: python3.12
+      Timeout: 10
+      MemorySize: 256
+      Policies:
+        - Statement:
+            Effect: Allow
+            Action:
+              - dynamodb:Scan
+              - dynamodb:Query
+            Resource:
+              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies
+              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies/index/*
+      Events:
+        GetAgencies:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref ComplaintGenerationHttpApi
+            Path: /agencies
+            Method: get
+
+  BijakMengeluhAgencyDetailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: handlers.agency_detail_handler.lambda_handler
+      Runtime: python3.12
+      Timeout: 10
+      MemorySize: 256
+      Policies:
+        - Statement:
+            Effect: Allow
+            Action:
+              - dynamodb:GetItem
+              - dynamodb:Scan
+            Resource:
+              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies
+              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies/index/*
+      Events:
+        GetAgency:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref ComplaintGenerationHttpApi
+            Path: /agencies/{id}
+            Method: get
 
 Outputs:
   ApiEndpoint:

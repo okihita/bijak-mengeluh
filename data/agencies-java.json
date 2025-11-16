@@ -1,0 +1,5066 @@
+[
+  {
+    "name": "Dinas Perhubungan Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Bandung",
+    "province": "West Java",
+    "city": "Bandung",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Bekasi",
+    "province": "West Java",
+    "city": "Bekasi",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Bogor",
+    "province": "West Java",
+    "city": "Bogor",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Depok",
+    "province": "West Java",
+    "city": "Depok",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Cirebon",
+    "province": "West Java",
+    "city": "Cirebon",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Sukabumi",
+    "province": "West Java",
+    "city": "Sukabumi",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Tasikmalaya",
+    "province": "West Java",
+    "city": "Tasikmalaya",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Semarang",
+    "province": "Central Java",
+    "city": "Semarang",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Solo",
+    "province": "Central Java",
+    "city": "Solo",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Magelang",
+    "province": "Central Java",
+    "city": "Magelang",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Pekalongan",
+    "province": "Central Java",
+    "city": "Pekalongan",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Tegal",
+    "province": "Central Java",
+    "city": "Tegal",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Purwokerto",
+    "province": "Central Java",
+    "city": "Purwokerto",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Surabaya",
+    "province": "East Java",
+    "city": "Surabaya",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Malang",
+    "province": "East Java",
+    "city": "Malang",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Sidoarjo",
+    "province": "East Java",
+    "city": "Sidoarjo",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Gresik",
+    "province": "East Java",
+    "city": "Gresik",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Mojokerto",
+    "province": "East Java",
+    "city": "Mojokerto",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Kediri",
+    "province": "East Java",
+    "city": "Kediri",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Jember",
+    "province": "East Java",
+    "city": "Jember",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Tangerang",
+    "province": "Banten",
+    "city": "Tangerang",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Serang",
+    "province": "Banten",
+    "city": "Serang",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Cilegon",
+    "province": "Banten",
+    "city": "Cilegon",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  },
+  {
+    "name": "Dinas Perhubungan Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "transportation",
+      "infrastructure"
+    ],
+    "keywords": [
+      "jalan",
+      "transportasi",
+      "macet",
+      "parkir",
+      "angkot",
+      "bus",
+      "terminal"
+    ]
+  },
+  {
+    "name": "Dinas Kesehatan Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "health"
+    ],
+    "keywords": [
+      "rumah sakit",
+      "puskesmas",
+      "dokter",
+      "obat",
+      "vaksin",
+      "kesehatan"
+    ]
+  },
+  {
+    "name": "Dinas Pendidikan Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "education"
+    ],
+    "keywords": [
+      "sekolah",
+      "guru",
+      "siswa",
+      "ujian",
+      "pendidikan"
+    ]
+  },
+  {
+    "name": "Dinas Pekerjaan Umum Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "infrastructure",
+      "public_works"
+    ],
+    "keywords": [
+      "jalan",
+      "jembatan",
+      "drainase",
+      "banjir",
+      "infrastruktur",
+      "rusak"
+    ]
+  },
+  {
+    "name": "Dinas Lingkungan Hidup Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "environment",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "lingkungan",
+      "polusi",
+      "limbah",
+      "kebersihan"
+    ]
+  },
+  {
+    "name": "Dinas Sosial Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "social"
+    ],
+    "keywords": [
+      "bantuan",
+      "sosial",
+      "kemiskinan",
+      "disabilitas"
+    ]
+  },
+  {
+    "name": "Dinas Kependudukan Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "civil_registration"
+    ],
+    "keywords": [
+      "ktp",
+      "kk",
+      "akta",
+      "penduduk",
+      "administrasi"
+    ]
+  },
+  {
+    "name": "Satpol PP Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Satpol",
+    "categories": [
+      "public_order"
+    ],
+    "keywords": [
+      "ketertiban",
+      "pkl",
+      "razia",
+      "pelanggaran"
+    ]
+  },
+  {
+    "name": "Dinas Kebersihan Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "sanitation",
+      "waste"
+    ],
+    "keywords": [
+      "sampah",
+      "kebersihan",
+      "tpa",
+      "tps"
+    ]
+  },
+  {
+    "name": "Dinas Perumahan Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "housing"
+    ],
+    "keywords": [
+      "rumah",
+      "perumahan",
+      "rusun",
+      "sewa"
+    ]
+  },
+  {
+    "name": "Dinas Pariwisata Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "tourism"
+    ],
+    "keywords": [
+      "wisata",
+      "pariwisata",
+      "hotel",
+      "tempat wisata"
+    ]
+  },
+  {
+    "name": "Dinas Komunikasi dan Informatika Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Dinas",
+    "categories": [
+      "technology",
+      "communication"
+    ],
+    "keywords": [
+      "internet",
+      "website",
+      "aplikasi",
+      "teknologi"
+    ]
+  },
+  {
+    "name": "Badan Penanggulangan Bencana Tangerang Selatan",
+    "province": "Banten",
+    "city": "Tangerang Selatan",
+    "type": "Badan",
+    "categories": [
+      "disaster"
+    ],
+    "keywords": [
+      "bencana",
+      "banjir",
+      "gempa",
+      "kebakaran",
+      "darurat"
+    ]
+  }
+]

@@ -1,2 +1,1 @@
-from .complaint_handler import lambda_handler as complaint_lambda_handler
-from .social_finder_handler import lambda_handler as social_finder_lambda_handler
+# Empty init - handlers are imported directly by Lambda
