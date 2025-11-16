@@ -523,6 +523,278 @@ Response:
 - 100% agencies have keywords
 - All deep links resolve correctly
 
+## Design System Consistency
+
+### Color Scheme Unity
+
+**Requirement:** All pages must use identical color schemes to create visual unity.
+
+**Primary Colors:**
+```css
+/* Light Mode */
+--background: white
+--card: white
+--border: #e5e7eb (gray-200)
+--text-primary: #111827 (gray-900)
+--text-secondary: #6b7280 (gray-500)
+--accent: #2563eb (blue-600)
+--accent-hover: #1d4ed8 (blue-700)
+
+/* Dark Mode */
+--background: #111827 (gray-900)
+--card: #1f2937 (gray-800)
+--border: #374151 (gray-700)
+--text-primary: #f9fafb (gray-50)
+--text-secondary: #9ca3af (gray-400)
+--accent: #3b82f6 (blue-500)
+--accent-hover: #2563eb (blue-600)
+```
+
+**Gradient Backgrounds:**
+```css
+/* Light Mode */
+from-blue-50 to-white
+
+/* Dark Mode */
+from-gray-900 to-gray-800
+```
+
+**Apply to ALL pages:**
+- Homepage
+- Directory
+- History
+- Any future pages
+
+### Spacing System
+
+**Requirement:** Use consistent spacing across all pages for pixel-perfect unity.
+
+**Container:**
+```tsx
+className="container mx-auto px-4 sm:px-6 md:px-8 py-6 pb-20"
+```
+
+**Max Width:**
+```tsx
+// Homepage & History
+className="max-w-3xl mx-auto"
+
+// Directory (wider for grid)
+className="max-w-6xl mx-auto"
+```
+
+**Vertical Spacing:**
+```tsx
+// Between sections
+className="space-y-6"
+
+// Between elements
+className="mb-6"  // Large gap
+className="mb-4"  // Medium gap
+className="mb-2"  // Small gap
+```
+
+**Card Padding:**
+```tsx
+// Standard card
+className="p-4"
+
+// Large card
+className="p-6"
+
+// Card with header
+className="pt-6 px-6 pb-4"  // Header
+className="px-6 pb-6"        // Content
+```
+
+### Typography System
+
+**Requirement:** Consistent font sizes and weights across all pages.
+
+**Headings:**
+```tsx
+// Page title (h1)
+className="text-4xl font-bold mb-2 dark:text-white"
+
+// Section title (h2)
+className="text-3xl font-bold mb-6"
+
+// Card title (h3)
+className="text-xl font-bold"
+
+// Subsection (h4)
+className="text-lg font-semibold"
+```
+
+**Body Text:**
+```tsx
+// Primary text
+className="text-base dark:text-white"
+
+// Secondary text
+className="text-sm text-gray-600 dark:text-gray-400"
+
+// Tertiary text
+className="text-xs text-gray-500 dark:text-gray-400"
+```
+
+### Component Consistency
+
+**Buttons:**
+```tsx
+// Primary button
+className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+
+// Secondary button
+className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+
+// Large button
+className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+```
+
+**Input Fields:**
+```tsx
+className="w-full p-4 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+```
+
+**Cards:**
+```tsx
+className="border rounded-lg p-4 bg-white dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition"
+```
+
+**Chips/Badges:**
+```tsx
+className="px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 dark:text-gray-300"
+```
+
+### Border Radius System
+
+**Requirement:** Consistent border radius for visual harmony.
+
+```tsx
+// Small elements (badges, chips)
+className="rounded-full"
+
+// Medium elements (buttons, inputs)
+className="rounded-lg"  // 8px
+
+// Large elements (cards)
+className="rounded-lg"  // 8px
+```
+
+### Shadow System
+
+**Requirement:** Consistent shadows for depth hierarchy.
+
+```tsx
+// Hover state
+className="hover:shadow-lg"
+
+// Active card
+className="shadow-xl"
+
+// Subtle elevation
+className="shadow-sm"
+```
+
+### Transition System
+
+**Requirement:** Smooth, consistent transitions.
+
+```tsx
+// Standard transition
+className="transition-colors"
+
+// All properties
+className="transition-all"
+
+// Custom duration
+className="transition-all duration-300"
+```
+
+### Implementation Checklist
+
+**Homepage:**
+- [ ] Uses standard container padding
+- [ ] Uses max-w-3xl
+- [ ] Uses consistent card styling
+- [ ] Uses standard button styles
+- [ ] Uses standard spacing (space-y-6)
+
+**Directory:**
+- [ ] Uses standard container padding
+- [ ] Uses max-w-6xl (wider for grid)
+- [ ] Uses consistent card styling
+- [ ] Uses standard button styles
+- [ ] Uses standard spacing
+- [ ] Matches gradient background style
+
+**History:**
+- [ ] Uses standard container padding
+- [ ] Uses max-w-3xl
+- [ ] Uses consistent card styling
+- [ ] Uses standard button styles
+- [ ] Uses standard spacing
+
+**All Pages:**
+- [ ] Identical color scheme (light/dark)
+- [ ] Consistent typography scale
+- [ ] Consistent border radius
+- [ ] Consistent shadows
+- [ ] Consistent transitions
+- [ ] Consistent spacing rhythm
+
+### Audit Process
+
+Before shipping any page:
+1. Compare side-by-side with other pages
+2. Check color values match exactly
+3. Verify spacing matches design system
+4. Test dark mode consistency
+5. Verify hover states match
+6. Check mobile responsiveness matches
+
+**Goal:** User should feel like they're in the same app on every page, not jumping between different designs.
+
+---
+
+## Deployment Protocol
+
+### ⚠️ CRITICAL: Always Ask for Confirmation Before Push
+
+**Rule:** NEVER push to GitHub without explicit user confirmation.
+
+**Process:**
+1. Make code changes
+2. Test locally
+3. Git commit locally
+4. **STOP and ask:** "Ready to push to GitHub?"
+5. Wait for user confirmation
+6. Only then: `git push`
+
+**Why:**
+- Prevents premature deployments
+- Allows user to review changes
+- Gives time for additional testing
+- Avoids breaking production
+
+**Example:**
+```
+✅ Changes committed locally (commit: abc1234)
+📝 Summary: [brief description]
+
+⚠️ Ready to push to GitHub? (y/n)
+```
+
+**Never:**
+- Push automatically after commit
+- Assume user wants immediate deployment
+- Skip confirmation step
+
+This is a **hard requirement** for all future deployments.
+
+---
+
 ## Mobile Excellence
 
 ### Bottom Navigation Integration

@@ -135,6 +135,7 @@ We're not trying to replace community organizing or activism. We're building inf
 
 ## Documentation
 
+- [DEPLOYMENT_PROTOCOL.md](./docs/DEPLOYMENT_PROTOCOL.md) - **Required reading for all contributors**
 - [ROADMAP.md](./ROADMAP.md) - What we're thinking about next
 - [docs/product/STRATEGIC_INSPIRATION.md](./docs/product/STRATEGIC_INSPIRATION.md) - Global civic tech inspiration
 - [docs/product/VOICE_AND_TONE.md](./docs/product/VOICE_AND_TONE.md) - Language and brand guidelines
