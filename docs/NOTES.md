@@ -1,5 +1,9 @@
 # Development Notes
 
+**Purpose:** Development journey and key decisions  
+**Audience:** Contributors, maintainers  
+**Last Updated:** 2025-11-16
+
 The story of how we built this thing.
 
 ---
@@ -42,7 +46,7 @@ The story of how we built this thing.
 
 - Pinecone: $70/mo (82% of total cost!)
 
-- Only 34 agencies covered
+- Only 31 agencies covered
 
 - Users couldn't find local agencies
 
@@ -81,7 +85,7 @@ The story of how we built this thing.
 **v1.0** (Oct 2025)
 ```
 User → Next.js → Lambda → Bedrock + Pinecone
-Cost: $77-85/mo | Coverage: 34 agencies
+Cost: $77-85/mo | Coverage: 31 agencies
 ```
 *Problem:* Expensive, limited coverage
 
@@ -90,7 +94,7 @@ Cost: $77-85/mo | Coverage: 34 agencies
 User → Next.js → Lambda → Bedrock + DynamoDB
 Cost: $7-13/mo | Coverage: 121 agencies
 ```
-*Win:* 10x cheaper, 3.5x more agencies
+*Win:* 10x cheaper, 4x more agencies
 
 **Future**
 ```
@@ -112,9 +116,9 @@ Cost: $0.61 one-time + $0.006/mo
 - DynamoDB query: <200ms
 
 **Coverage**
-- v1.0: 34 agencies
-- v2.0: 121 agencies (+256%)
-- Target: 8,314 agencies (+24,347%!)
+- v1.0: 31 agencies
+- v2.0: 121 agencies (+290%)
+- Target: 8,314 agencies (+26,690%!)
 
 **Cost**
 
@@ -177,12 +181,16 @@ git commit -m "feat: description"
 
 ---
 
-## Completed (v2.0)
+## Completed (v2.4)
 
 - ✅ Pinecone fully removed
-- ✅ National ministries scraped (31/34)
+- ✅ National agencies scraped (31 agencies)
+- ✅ DKI Jakarta agencies scraped (90 agencies)
 - ✅ Error boundary added
 - ✅ Documentation consolidated
+- ✅ Instagram Story sharing
+- ✅ Typewriter effect placeholder
+- ✅ Animated thinking messages
 
 ---
 

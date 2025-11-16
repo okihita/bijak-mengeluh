@@ -1,6 +1,8 @@
 # Troubleshooting Guide
 
-Common issues and solutions for Bijak Mengeluh users.
+**Purpose:** Common issues and solutions  
+**Audience:** Users, developers  
+**Last Updated:** 2025-11-16
 
 ---
 

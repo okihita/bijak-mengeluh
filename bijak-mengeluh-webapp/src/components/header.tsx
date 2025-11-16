@@ -22,7 +22,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="hidden sm:block sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+    <header className="hidden sm:block sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 h-14 flex items-center justify-between">
         <Link href="/" className="font-bold text-lg hover:text-primary transition-colors">
           Bijak Mengeluh
@@ -33,7 +33,7 @@ export function Header() {
             className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
               pathname === "/"
                 ? "bg-primary text-primary-foreground"
-                : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                : "hover:bg-muted"
             }`}
           >
             <Home className="h-4 w-4" />
@@ -44,7 +44,7 @@ export function Header() {
             className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
               pathname === "/directory"
                 ? "bg-primary text-primary-foreground"
-                : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                : "hover:bg-muted"
             }`}
           >
             <Map className="h-4 w-4" />
@@ -55,7 +55,7 @@ export function Header() {
             className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
               pathname === "/history"
                 ? "bg-primary text-primary-foreground"
-                : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                : "hover:bg-muted"
             }`}
           >
             <History className="h-4 w-4" />

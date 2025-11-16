@@ -302,14 +302,22 @@ Ideas sorted by effort (S/M/L/XL). Pick what makes sense when you're ready.
 
 ## Completed
 
-**v2.0 (Current Production):**
-- [x] AI complaint generation (formal/funny/angry tones)
+**v2.4 (Current):**
 - [x] Instagram Story sharing (9:16 format)
+- [x] Three tones: formal, funny, angry
+- [x] Typewriter effect placeholder
+- [x] Animated thinking messages
+- [x] Desktop navigation
+- [x] Onboarding modal
+- [x] Settings panel
+
+**v2.0:**
+- [x] AI complaint polishing (formal/funny/angry tones)
 - [x] PWA (offline support)
 - [x] Dark mode
 - [x] Complaint history
 - [x] Smart agency matching (city-level)
-- [x] 112 agencies (31 national + 90 DKI Jakarta)
+- [x] 121 agencies (31 national + 90 DKI Jakarta)
 - [x] Replace Pinecone with DynamoDB (saved $840/year)
 
 ---
@@ -326,4 +334,4 @@ No timelines. No pressure. Just build what makes sense next.
 
 ---
 
-**Last updated:** 2025-01-15
+**Last updated:** 2025-11-16

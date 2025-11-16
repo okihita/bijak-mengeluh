@@ -1,6 +1,8 @@
 # Local Reports Workflow
 
-**Purpose:** Track development context locally without cluttering git history.
+**Purpose:** Track development context locally without cluttering git history  
+**Audience:** Developers, maintainers  
+**Last Updated:** 2025-11-16
 
 ---
 

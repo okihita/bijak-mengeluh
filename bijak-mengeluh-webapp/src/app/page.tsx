@@ -238,10 +238,10 @@ export default function HomePage() {
         href={`https://x.com/${socialHandle.handle.substring(1)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center p-2 bg-blue-50 rounded-md border border-blue-200 transition-all hover:bg-blue-100 dark:bg-blue-950/50 dark:border-blue-800/70 dark:hover:bg-blue-950"
+        className="flex items-center p-2 bg-muted rounded-md border border-border transition-all hover:bg-muted/80 dark:bg-muted dark:border-border dark:hover:bg-muted/80"
       >
-        <X className="h-4 w-4 mr-2 text-blue-500" />
-        <span className="font-mono text-sm text-blue-700 dark:text-blue-400 font-medium">
+        <X className="h-4 w-4 mr-2 text-muted-foreground" />
+        <span className="font-mono text-sm text-foreground dark:text-foreground font-medium">
           {socialHandle.handle}
         </span>
         {isVerified && (
@@ -292,7 +292,7 @@ export default function HomePage() {
 
           {/* Directory CTA */}
           {!isLoading && !generatedText && (
-            <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-blue-200 dark:border-blue-800">
+            <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-border dark:border-blue-800">
               <CardContent className="pt-6 text-center">
                 <p className="text-lg font-semibold mb-2">Atau cari instansi manual</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">

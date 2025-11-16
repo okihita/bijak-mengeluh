@@ -84,5 +84,54 @@ Always ask first.
 
 ---
 
+## Development Server Protocol
+
+### During Active AI Sessions
+
+When working with an agentic AI during development:
+
+**The localhost development server MUST remain running throughout the entire session.**
+
+- Changes to code will restart the server automatically (hot reload)
+- The server process itself should NOT be killed
+- Only terminate the server when explicitly requested by the user or when the AI session ends
+
+This ensures:
+- Continuous testing capability
+- Immediate feedback on changes
+- Uninterrupted development workflow
+- No need to manually restart the server between changes
+
+---
+
+## UI Development Protocol
+
+### Component Reusability (Next.js)
+
+When coding UI components, **maximize reusability** to maintain consistency and reduce code duplication.
+
+**Required practices:**
+
+- **Shared layout patterns**: Use consistent container classes across pages
+  - Example: `container mx-auto px-4 sm:px-6 md:px-8 py-6`
+- **Reusable components**: Extract common UI elements (buttons, cards, headers)
+- **Consistent spacing**: Use the same padding/margin patterns across similar elements
+- **Shared utilities**: Leverage Next.js layout system for common page structures
+- **Component composition**: Build complex UIs from smaller, reusable pieces
+
+**Benefits:**
+- Consistent user experience across all pages
+- Easier maintenance and updates
+- Faster development of new features
+- Reduced CSS/styling conflicts
+- Better mobile responsiveness consistency
+
+**Before adding new UI code, ask:**
+1. Does a similar component already exist?
+2. Can this be extracted into a reusable component?
+3. Are the spacing/layout patterns consistent with existing pages?
+
+---
+
 **Last Updated:** 2025-11-16  
 **Status:** Active and enforced

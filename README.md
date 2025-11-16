@@ -24,9 +24,9 @@ Bijak Mengeluh removes every barrier between your frustration and government act
 
 **Here's how it works:**
 1. You type your complaint in everyday Indonesian: *"Jalan rusak parah anjir 😤"*
-2. AI rewrites it into something government-appropriate: *"Pak/Bu, jalan di [lokasi] rusak parah, tolong diperbaiki ya 🙏"*
+2. AI polishes it into something government-appropriate: *"Pak/Bu, jalan di [lokasi] rusak parah, tolong diperbaiki ya 🙏"*
 3. AI finds exactly which agency handles it (Dinas PU Jakarta Selatan, not some national ministry)
-4. You get their Instagram/Twitter to send it directly as a comment or DM
+4. You get their Instagram to send it directly as a comment or DM
 
 **The result:** Your voice reaches the right desk. In under 30 seconds. Without creating an account, filling a form, or navigating a phone tree.
 
@@ -61,7 +61,7 @@ We're not just helping individuals complain. We're creating collective intellige
 
 ### The Long Game
 
-This is v2.0. It does one thing well: turn frustration into clear, actionable feedback that reaches the right people.
+This is v2.4. It does one thing well: turn frustration into clear, actionable feedback that reaches the right people.
 
 But there's a bigger vision here.
 
@@ -103,17 +103,19 @@ Here's what we believe:
 
 ## Current Status
 
-**In production:**
+**In production (v2.4):**
 - 121 agencies mapped (31 national + 90 DKI Jakarta)
 - 100% agency matching accuracy
 - <2s average response time
-- Running on $7-13/month
+- Running on $7-13/mo
+- Instagram Story sharing (9:16 format)
+- Three tones: formal, funny, angry
 
 **Fun facts:**
 - Saved $840/year by ditching vector search for keyword matching (and improved accuracy)
 - Instagram sharing gets 3x more engagement than copy-paste
 - Most complained about: Jalan rusak (broken roads) 🛣️
-- Fastest turnaround: 8 words → polished complaint in 1.8 seconds
+- Fastest turnaround: 8 words → polished comment in 1.8 seconds
 
 ---
 
@@ -136,6 +138,10 @@ We're not trying to replace community organizing or activism. We're building inf
 ## Documentation
 
 - [DEPLOYMENT_PROTOCOL.md](./docs/DEPLOYMENT_PROTOCOL.md) - **Required reading for all contributors**
+- [TERMINOLOGY.md](./docs/TERMINOLOGY.md) - Standardized terms and language policy
+- [AGENCY_STRUCTURE.md](./docs/AGENCY_STRUCTURE.md) - Indonesian government hierarchy
+- [bijak-mengeluh-webapp/TYPOGRAPHY.md](./bijak-mengeluh-webapp/TYPOGRAPHY.md) - **Typography rules for UI consistency**
+- [bijak-mengeluh-webapp/IMPLEMENTATION_GUIDE.md](./bijak-mengeluh-webapp/IMPLEMENTATION_GUIDE.md) - Frontend implementation patterns
 - [ROADMAP.md](./ROADMAP.md) - What we're thinking about next
 - [docs/product/STRATEGIC_INSPIRATION.md](./docs/product/STRATEGIC_INSPIRATION.md) - Global civic tech inspiration
 - [docs/product/VOICE_AND_TONE.md](./docs/product/VOICE_AND_TONE.md) - Language and brand guidelines

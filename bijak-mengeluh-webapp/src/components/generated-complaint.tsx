@@ -152,15 +152,15 @@ export const GeneratedComplaint = ({
                   key={index}
                   className={`flex items-center gap-3 transition-all duration-500 ease-in-out ${
                     index === currentMessageIndex % 4
-                      ? "text-blue-600 dark:text-blue-400 font-semibold scale-[1.02] translate-x-1"
+                      ? "text-primary font-semibold scale-[1.02] translate-x-1"
                       : "text-gray-400 dark:text-gray-600 opacity-60"
                   }`}
                 >
                   {index === currentMessageIndex % 4 ? (
                     <div className="relative">
-                      <Spinner className="h-5 w-5 animate-spin text-blue-600 dark:text-blue-400" />
+                      <Spinner className="h-5 w-5 animate-spin text-muted-foreground" />
                       <div className="absolute inset-0 h-5 w-5 animate-ping opacity-20">
-                        <Spinner className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                        <Spinner className="h-5 w-5 text-muted-foreground" />
                       </div>
                     </div>
                   ) : (
@@ -218,7 +218,7 @@ export const GeneratedComplaint = ({
               </p>
               <a 
                 href="/directory" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium"
               >
                 Bantu Aku Cari Instansi →
               </a>

@@ -1,5 +1,9 @@
 # API Documentation
 
+**Purpose:** Backend API reference and usage examples  
+**Audience:** Frontend developers, API consumers  
+**Last Updated:** 2025-11-16
+
 **Base URL:** `https://brain.bijakmengeluh.id`
 
 ---
@@ -8,7 +12,7 @@
 
 ### POST /generate
 
-Generate formal complaint letter with agency recommendation.
+Generate polished complaint comment with agency recommendation.
 
 **Request:**
 ```json
@@ -38,6 +42,53 @@ Generate formal complaint letter with agency recommendation.
 ```json
 {
   "error": "Complaint must be at least 20 characters"
+}
+```
+
+**Error (500):**
+```json
+{
+  "error": "Internal server error"
+}
+```
+
+---
+
+### GET /agencies
+
+List agencies with optional filtering.
+
+**Query Parameters:**
+- `province` (optional): Filter by province (e.g., "DKI Jakarta")
+- `search` (optional): Search by name or category
+- `limit` (optional): Max results (default: 50)
+
+**Request:**
+```bash
+GET /agencies?province=DKI%20Jakarta&search=pekerjaan&limit=10
+```
+
+**Response (200):**
+```json
+{
+  "agencies": [
+    {
+      "agency_id": "dpu-jaksel",
+      "name": "Dinas Pekerjaan Umum Jakarta Selatan",
+      "category": "Pekerjaan Umum",
+      "jurisdiction": "Jakarta Selatan",
+      "keywords": "jalan,rusak,lubang,aspal,trotoar",
+      "social_media": {
+        "instagram": "@dinaspu.jaksel",
+        "twitter": "@DinaspuJaksel"
+      },
+      "website": "https://pu.jakarta.go.id",
+      "phone": "+62-21-1234567",
+      "email": "info@pu.jakarta.go.id"
+    }
+  ],
+  "count": 1,
+  "total": 90
 }
 ```
 

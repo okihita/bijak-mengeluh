@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.4.0] - 2025-11-16
+
+### Added
+- **Typography specification** - Mobile-first responsive type system
+  - Consistent sizing: `text-sm sm:text-base` pattern
+  - Type scale: H1-H4 with responsive breakpoints
+  - Spacing hierarchy: 2/3/4/6/8 pattern
+  - Font weights: 400-700 only
+  - Quick reference table for all elements
+- **Frontend implementation guide** - Component patterns for agentic AI
+  - Reusability rules and layout patterns
+  - Component guidelines (buttons, cards, forms)
+  - State management and error handling
+  - Testing checklist
+- **Documentation restructure** - Standardized and consolidated
+  - TERMINOLOGY.md for term standardization
+  - AGENCY_STRUCTURE.md for Indonesian government hierarchy
+  - Standardized headers across all docs (Purpose/Audience/Date)
+  - Removed 5 intermediary report files
+  - Organized product docs into version folders
+
+### Fixed
+- **Directory page layout** - Now uses standard layout pattern
+  - Removed custom gradient background
+  - Changed max-w-6xl → max-w-3xl (consistent width)
+  - Single column grid for better mobile experience
+- **History page header** - Fixed inconsistent padding
+  - Changed p-4/p-6/p-8 → px-4/px-6/px-8 py-6
+  - Now matches home and directory pages
+- **Broken doc references** - Removed links to deleted archive files
+
+### Changed
+- **Agency counts** - Corrected throughout docs
+  - v1.0: 31 agencies (not 34)
+  - v2.0+: 121 agencies (31 + 90)
+  - Math verified: 31 national + 90 DKI Jakarta = 121
+
+---
+
 ## [2.3.0] - 2025-11-16
 
 ### Added

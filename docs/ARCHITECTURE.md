@@ -1,6 +1,8 @@
 # Architecture
 
-**Last Updated:** Nov 15, 2025
+**Purpose:** Technical system design and implementation details  
+**Audience:** Developers, DevOps engineers  
+**Last Updated:** 2025-11-16
 
 ---
 
@@ -193,11 +195,9 @@ def match_agency(complaint: str) -> List[Agency]:
 
 ## Scaling Projections
 
-Current production (v2.0): $7-13/mo for 121 agencies.
+Current production (v2.4): $7-13/mo for 121 agencies.
 
-For expansion scenarios (380 agencies, 8,314 agencies), see historical analysis in [docs/archive/COST_ANALYSIS.md](./archive/COST_ANALYSIS.md).
-
-**Key insight:** DynamoDB scales linearly with agency count while remaining 77% cheaper than v1.0 Pinecone.
+**Key insight:** DynamoDB scales linearly with agency count while remaining cost-effective.
 
 ---
 
@@ -329,7 +329,7 @@ See [ROADMAP.md](../ROADMAP.md) for infrastructure and optimization ideas (cachi
 
 ## References
 
-- Cost analysis: [COST_ANALYSIS.md](./archive/COST_ANALYSIS.md)
-- Phase 1 completion: [PHASE1_COMPLETE.md](./archive/PHASE1_COMPLETE.md)
-- API reference: [API.md](./API.md)
-- Deployment guide: [deployment/deployment-guide.md](./deployment/deployment-guide.md)
+- [TERMINOLOGY.md](./TERMINOLOGY.md) - Term standardization
+- [AGENCY_STRUCTURE.md](./AGENCY_STRUCTURE.md) - Government hierarchy
+- [API.md](./API.md) - API reference
+- [deployment/deployment-guide.md](./deployment/deployment-guide.md) - Setup guide

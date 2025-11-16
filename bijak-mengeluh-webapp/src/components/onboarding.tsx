@@ -60,8 +60,8 @@ export function Onboarding() {
             </ul>
           </div>
 
-          <div className="bg-blue-50 dark:bg-blue-950 p-3 rounded-lg">
-            <p className="text-sm text-blue-900 dark:text-blue-100">
+          <div className="bg-muted p-3 rounded-lg">
+            <p className="text-sm text-foreground">
               <strong>Catatan:</strong> Hasil AI adalah draft. Harap tinjau sebelum mengirim. 
               Akurasi pencocokan instansi: ~100% untuk DKI Jakarta.
             </p>

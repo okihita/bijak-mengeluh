@@ -67,7 +67,7 @@ export default function HistoryPage() {
 
   return (
     <>
-      <main className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
+      <main className="container mx-auto px-4 sm:px-6 md:px-8 py-6 pb-16">
         <div className="w-full max-w-3xl mx-auto">
           <TopBar />
 
