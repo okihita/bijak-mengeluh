@@ -208,6 +208,22 @@ export const GeneratedComplaint = ({
               </div>
             </div>
           )}
+          
+          {/* No-match fallback */}
+          {generatedText && !agency && (
+            <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-950 border-2 border-yellow-200 dark:border-yellow-800 rounded-lg">
+              <p className="font-medium text-sm mb-2">⚠️ Kami belum yakin instansi mana yang tepat</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                Tapi tenang! Kamu bisa cari manual di direktori. Kami bantu cari berdasarkan kata kunci dari keluhan kamu.
+              </p>
+              <a 
+                href="/directory" 
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+              >
+                Bantu Aku Cari Instansi →
+              </a>
+            </div>
+          )}
         </CardContent>
       </Card>
 

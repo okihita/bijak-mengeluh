@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { AlertTriangle, Check, Spinner } from "@/components/icons";
-import { History, Share, X, Instagram } from "lucide-react";
+import { History, Share, X, Instagram, Map } from "lucide-react";
 import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
@@ -292,6 +292,24 @@ export default function HomePage() {
             tone={tone}
             setTone={setTone}
           />
+
+          {/* Directory CTA */}
+          {!isLoading && !generatedText && (
+            <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-blue-200 dark:border-blue-800">
+              <CardContent className="pt-6 text-center">
+                <p className="text-lg font-semibold mb-2">Atau cari instansi manual</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  Jelajahi 1100+ instansi berdasarkan lokasi dan kategori
+                </p>
+                <Link href="/directory">
+                  <Button className="gap-2">
+                    <Map className="h-4 w-4" />
+                    Buka Direktori
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          )}
 
           <ErrorMessage error={error} onRetry={handleRetry} />
 

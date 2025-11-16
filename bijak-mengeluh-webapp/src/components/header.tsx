@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Link from "next/link";
-import { History, Home } from "lucide-react";
+import { History, Home, Map } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname();
@@ -38,6 +38,17 @@ export function Header() {
           >
             <Home className="h-4 w-4" />
             <span className="text-sm font-medium">Buat Keluhan</span>
+          </Link>
+          <Link
+            href="/directory"
+            className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
+              pathname === "/directory"
+                ? "bg-primary text-primary-foreground"
+                : "hover:bg-gray-100 dark:hover:bg-gray-800"
+            }`}
+          >
+            <Map className="h-4 w-4" />
+            <span className="text-sm font-medium">Direktori</span>
           </Link>
           <Link
             href="/history"
