@@ -111,8 +111,9 @@ function complaintReducer(state: ComplaintState, action: ComplaintAction): Compl
 }
 
 export default function HomePage() {
-  const [userInput, setUserInput] = usePersistentState("userInput", "");
-  const { lastSaved, isSaving } = useAutoSave(userInput, "draft", 10000);
+  const [userInput, setUserInput] = useState("");
+  const lastSaved = null;
+  const isSaving = false;
   const [tone, setTone] = useState<string>("formal");
   const [agencyCount, setAgencyCount] = useState<number | null>(null);
   const [promptHistory, setPromptHistory] = usePersistentState<string[]>(
@@ -305,7 +306,7 @@ export default function HomePage() {
               <CardContent className="pt-6 text-center">
                 <p className="text-lg font-semibold mb-2">Atau cari instansi manual</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                  Jelajahi {agencyCount || '400+'} instansi berdasarkan lokasi dan kategori
+                  Jelajahi instansi berdasarkan lokasi dan kategori
                 </p>
                 <Link href="/directory">
                   <Button className="gap-2">

@@ -34,7 +34,7 @@ export function scoreComplaint(text: string): QualityScore {
   // Specifics check
   if (!hasSpecifics && wordCount > 10) {
     score -= 10
-    suggestions.push("Tambahkan detail spesifik (nomor, nama, dll)")
+    suggestions.push("Tambahkan detail (nomor, nama, dll)")
   }
   
   return {
