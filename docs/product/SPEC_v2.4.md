@@ -523,6 +523,115 @@ Response:
 - 100% agencies have keywords
 - All deep links resolve correctly
 
+## Mobile Excellence
+
+### Bottom Navigation Integration
+
+**Current State:**
+- Homepage and History have bottom navigation bar
+- Directory page has no bottom nav (inconsistent UX)
+
+**Required:**
+- Directory must show bottom navigation bar on mobile
+- Consistent navigation across all pages
+- Active state highlighting for current page
+
+**Bottom Nav Items:**
+```
+[🏠 Beranda] [🗺️ Direktori] [📜 Riwayat]
+```
+
+### Top Bar Component (Mobile)
+
+**Problem:**
+- PWA install prompt and theme toggle are duplicated across pages
+- No consistent top bar on mobile
+
+**Solution:**
+- Extract PWA install + theme toggle into reusable `<TopBar />` component
+- Show on all pages (Homepage, Directory, History)
+- Consistent positioning and styling
+
+**Component Structure:**
+```tsx
+<TopBar>
+  <PwaInstallPrompt />
+  <ThemeToggle />
+</TopBar>
+```
+
+**Usage:**
+```tsx
+// Homepage
+<TopBar />
+<ComplaintForm />
+
+// Directory
+<TopBar />
+<DirectoryContent />
+
+// History
+<TopBar />
+<HistoryList />
+```
+
+### Dark Theme Consistency
+
+**Current Issue:**
+- Directory page may not respect dark theme
+- Inconsistent color schemes across pages
+
+**Requirements:**
+- Directory must fully support dark theme
+- All components use theme-aware colors
+- Smooth theme transitions
+- No flash of wrong theme on load
+
+**Theme-Aware Components:**
+- Background: `bg-white dark:bg-gray-900`
+- Cards: `bg-white dark:bg-gray-800`
+- Text: `text-gray-900 dark:text-gray-100`
+- Borders: `border-gray-200 dark:border-gray-700`
+- Hover states: `hover:bg-gray-100 dark:hover:bg-gray-800`
+
+### Mobile Layout Specifications
+
+**Directory Page Mobile:**
+```
+┌─────────────────────────┐
+│ [PWA] [Theme Toggle]    │ ← TopBar (fixed)
+├─────────────────────────┤
+│ 🗺️ Direktori Instansi   │
+│                         │
+│ [Search bar]            │
+│                         │
+│ [Province chips]        │
+│                         │
+│ [Agency cards...]       │
+│                         │
+│                         │
+├─────────────────────────┤
+│ [🏠] [🗺️] [📜]          │ ← BottomNav (fixed)
+└─────────────────────────┘
+```
+
+**Responsive Breakpoints:**
+- Mobile: < 640px (show bottom nav + top bar)
+- Desktop: ≥ 640px (show header, hide bottom nav)
+
+### Implementation Checklist
+
+- [ ] Create `<TopBar />` component
+- [ ] Extract PWA install + theme toggle
+- [ ] Add `<TopBar />` to directory page
+- [ ] Add `<BottomNavigation />` to directory page
+- [ ] Verify dark theme on directory
+- [ ] Test theme toggle on directory
+- [ ] Test PWA install on directory
+- [ ] Verify bottom nav active states
+- [ ] Test on mobile viewport
+- [ ] Test theme persistence across pages
+
 ## Creative Polish: Micro-Interactions & Delight Moments
 
 ### Visual Identity per Category
