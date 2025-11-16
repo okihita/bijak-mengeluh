@@ -2,7 +2,7 @@
 
 import { Home, Trash2, Search, Copy, Edit, Calendar } from "lucide-react";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { TopBar } from "@/components/top-bar";
 import { BottomNavigation } from "@/components/bottom-navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -69,18 +69,7 @@ export default function HistoryPage() {
     <>
       <main className="container mx-auto p-4 sm:p-6 md:p-8 pb-16">
         <div className="w-full max-w-3xl mx-auto">
-          <div className="flex justify-end items-center mb-4">
-            <div className="hidden sm:block mr-4">
-              <Link
-                href="/"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1"
-              >
-                <Home className="h-5 w-5" />
-                Komplain
-              </Link>
-            </div>
-            <ThemeToggle />
-          </div>
+          <TopBar />
 
           <h1 className="text-3xl font-bold mb-6">Riwayat Komplain</h1>
 

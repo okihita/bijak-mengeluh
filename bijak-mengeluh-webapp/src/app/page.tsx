@@ -17,7 +17,7 @@ import { AlertTriangle, Check, Spinner } from "@/components/icons";
 import { History, Share, X, Instagram, Map } from "lucide-react";
 import Link from "next/link";
 import { BottomNavigation } from "@/components/bottom-navigation";
-import { PwaInstallPrompt } from "@/components/pwa-install-prompt";
+import { TopBar } from "@/components/top-bar";
 import { ComplaintForm } from "@/components/complaint-form";
 import { GeneratedComplaint } from "@/components/generated-complaint";
 import { SuggestedContacts } from "@/components/suggested-contacts";
@@ -278,10 +278,7 @@ export default function HomePage() {
       
       <main className="container mx-auto px-4 sm:px-6 md:px-8 py-6 pb-20">
         <div className="w-full max-w-3xl mx-auto space-y-6">
-          <div className="flex justify-between items-center">
-            <PwaInstallPrompt />
-            <ThemeToggle />
-          </div>
+          <TopBar />
           <ComplaintForm
             handleSubmit={handleSubmit}
             userInput={userInput}
