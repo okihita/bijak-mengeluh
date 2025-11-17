@@ -52,10 +52,10 @@ Resources:
         AllowMethods: ["GET", "POST", "OPTIONS"]
         MaxAge: 600
 
-      Domain:
-        DomainName: !Ref BrandedApiDomainName
-        CertificateArn: !Ref BrandedApiDomainCertificateArn
-        EndpointConfiguration: REGIONAL
+      # Domain:
+      #   DomainName: !Ref BrandedApiDomainName
+      #   CertificateArn: !Ref BrandedApiDomainCertificateArn
+      #   EndpointConfiguration: REGIONAL
 
 
   # --- Define the Lambda Function ---
