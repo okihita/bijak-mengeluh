@@ -5,7 +5,7 @@ from boto3.dynamodb.conditions import Attr
 from decimal import Decimal
 
 # Direct boto3 initialization
-dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-2')
+dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-1')
 table = dynamodb.Table('agencies')
 
 class DecimalEncoder(json.JSONEncoder):

@@ -4,7 +4,7 @@ import boto3
 from boto3.dynamodb.conditions import Attr
 
 # Direct boto3 initialization
-dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-2')
+dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-1')
 table = dynamodb.Table('agencies')
 
 def lambda_handler(event, context):

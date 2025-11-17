@@ -5,7 +5,7 @@ Create DynamoDB table for agencies
 import os
 import boto3
 
-AWS_REGION = os.getenv('AWS_REGION', 'ap-southeast-2')
+AWS_REGION = os.getenv('AWS_REGION', 'ap-southeast-1')
 TABLE_NAME = os.getenv('AGENCIES_TABLE_NAME', 'agencies')
 
 def create_agencies_table():

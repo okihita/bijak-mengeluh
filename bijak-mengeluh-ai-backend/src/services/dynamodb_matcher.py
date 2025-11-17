@@ -6,7 +6,7 @@ import boto3
 from typing import List, Dict, Tuple
 
 class DynamoDBMatcher:
-    def __init__(self, region='ap-southeast-2'):
+    def __init__(self, region='ap-southeast-1'):
         self.dynamodb = boto3.resource('dynamodb', region_name=region)
         self.table = self.dynamodb.Table('agencies')
     

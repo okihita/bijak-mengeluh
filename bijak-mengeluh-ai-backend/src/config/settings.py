@@ -1,7 +1,7 @@
 import os
 
 # AWS Configuration
-AWS_REGION = os.environ.get("AWS_REGION", "ap-southeast-2")
+AWS_REGION = os.environ.get("AWS_REGION", "ap-southeast-1")
 
 # DynamoDB Configuration
 CACHE_TABLE_NAME = os.environ["CACHE_TABLE_NAME"]

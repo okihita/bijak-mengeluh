@@ -21,7 +21,7 @@ Parameters:
   BrandedApiDomainCertificateArn:
     Type: String
     Description: ACM Certificate ARN for the custom domain
-    Default: arn:aws:acm:ap-southeast-2:986517526233:certificate/ccf38539-1caa-4ae9-8f86-70ab1b4408c0
+    Default: arn:aws:acm:ap-southeast-1:986517526233:certificate/ccf38539-1caa-4ae9-8f86-70ab1b4408c0
 
 Resources:
 
@@ -84,8 +84,8 @@ Resources:
               - dynamodb:GetItem
               - dynamodb:Scan
             Resource:
-              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies
-              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies/index/*
+              - arn:aws:dynamodb:ap-southeast-1:*:table/agencies
+              - arn:aws:dynamodb:ap-southeast-1:*:table/agencies/index/*
         - Statement: # Custom IAM statement to allow invoking the finder function
             Effect: Allow
             Action:
@@ -132,8 +132,8 @@ Resources:
               - dynamodb:Scan
               - dynamodb:Query
             Resource:
-              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies
-              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies/index/*
+              - arn:aws:dynamodb:ap-southeast-1:*:table/agencies
+              - arn:aws:dynamodb:ap-southeast-1:*:table/agencies/index/*
       Events:
         GetAgencies:
           Type: HttpApi
@@ -157,8 +157,8 @@ Resources:
               - dynamodb:GetItem
               - dynamodb:Scan
             Resource:
-              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies
-              - arn:aws:dynamodb:ap-southeast-2:*:table/agencies/index/*
+              - arn:aws:dynamodb:ap-southeast-1:*:table/agencies
+              - arn:aws:dynamodb:ap-southeast-1:*:table/agencies/index/*
       Events:
         GetAgency:
           Type: HttpApi

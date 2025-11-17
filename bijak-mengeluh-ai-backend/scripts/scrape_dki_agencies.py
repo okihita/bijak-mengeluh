@@ -12,7 +12,7 @@ import requests
 
 # Configuration
 SERPER_API_KEY = os.getenv('SERPER_API_KEY')
-AWS_REGION = os.getenv('AWS_REGION', 'ap-southeast-2')
+AWS_REGION = os.getenv('AWS_REGION', 'ap-southeast-1')
 TABLE_NAME = os.getenv('AGENCIES_TABLE_NAME', 'agencies')
 
 # DKI Jakarta agencies
